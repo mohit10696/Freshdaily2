@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fresh Daily</string>
+    <string name="Login">Login</string>
+    <string name="login">Enter Emailid</string>
+    <string name="pass">Enter Password</string>
+    <string name="fpass">Forgot Password?</string>
+    <string name="signupid">Not Have an Acoount. SignUp ?</string>
+    <string name="fortv">Forgot Password</string>
+
+</resources>
