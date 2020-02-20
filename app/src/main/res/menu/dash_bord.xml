@@ -6,5 +6,6 @@
         android:id="@+id/account"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="always"
+        android:onClick="myaacount"
         android:title="TODO" />
 </menu>
