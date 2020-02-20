@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/dashboardfragment">
+
+    <fragment
+        android:id="@+id/dashboardfragment"
+        android:name="com.example.freshdaily.ui.dashboard.mydashboard"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_maindashboard" />
 
     <fragment
         android:id="@+id/nav_home"

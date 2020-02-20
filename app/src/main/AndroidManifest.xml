@@ -22,8 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NeedHelp" />
-
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
@@ -32,11 +30,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SignIn" />
         <activity android:name=".SignUp" />

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/bg_overlay" />
+    <item android:id="@+id/orders"
+        android:title="Orders"
+        android:icon="@drawable/et_box" />
+    <item android:id="@+id/wallets"
+        android:title="Wallets"
+        android:icon="@drawable/gradiant_1" />
+    <item android:id="@+id/chat"
+        android:title="Contact us"
+        android:icon="@drawable/gradiant_1" />
+</menu>
