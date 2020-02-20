@@ -4,41 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgotPassword">
+    android:background="@drawable/gradiant_1"
+    tools:context=".Otp">
+
 
     <EditText
-        android:id="@+id/femail"
+        android:id="@+id/otp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Email Id"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
+        android:hint="Enter OTP"
+        android:textColorHint="@color/WhiteSmoke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.335" />
+        app:layout_constraintVertical_bias="0.486" />
 
     <Button
-        android:id="@+id/fbutton"
+        android:id="@+id/Continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Email"
-        android:width="150dp"
+        android:text="Login"
+        android:background="@drawable/gradiant_1"
+        android:textColor="@color/WhiteSmoke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/fortv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fortv"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.648" />
 </androidx.constraintlayout.widget.ConstraintLayout>
