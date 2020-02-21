@@ -14,4 +14,23 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
+    <com.smarteist.autoimageslider.SliderLayout
+        android:id="@+id/imageSliderHome"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/searchTextbox"
+        android:background="@color/WhiteSmoke" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:background="@color/WhiteSmoke"
+        android:clickable="true"
+        android:focusable="true"
+        android:scrollbars="horizontal"
+        android:id="@+id/Verticalproduct"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/imageSliderHome"
+         />
+
 </RelativeLayout>
