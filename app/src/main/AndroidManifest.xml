@@ -20,38 +20,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".searchActivity"></activity>
+        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".searchActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".DashBord">
-
-        </activity>
+        <activity android:name=".DashBord"></activity>
         <activity android:name=".SignIn" />
         <activity android:name=".SignUp" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_dash_bord"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Otp"
             android:parentActivityName=".SignIn" />
 
-        <receiver android:name="com.example.freshdaily.IncomingSms">
+        <receiver android:name=".IncomingSms">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>
