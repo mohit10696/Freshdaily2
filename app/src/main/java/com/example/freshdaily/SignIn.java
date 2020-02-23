@@ -82,12 +82,18 @@ public class SignIn extends AppCompatActivity {
         TV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(SignIn.this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(SignIn.this);
                 ViewGroup viewGroup = findViewById(android.R.id.content);
                 View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.ternsandcondition, viewGroup, false);
                 builder.setView(dialogView);
-                AlertDialog alertDialog = builder.create();
+                final AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+                dialogView.findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.cancel();
+                    }
+                });
 
 
             }

@@ -32,14 +32,6 @@ public class NeedHelpFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(MyAccountViewModel.class);
         View root = inflater.inflate(R.layout.fragment_needhelp, container, false);
-        /*final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
-
         call=(Button) root.findViewById(R.id.call);
         mail=(Button) root.findViewById(R.id.mail);
         faq = (Button) root.findViewById(R.id.faq);
