@@ -1,97 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".ui.NeedHelp.NeedHelpFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EEF2F5">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:text="Need help with anything?"/>
 
-    <LinearLayout
+
+    <RelativeLayout
+        android:layout_margin="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="2"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:text="Call us"
-            android:textAllCaps="false"
-            android:id="@+id/call"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:text="Mail us"
-            android:textAllCaps="false"
-            android:layout_gravity="center"
-            android:id="@+id/mail"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </LinearLayout>
 
-    <View
-        android:background="#c0c0c0"
-        android:layout_height="2dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"/>
+                <LinearLayout
 
-    <Button
-        android:layout_width="match_parent"
-        android:drawablePadding="10dp"
-        android:id="@+id/faq"
-        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
-        android:drawableLeft="@drawable/ic_help_outline_black_24dp"
-        android:text="Frequently asked questions"
-        android:textAllCaps="false"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/askb">
 
-    <View
-        android:background="#c0c0c0"
-        android:layout_height="2dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:id="@+id/faq"
+                        android:background="@drawable/button1"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:drawableLeft="@drawable/ic_help_black_24dp"
+                        android:text="@string/ask"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_13ssp"
+                        android:textColor="@color/Black"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingRight="@dimen/_12sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:textAllCaps="false"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:drawablePadding="10dp"
-        android:id="@+id/terms"
-        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
-        android:drawableLeft="@drawable/ic_filter_none_black_24dp"
-        android:text="@string/terms"
-        android:textAllCaps="false"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content" />
 
-    <View
-        android:background="#c0c0c0"
-        android:layout_height="2dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"/>
+                </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:drawablePadding="10dp"
-        android:id="@+id/privacy"
-        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
-        android:drawableLeft="@drawable/ic_security_black_24dp"
-        android:text="Privacy policy"
-        android:textAllCaps="false"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content" />
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@id/termb"
+                    android:layout_below="@+id/askb">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:id="@+id/terms"
+                        android:background="@drawable/button1"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:drawableLeft="@drawable/ic_filter_none_black_24dp"
+                        android:text="@string/terms"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_13ssp"
+                        android:textColor="@color/Black"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingRight="@dimen/_12sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:textAllCaps="false"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@id/privacy"
+                    android:layout_below="@+id/termb">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:id="@+id/priv"
+                        android:background="@drawable/button1"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:drawableLeft="@drawable/ic_security_black_24dp"
+                        android:text="@string/privacy"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_13ssp"
+                        android:textColor="@color/Black"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingRight="@dimen/_12sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:textAllCaps="false"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@+id/privacy"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Call us"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:background="@drawable/button3"
+                    android:textSize="@dimen/_12ssp"
+                    android:id="@+id/call"
+                    android:drawableLeft="@drawable/ic_phone_in_talk_black_24dp"
+                    android:textColor="@color/CyanP"
+                    android:layout_marginVertical="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Mail us"
+                    android:textColor="@color/CyanP"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:background="@drawable/button3"
+                    android:drawableLeft="@drawable/ic_email_black_24dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_gravity="center"
+                    android:id="@+id/mail"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

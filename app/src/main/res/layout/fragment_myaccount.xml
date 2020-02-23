@@ -71,7 +71,7 @@
                 <Button
                     android:layout_margin="@dimen/_15sdp"
                     android:id="@+id/EDIT"
-                    android:layout_width="@dimen/_80sdp"
+                    android:layout_width="@dimen/_60sdp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button"
                     android:layout_alignParentEnd="true"
