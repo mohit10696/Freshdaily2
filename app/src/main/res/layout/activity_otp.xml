@@ -1,87 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/CyanP"
-    tools:context=".SignIn">
+    android:orientation="vertical"
+    tools:context=".Otp">
+
+
 
     <com.smarteist.autoimageslider.SliderLayout
         android:id="@+id/imageSlider1"
-        android:layout_width="@dimen/_250sdp"
+        android:layout_width="match_parent"
         android:background="@color/CyanP"
-        android:layout_height="@dimen/_400sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        />
+        android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/_350sdp"
-        android:layout_height="@dimen/_250sdp"
-        android:layout_marginLeft="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_350sdp"
-        android:layout_marginRight="@dimen/_16sdp"
-        android:layout_marginBottom="@dimen/_1sdp"
-        app:cardCornerRadius="@dimen/_6sdp">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_gravity="bottom"
+            app:cardCornerRadius="@dimen/_6sdp">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:text="Enter OTP"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/_15ssp" />
-
-
-
-            <EditText
-                android:id="@+id/otp"
-                android:layout_width="@dimen/_200sdp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/CyanP"
-                android:ems="10"
-                android:inputType="phone"
-                android:digits="1234567890"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:hint="Enter OTP"
-                android:textAlignment="center"
-                android:textColorHint="@color/Gray" />
-
-            <TextView
-                android:id="@+id/textView4"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/Gray"
-                android:textSize="@dimen/_10ssp"
-                android:textAlignment="center"
-                android:padding="@dimen/_5ssp"
-                android:text="By tapping continue, I agree to the Terms of Use" />
-            <Button
-                android:id="@+id/Continue"
-                android:layout_width="140dp"
-                android:layout_height="40dp"
-                android:background="@drawable/button"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="sans-serif"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginHorizontal="@dimen/_90sdp"
-                android:drawableLeft="@drawable/ic_lock_black_24dp"
-                android:textColorHint="@color/WhiteSmoke"
-                android:hint="@string/sequre"
-                />
+                android:layout_height="match_parent" >
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:text="Enter OTP"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_15ssp"
+                    />
 
-    </androidx.cardview.widget.CardView>
+                <EditText
+                    android:id="@+id/otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView3"
+                    android:backgroundTint="@color/CyanP"
+                    android:layout_marginHorizontal="@dimen/_70sdp"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="@dimen/_12ssp"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:digits="1234567890"
+                    android:hint="@string/otp"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/Gray" />
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/text_view4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/otp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="00:00"
+                    android:textColor="@android:color/black"
+                    android:textSize="60sp" />
+
+                <Button
+                    android:id="@+id/Continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:gravity="center"
+                    android:layout_below="@+id/text_view4"
+                    android:layout_marginHorizontal="@dimen/_30sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_gravity=""
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/WhiteSmoke"
+                    android:hint="@string/sequre"
+                    />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </com.smarteist.autoimageslider.SliderLayout>
+
+
+
+
+
+
+</LinearLayout>

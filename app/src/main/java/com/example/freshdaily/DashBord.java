@@ -3,6 +3,7 @@ package com.example.freshdaily;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 public class DashBord extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class DashBord extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -53,4 +55,23 @@ public class DashBord extends AppCompatActivity {
     public void myaacount(MenuItem item) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to logout", Toast.LENGTH_SHORT).show();
+        } else {
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }
+    }
+
+
 }
+
+
+
+

@@ -1,4 +1,4 @@
-package com.example.freshdaily.ui.RateOurApp;
+package com.example.freshdaily.ui.Logout;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,8 +22,8 @@ public class RateOurAppFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         sendViewModel =
                 ViewModelProviders.of(this).get(RateOurAppViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
-        final TextView textView = root.findViewById(R.id.text_send);
+        View root = inflater.inflate(R.layout.fragment_rateourapp, container, false);
+        final TextView textView = root.findViewById(R.id.text_share);
         sendViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

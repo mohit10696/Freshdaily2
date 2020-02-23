@@ -14,18 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.freshdaily.R;
 
-
 public class ShopByCategoryFragment extends Fragment {
 
-    private ShopByCategoryViewModel xyzViewModel;
+    private ShopByCategoryViewModel slideshowViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        xyzViewModel =
+        slideshowViewModel =
                 ViewModelProviders.of(this).get(ShopByCategoryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_shopbycategory, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        xyzViewModel.getText().observe(this, new Observer<String>() {
+        View root = inflater.inflate(R.layout.fragment_logout, container, false);
+        final TextView textView = root.findViewById(R.id.text_logout);
+        slideshowViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

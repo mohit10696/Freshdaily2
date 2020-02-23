@@ -3,6 +3,8 @@
     package="com.example.freshdaily">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <supports-screens
@@ -24,13 +26,13 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".DashBord">
 
         </activity>
         <activity android:name=".SignIn" />
         <activity android:name=".SignUp" />
         <activity
-            android:name=".DashBord"
+            android:name=".MainActivity"
             android:label="@string/title_activity_dash_bord"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -43,6 +45,13 @@
         <activity
             android:name=".Otp"
             android:parentActivityName=".SignIn" />
+
+        <receiver android:name="com.example.freshdaily.IncomingSms">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.freshdaily.ui.slideshow.SlideshowFragment"
+        android:name="com.example.freshdaily.ui.ShopByCategory.ShopByCategoryFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_shopbycategory" />
 
@@ -43,13 +43,13 @@
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.freshdaily.ui.RateOurApp.RateOurAppFragment"
+        android:name="com.example.freshdaily.ui.Logout.RateOurAppFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 
     <fragment
         android:id="@+id/xyz"
-        android:name="com.example.freshdaily.ui.ShopByCategory.ShopByCategoryFragment"
+        android:name="com.example.freshdaily.ui.RateOurApp1.ShopByCategoryFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 

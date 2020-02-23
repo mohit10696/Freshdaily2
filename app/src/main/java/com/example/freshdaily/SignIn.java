@@ -1,9 +1,5 @@
 package com.example.freshdaily;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -11,43 +7,59 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.telephony.SmsManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
-import com.smarteist.autoimageslider.SliderView;
 
-import java.util.ArrayList;
 import java.util.Random;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 public class SignIn extends AppCompatActivity {
 
     public static final String EXTRA_TEXT = "com.example.freshdaily.EXTRA_TEXT";
+    private long backPressedTime = 0;
     private Context context;
     SliderLayout sliderLayout;
     Button LOGIN;
+    Button TERM;
     EditText et;
-    TextView TV1, TV2;
+    TextView TV;
     ProgressDialog dialog;
     public static String phoneNo, otp;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
+    final int min = 1111;
+    final int max = 9999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+
+        TV =(TextView)findViewById(R.id.textView2);
+
+            TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://freshdaily1920.mywebcommunity.org/policy.html")));
+            }
+        });
 
         sliderLayout = findViewById(R.id.imageSlider);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -66,7 +78,23 @@ public class SignIn extends AppCompatActivity {
                 sendSMSMessage();
             }
         });
+
+        TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SignIn.this);
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.ternsandcondition, viewGroup, false);
+                builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+            }
+        });
+
     }
+
 
     private void setSliderViews() {
 
@@ -122,7 +150,7 @@ public class SignIn extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     SmsManager smsManager = SmsManager.getDefault();
                     Random rand = new Random();
-                    otp = Integer.toString(rand.nextInt(9999));
+                    otp = Integer.toString(rand.nextInt((max-min)+1));
 
                     //Toast.makeText(getApplicationContext(),"heo" , Toast.LENGTH_LONG).show();
                     if(phoneNo.matches("^[0-9]{10}")) {
@@ -155,33 +183,19 @@ public class SignIn extends AppCompatActivity {
                 }
             }
         }
-
     }
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder
-                .setMessage("Are you sure you want to exit!")
-                .setCancelable(false)
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                moveTaskToBack(true);
-                                android.os.Process.killProcess(android.os.Process.myPid());
-                                System.exit(1);
-                            }
-                        })
-
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to close ", Toast.LENGTH_SHORT).show();
+        } else {
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }
     }
 }
 
