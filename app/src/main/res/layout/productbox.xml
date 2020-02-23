@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/productimage"
-        android:textSize="20dp"
-        android:text="product name"
+        android:textSize="9dp"
+        android:text="Company Name"
         android:textStyle="bold"/>
 
     <TextView
@@ -38,8 +38,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/productname"
-        android:textSize="20dp"
-        android:text="product prize"/>
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:text="product Name"/>
+
+    <TextView
+        android:id="@+id/productweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productprize"
+        android:layout_marginTop="20dp"
+        android:textSize="13dp"
+        android:text="500 ml"/>
+
+    <TextView
+        android:id="@+id/productprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productweight"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:text="MRP: ₹28"/>
 
 
 </RelativeLayout>

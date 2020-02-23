@@ -4,22 +4,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.freshdaily.R;
+import com.example.freshdaily.WebActivity;
 import com.example.freshdaily.ui.MyAccount.MyAccountViewModel;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class NeedHelpFragment extends Fragment {
@@ -67,21 +62,23 @@ public class NeedHelpFragment extends Fragment {
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://freshdaily1920.mywebcommunity.org/FAQ.html")));
+                CustomDialogActivity2 cda = new CustomDialogActivity2(getActivity(),"http://freshdaily1920.mywebcommunity.org/policy.html");
+                cda.show();
             }
         });
 
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://freshdaily1920.mywebcommunity.org/policy.html")));
+                startActivity(new Intent(getContext(), WebActivity.class));
             }
         });
 
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://freshdaily1920.mywebcommunity.org/privacy_policy.html")));
+                CustomDialogActivity2 cda = new CustomDialogActivity2(getActivity(),"http://freshdaily1920.mywebcommunity.org/privacy_policy.html");
+                cda.show();
             }
         });
 
