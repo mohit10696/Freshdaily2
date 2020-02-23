@@ -31,7 +31,7 @@ public class NeedHelpFragment extends Fragment {
         mail=(Button) root.findViewById(R.id.mail);
         faq = (Button) root.findViewById(R.id.faq);
         terms = (Button) root.findViewById(R.id.terms);
-        privacy = (Button) root.findViewById(R.id.privacy);
+        privacy = (Button) root.findViewById(R.id.priv);
 
         call.setOnClickListener(new View.OnClickListener() {
             @Override
