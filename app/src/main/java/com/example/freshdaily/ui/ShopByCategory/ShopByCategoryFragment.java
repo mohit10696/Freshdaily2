@@ -11,8 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.freshdaily.R;
+import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterCat;
+import com.example.freshdaily.ui.dashboard.verticalProductList.modelCat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopByCategoryFragment extends Fragment {
 
@@ -23,13 +30,21 @@ public class ShopByCategoryFragment extends Fragment {
         slideshowViewModel =
                 ViewModelProviders.of(this).get(ShopByCategoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_logout, container, false);
-        final TextView textView = root.findViewById(R.id.text_logout);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        List<modelCat> modelCats = new ArrayList<>();
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        adpaterCat adapter2 = new adpaterCat(modelCats);
+        RecyclerView recyclerView2 = root.findViewById(R.id.gridproduct);
+        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView2.setAdapter(adapter2);
         return root;
     }
 }

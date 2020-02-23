@@ -86,6 +86,24 @@ public class Otp extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(getApplicationContext(),"Please Enter Valid OTP", Toast.LENGTH_LONG).show();
+                    dialog = new ProgressDialog(Otp.this);
+                    dialog.setMessage("Loading Please Wait");
+                    dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    dialog.show();
+                    dialog.setCancelable(false);
+                    new Thread(new Runnable() {
+                        public void run() {
+                            try {
+                                Thread.sleep(3000);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            dialog.dismiss();
+                        }
+                    }).start();
+                    Toast.makeText(getApplicationContext(),"OTP Detected", Toast.LENGTH_LONG).show();
+                    Intent intent1 = new Intent(Otp.this,DashBord.class);
+                    startActivity(intent1);
                 }
 
             }

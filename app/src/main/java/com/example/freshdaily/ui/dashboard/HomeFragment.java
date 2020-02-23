@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.freshdaily.R;
 import com.example.freshdaily.searchActivity;
+import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterCat;
 import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterProduct;
+import com.example.freshdaily.ui.dashboard.verticalProductList.modelCat;
 import com.example.freshdaily.ui.dashboard.verticalProductList.modelProduct;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -52,10 +55,30 @@ public class HomeFragment extends Fragment {
         modelProducts.add(new modelProduct());
         modelProducts.add(new modelProduct());
         modelProducts.add(new modelProduct());
+        modelProducts.add(new modelProduct());
+        modelProducts.add(new modelProduct());
+        modelProducts.add(new modelProduct());
+        modelProducts.add(new modelProduct());
         adpaterProduct adapter = new adpaterProduct(modelProducts);
         RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(adapter);
+
+
+        List<modelCat> modelCats = new ArrayList<>();
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        modelCats.add(new modelCat());
+        adpaterCat adapter2 = new adpaterCat(modelCats);
+        RecyclerView recyclerView2 = view.findViewById(R.id.gridproduct);
+        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView2.setAdapter(adapter2);
         return view;
     }
 

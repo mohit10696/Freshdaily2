@@ -24,13 +24,7 @@ public class ShopByCategoryFragment extends Fragment {
         xyzViewModel =
                 ViewModelProviders.of(this).get(ShopByCategoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_logout, container, false);
-        final TextView textView = root.findViewById(R.id.text_logout);
-        xyzViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }
