@@ -28,19 +28,19 @@ public class MyAccountFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_myaccount, container, false);
         btn = getView().findViewById(R.id.EDIT);
 
-        /*btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                public void onClick(View v) {
-                    Fragment fragment = new Edit();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment_edit, fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            }
-        });*/
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                public void onClick(View v) {
+//                    Fragment fragment = new ;
+//                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                    fragmentTransaction.replace(R.id.fragment_edit, fragment);
+//                    fragmentTransaction.addToBackStack(null);
+//                    fragmentTransaction.commit();
+//                }
+//            }
+//        });
 
 
         /*final TextView textView = root.findViewById(R.id.text_home);

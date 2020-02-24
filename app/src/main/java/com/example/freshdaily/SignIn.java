@@ -134,6 +134,8 @@ public class SignIn extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
                 Intent intent = new Intent(SignIn.this,Otp.class);
+                intent.putExtra("number",phoneNo);
+                Toast.makeText(getApplicationContext(),phoneNo,Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
             else {
@@ -180,6 +182,7 @@ public class SignIn extends AppCompatActivity {
                         Intent intent = new Intent(SignIn.this, Otp.class);
                         //Bundle bundle = new Bundle();
                         intent.putExtra(EXTRA_TEXT, otp);
+                        intent.putExtra("number",phoneNo);
                         startActivity(intent);
                     }
                     else {

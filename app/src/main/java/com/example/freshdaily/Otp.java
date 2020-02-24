@@ -10,25 +10,44 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.telephony.SmsMessage;
+
+import com.example.freshdaily.API.apinterface;
+import com.example.freshdaily.API.retrofit;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import java.util.List;
 import java.util.Locale;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.freshdaily.API.retrofit.getapi;
 
 public class Otp extends AppCompatActivity {
     Button btn;
@@ -39,8 +58,10 @@ public class Otp extends AppCompatActivity {
     SliderLayout sliderLayout;
     private static final long START_TIME_IN_MILLIS = 600000;
     private TextView mTextViewCountDown;
-
-
+    String number;
+    public static final String mypreference = "userdetails";
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +70,8 @@ public class Otp extends AppCompatActivity {
         sliderLayout = findViewById(R.id.imageSlider1);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setScrollTimeInSec(1); //set scroll delay in seconds :
-
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         OTP = (EditText) findViewById(R.id.otp);
 
         setSliderViews();
@@ -80,8 +102,9 @@ public class Otp extends AppCompatActivity {
                         }
                     }).start();
                     Toast.makeText(getApplicationContext(),"OTP Detected", Toast.LENGTH_LONG).show();
-                    Intent intent1 = new Intent(Otp.this,DashBord.class);
-                    startActivity(intent1);
+//                    Intent intent1 = new Intent(Otp.this,DashBord.class);
+//                    startActivity(intent1);
+                    checkusertype();
                 }
                 else
                 {
@@ -91,21 +114,64 @@ public class Otp extends AppCompatActivity {
                     dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     dialog.show();
                     dialog.setCancelable(false);
-                    new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                Thread.sleep(3000);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            dialog.dismiss();
-                        }
-                    }).start();
                     Toast.makeText(getApplicationContext(),"OTP Detected", Toast.LENGTH_LONG).show();
-                    Intent intent1 = new Intent(Otp.this,DashBord.class);
-                    startActivity(intent1);
+//                    Intent intent1 = new Intent(Otp.this,DashBord.class);
+//                    startActivity(intent1);
+                    checkusertype();
                 }
 
+            }
+        });
+
+    }
+
+    private void checkusertype() {
+        Intent intent = getIntent();
+        number = intent.getStringExtra("number");
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(apinterface.JSONURL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        apinterface api = retrofit.create(apinterface.class);
+//        apinterface api = retrofit.getapi();
+        RequestBody numberparam = RequestBody.create(MediaType.parse("multipart/form-data"),number);
+        Call<Object> call = api.getUserLogin(numberparam);
+
+       // Toast.makeText(getApplicationContext(),number,Toast.LENGTH_LONG).show();
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                try {
+                    Log.d("****", "onResponse: "+response.body());
+                    JSONObject myResponse = new JSONObject(response.body().toString());
+                    if(myResponse.getString("status").equals("valid")){
+                        JSONObject jsonObject = myResponse.getJSONObject("data");
+                        editor.putString("fname",jsonObject.getString("fname"));
+                        editor.putString("lname",jsonObject.getString("lname"));
+                        editor.putString("mobile",jsonObject.getString("mobile"));
+                        editor.putString("email",jsonObject.getString("email"));
+                        editor.putString("landmark",jsonObject.getString("landmark"));
+                        editor.putString("address",jsonObject.getString("address"));
+                        editor.putString("subscriprion",jsonObject.getString("subscriprion"));
+                        editor.commit();
+                        dialog.dismiss();
+                        Toast.makeText(getApplicationContext(),"Welcome back: "+jsonObject.getString("fname"),Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Otp.this,DashBord.class));
+                    }else{
+                        Intent intent = new Intent(Otp.this,SignUp.class);
+                        intent.putExtra("mobileno",number);
+                        dialog.dismiss();
+                        startActivity(intent);
+                    }
+
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
 
