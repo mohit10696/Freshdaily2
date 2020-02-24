@@ -49,22 +49,10 @@
                     android:fontFamily="@font/noto_sans"
                     android:textSize="@dimen/_12ssp"
                     android:ems="10"
-                    android:inputType="phone"
-                    android:digits="1234567890"
+                    android:inputType="numberDecimal"
                     android:hint="@string/otp"
                     android:textAlignment="center"
                     android:textColorHint="@color/Gray" />
-
-                <TextView
-                    android:id="@+id/text_view4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/otp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="00:00"
-                    android:textColor="@android:color/black"
-                    android:textSize="60sp" />
 
                 <Button
                     android:id="@+id/Continue"
@@ -73,7 +61,7 @@
                     android:background="@drawable/button"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
                     android:gravity="center"
-                    android:layout_below="@+id/text_view4"
+                    android:layout_below="@+id/otp"
                     android:layout_marginHorizontal="@dimen/_30sdp"
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:layout_gravity=""
