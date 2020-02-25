@@ -39,6 +39,7 @@
                         android:weightSum="4">
 
                         <ImageView
+                            android:id="@+id/img"
                             android:layout_width="80dp"
                             android:layout_height="130dp"
                             android:layout_weight="1"
@@ -132,6 +133,7 @@
                                 android:layout_marginRight="@dimen/_5sdp"
                                 android:shadowRadius="1"
                                 android:text="-"
+                                android:fontFamily="@font/noto_sans"
                                 android:textColor="#000"
                                 android:textSize="25sp" />
 
@@ -142,6 +144,7 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="5dp"
                                 android:textColor="@color/Gray"
+                                android:fontFamily="@font/noto_sans"
                                 android:layout_marginRight="@dimen/_5sdp"
                                 android:gravity="center_vertical|center_horizontal"
                                 android:text="1"
@@ -156,6 +159,7 @@
                                 android:layout_marginRight="@dimen/_5sdp"
                                 android:shadowRadius="1"
                                 android:text="+"
+                                android:fontFamily="@font/noto_sans"
                                 android:textColor="#000"
                                 android:textSize="25sp" />
 
@@ -363,11 +367,11 @@
                 android:weightSum="5">
 
                 <EditText
+                    android:id="@+id/promo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="-5dp"
                     android:layout_weight="4.6"
-                    android:cursorVisible="false"
                     android:backgroundTint="@color/CyanP"
                     android:fontFamily="@font/noto_sans"
                     android:textColor="@color/CyanP"
@@ -379,11 +383,12 @@
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
+                    android:id="@+id/app"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_weight="0.4"
                     android:background="@drawable/rounded_button2"
                     android:text="Apply"
-                    android:fontFamily="@font/noto_sans"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:textColor="@color/CyanP" />
 
             </LinearLayout>
@@ -428,11 +433,12 @@
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_weight="0.4"
                     android:background="@drawable/rounded_button2"
                     android:text="Update"
-                    android:fontFamily="@font/noto_sans"
+                    android:id="@+id/up"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:textColor="@color/CyanP" />
 
             </LinearLayout>

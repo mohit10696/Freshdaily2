@@ -14,23 +14,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="150dp"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:padding="10dp"
     android:gravity="center_horizontal">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/productimage"
         android:src="@drawable/sliderdump"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"/>
 
     <TextView
         android:id="@+id/productname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/productimage"
-        android:textSize="9dp"
-        android:text="Company Name"
+        android:textSize="@dimen/_10ssp"
+        android:text="Amul"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/Gray"
         android:textStyle="bold"/>
 
     <TextView
@@ -38,9 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/productname"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:text="product Name"/>
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/Black"
+        android:fontFamily="@font/noto_sans"
+        android:text="Amul Gold"/>
 
     <TextView
         android:id="@+id/productweight"
@@ -48,17 +51,54 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/productprize"
         android:layout_marginTop="20dp"
-        android:textSize="13dp"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/Gray"
+        android:fontFamily="@font/noto_sans"
         android:text="500 ml"/>
+
+    <TextView
+        android:id="@+id/pr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productweight"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/Gray"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/noto_sans"
+        android:text="MRP:"/>
+
+    <TextView
+        android:id="@+id/pr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/pr1"
+        android:layout_below="@+id/productweight"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="₹"/>
 
     <TextView
         android:id="@+id/productprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/pr2"
         android:layout_below="@+id/productweight"
-        android:textSize="13dp"
-        android:textStyle="bold"
-        android:text="MRP: ₹28"/>
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="28"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:textSize="@dimen/_5ssp"
+        android:layout_weight="0.4"
+        android:background="@drawable/button"
+        android:text="Subscribe @ ₹28"
+        android:id="@+id/sub"
+        android:layout_below="@+id/productprice"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textColor="@color/WhiteSmoke" />
 
 
 </RelativeLayout>

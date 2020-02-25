@@ -73,11 +73,12 @@
                     android:id="@+id/EDIT"
                     android:layout_width="@dimen/_60sdp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button"
+                    android:background="@drawable/rounded_button2"
                     android:layout_alignParentEnd="true"
                     android:fontFamily="@font/noto_sans_bold"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:hint="@string/edit"
-                    android:textColorHint="@color/WhiteSmoke"
+                    android:textColorHint="@color/CyanP"
                     android:textStyle="bold" />
             </RelativeLayout>
 

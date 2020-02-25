@@ -19,6 +19,7 @@ public class holderProduct extends RecyclerView.ViewHolder {
         productimage = itemView.findViewById(R.id.productimage);
         productname = itemView.findViewById(R.id.productname);
         productprize = itemView.findViewById(R.id.productprize);
+
     }
 
     public void bind(modelProduct modelProduct) {
