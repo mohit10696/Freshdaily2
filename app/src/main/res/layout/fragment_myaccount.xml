@@ -38,7 +38,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/customer"
+                        android:id="@+id/customername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/customer"
@@ -117,10 +117,10 @@
                         android:id="@+id/Address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_10sdp"
-                        android:textColor="@color/Black"
                         android:fontFamily="@font/noto_sans"
-                        android:text="@string/address"></TextView>
+                        android:text="@string/address"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_10sdp"></TextView>
 
                 </LinearLayout>
 
