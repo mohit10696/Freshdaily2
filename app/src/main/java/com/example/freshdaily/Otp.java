@@ -119,7 +119,7 @@ public class Otp extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Welcome back: "+jsonObject.getString("fname"),Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Otp.this,DashBord.class));
                     }else{
-                        Intent intent = new Intent(Otp.this,SignUp.class);
+                        Intent intent = new Intent(Otp.this,DashBord.class);
                         intent.putExtra("mobile",number);
                         dialog.dismiss();
                         startActivity(intent);
