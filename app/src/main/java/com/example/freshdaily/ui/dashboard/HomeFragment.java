@@ -2,6 +2,7 @@ package com.example.freshdaily.ui.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,16 +25,14 @@ import com.example.freshdaily.ui.dashboard.verticalProductList.modelProduct;
 import com.google.gson.JsonObject;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.SliderLayout;
-
+import com.smarteist.autoimageslider.SliderLayout;;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,9 +61,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        productLoad();
+     //   productLoad();
 
-//        List<modelProduct> modelProducts = new ArrayList<>();
+        List<modelProduct> modelProducts = new ArrayList<>();
+         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
 //        modelProducts.add(new modelProduct());
 //        modelProducts.add(new modelProduct());
 //        modelProducts.add(new modelProduct());
@@ -73,11 +73,10 @@ public class HomeFragment extends Fragment {
 //        modelProducts.add(new modelProduct());
 //        modelProducts.add(new modelProduct());
 //        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        adpaterProduct adapter = new adpaterProduct(modelProducts);
-//        RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
-//        recyclerView.setAdapter(adapter);
+        adpaterProduct adapter = new adpaterProduct(modelProducts);
+        RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setAdapter(adapter);
 
 
 //        List<modelCat> modelCats = new ArrayList<>();
@@ -103,12 +102,32 @@ public class HomeFragment extends Fragment {
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
-                Toast.makeText(getContext(),response.body().toString(),Toast.LENGTH_SHORT).show();
+
                 try {
-                    JSONObject myResponse = new JSONObject(response.body().toString());
+                    JSONArray jsonArray = new JSONArray(response.body().toString());
+  //                  Toast.makeText(getContext(),jsonArray.getJSONObject(0).getString("photo"),Toast.LENGTH_SHORT).show();
+//                    List<modelProduct> modelProducts = new ArrayList<>();
+//                    for(int i = 0 ; i< jsonArray.length();i++)
+//                    {
+//                        Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
+//                        modelProducts.add(new modelProduct(
+//                                jsonArray.getJSONObject(i).getString("photo"),
+//                                jsonArray.getJSONObject(i).getString("product_name"),
+//                                jsonArray.getJSONObject(i).getString("price"),
+//                                jsonArray.getJSONObject(i).getString("quantity"),
+//                                jsonArray.getJSONObject(i).getString("company_name")));
+//                    }
+//                    adpaterProduct adapter = new adpaterProduct(modelProducts);
+//                    RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
+//                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+//                    recyclerView.setAdapter(adapter);
+
                 } catch (JSONException e) {
+                    Toast.makeText(getContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
+
+
             }
 
             @Override

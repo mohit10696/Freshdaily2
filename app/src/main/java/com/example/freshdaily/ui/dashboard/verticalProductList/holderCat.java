@@ -18,7 +18,7 @@ public class holderCat extends RecyclerView.ViewHolder {
         super(itemView);
         productimage = itemView.findViewById(R.id.productimage);
         productname = itemView.findViewById(R.id.productname);
-        productprize = itemView.findViewById(R.id.productprize);
+       // productprize = itemView.findViewById(R.id.productprize);
     }
 
     public void bind(modelCat modelProduct) {
