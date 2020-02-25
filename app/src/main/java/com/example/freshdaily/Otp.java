@@ -2,43 +2,26 @@ package com.example.freshdaily;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.telephony.SmsMessage;
-
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import java.util.List;
-import java.util.Locale;
-
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -91,33 +74,11 @@ public class Otp extends AppCompatActivity {
                     dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     dialog.show();
                     dialog.setCancelable(false);
-                    new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                Thread.sleep(3000);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            dialog.dismiss();
-                        }
-                    }).start();
-                    Toast.makeText(getApplicationContext(),"OTP Detected", Toast.LENGTH_LONG).show();
-//                    Intent intent1 = new Intent(Otp.this,DashBord.class);
-//                    startActivity(intent1);
                     checkusertype();
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(),"Please Enter Valid OTP", Toast.LENGTH_LONG).show();
-                    dialog = new ProgressDialog(Otp.this);
-                    dialog.setMessage("Loading Please Wait");
-                    dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    dialog.show();
-                    dialog.setCancelable(false);
-                    Toast.makeText(getApplicationContext(),"OTP Detected", Toast.LENGTH_LONG).show();
-//                    Intent intent1 = new Intent(Otp.this,DashBord.class);
-//                    startActivity(intent1);
-                    checkusertype();
                 }
 
             }
@@ -128,12 +89,12 @@ public class Otp extends AppCompatActivity {
     private void checkusertype() {
         Intent intent = getIntent();
         number = intent.getStringExtra("number");
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(apinterface.JSONURL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        apinterface api = retrofit.create(apinterface.class);
-//        apinterface api = retrofit.getapi();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(apinterface.JSONURL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+ //       apinterface api = retrofit.create(apinterface.class);
+        apinterface api = retrofit.getapi();
         RequestBody numberparam = RequestBody.create(MediaType.parse("multipart/form-data"),number);
         Call<Object> call = api.getUserLogin(numberparam);
 
@@ -159,18 +120,20 @@ public class Otp extends AppCompatActivity {
                         startActivity(new Intent(Otp.this,DashBord.class));
                     }else{
                         Intent intent = new Intent(Otp.this,SignUp.class);
-                        intent.putExtra("mobileno",number);
+                        intent.putExtra("mobile",number);
                         dialog.dismiss();
                         startActivity(intent);
                     }
 
                 } catch (JSONException e) {
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
+                dialog.dismiss();
                 Toast.makeText(getApplicationContext(),t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });

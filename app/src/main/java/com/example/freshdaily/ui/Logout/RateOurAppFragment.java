@@ -1,5 +1,8 @@
 package com.example.freshdaily.ui.Logout;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,23 +16,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.freshdaily.R;
+import com.example.freshdaily.SignIn;
 
 public class RateOurAppFragment extends Fragment {
 
-    private RateOurAppViewModel sendViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(RateOurAppViewModel.class);
         View root = inflater.inflate(R.layout.fragment_rateourapp, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        sendViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        String mypreference = "userdetails";
+        SharedPreferences sharedpreferences;
+        SharedPreferences.Editor editor;
+        sharedpreferences = getActivity().getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+        editor.putString("number","null");
+        getActivity().startActivity(new Intent(getContext(), SignIn.class));
         return root;
     }
 }
