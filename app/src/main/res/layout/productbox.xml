@@ -100,6 +100,17 @@
         android:fontFamily="@font/noto_sans_bold"
         android:textColor="@color/WhiteSmoke" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:gravity="center"
+        android:layout_below="@+id/sub"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/Black"
+        android:text="buy once"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/rounded_button1"
+        ></Button>
 
 </RelativeLayout>
 
