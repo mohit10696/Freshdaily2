@@ -1,15 +1,18 @@
 package com.example.freshdaily.ui.MySubscription;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +43,9 @@ public class MySubscriptionFragment extends Fragment {
     TextView startDate;
     View root;
     boolean isDailySet=false,isAlternetDaySet=false,isEveryThreeDaySet=false,isWeeklySet=false,isMonthlySet=false;
+    EditText promo_text;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,11 +62,21 @@ public class MySubscriptionFragment extends Fragment {
         startDate = (TextView)root.findViewById(R.id.dat);
         weekly = (Button)root.findViewById(R.id.weekly);
         monthly = (Button)root.findViewById(R.id.monthly);
+        promo_text = (EditText)root.findViewById(R.id.promo_text);
 
 /*        if(no_of_quantity==0)
             minus.setEnabled(false);
         if(no_of_quantity==11)
             plus.setEnabled(false);*/
+
+        promo_text.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                view.setFocusable(true);
+                view.setFocusableInTouchMode(true);
+                return false;
+            }
+        });
 
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +142,7 @@ public class MySubscriptionFragment extends Fragment {
                     int mMonth = c.get(Calendar.MONTH); // current month
                     int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                     // date picker dialog
-                    final DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    final DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             // set day of month , month and year value in the edit text
@@ -141,7 +157,7 @@ public class MySubscriptionFragment extends Fragment {
                             weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                             weekly.setTextColor(Color.rgb(160,160,160));
                             daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
-                            daily.setTextColor(Color.rgb(36,158,69));
+                            daily.setTextColor(Color.rgb(0,183,235));
 
                             if ((monthOfYear + 1) < 10)
                                 date= dayOfMonth + "-0" + (monthOfYear + 1) + "-" + year;
@@ -183,7 +199,7 @@ public class MySubscriptionFragment extends Fragment {
 
                             isAlternetDaySet = true;
                             alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
-                            alternetDay.setTextColor(Color.rgb(36,158,69));
+                            alternetDay.setTextColor(Color.rgb(0,183,235));
                             isDailySet = isEveryThreeDaySet = isWeeklySet= isMonthlySet = false;
                             monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                             monthly.setTextColor(Color.rgb(160,160,160));
@@ -231,7 +247,7 @@ public class MySubscriptionFragment extends Fragment {
                             // set day of month , month and year value in the edit text
                             isEveryThreeDaySet = true;
                             everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
-                            everyThreeDay.setTextColor(Color.rgb(36,158,69));
+                            everyThreeDay.setTextColor(Color.rgb(0,183,235));
                             isDailySet = isAlternetDaySet =isWeeklySet = isMonthlySet = false;
                             monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                             monthly.setTextColor(Color.rgb(160,160,160));
@@ -272,29 +288,34 @@ public class MySubscriptionFragment extends Fragment {
                 {
                     CustomDialogActivity cdd=new CustomDialogActivity(getActivity());
                     cdd.show();
+                    cdd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialogInterface) {
+                            {
 
+                                weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
+                                weekly.setTextColor(Color.rgb(0,183,235));
+                                isWeeklySet = true;
+                                isEveryThreeDaySet = isDailySet = isEveryThreeDaySet = isMonthlySet = false;
+                                monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                monthly.setTextColor(Color.rgb(160,160,160));
+                                satrtDateCard.setVisibility(View.VISIBLE);
+                                alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                alternetDay.setTextColor(Color.rgb(160, 160, 160));
+                                everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
+                                daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                daily.setTextColor(Color.rgb(160, 160, 160));
+                                startDate.setText(setDateFromat(dateWeekly));
+                            }
+
+                            //Toast.makeText(MainActivity.this,"hello"+dateWeekly,Toast.LENGTH_LONG).show();
+                        }
+                    });
                     /*while(!flag)
                     {    }*/
 
                     //if(dateWeekly != null)
-                    {
-                        weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
-                        weekly.setTextColor(Color.rgb(36, 158, 69));
-                        isWeeklySet = true;
-                        isEveryThreeDaySet = isDailySet = isEveryThreeDaySet = isMonthlySet = false;
-                        monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        monthly.setTextColor(Color.rgb(160,160,160));
-                        //satrtDateCard.setVisibility(View.VISIBLE);
-                        alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        alternetDay.setTextColor(Color.rgb(160, 160, 160));
-                        everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
-                        daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        daily.setTextColor(Color.rgb(160, 160, 160));
-                        //startDate.setText(setDateFromat(date));
-                    }
-
-                    Toast.makeText(getContext(),dateWeekly,Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -314,30 +335,32 @@ public class MySubscriptionFragment extends Fragment {
                     CustomDialogMonthlyActivity cdd=new CustomDialogMonthlyActivity(getActivity());
                     cdd.show();
 
-                    /*while(!flag)
-                    {    }*/
+                    cdd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialogInterface) {
+                            {
+                                monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
+                                monthly.setTextColor(Color.rgb(0,183,235));
+                                isMonthlySet = true;
+                                isEveryThreeDaySet = isDailySet = isEveryThreeDaySet =isWeeklySet = false;
+                                satrtDateCard.setVisibility(View.VISIBLE);
+                                alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                alternetDay.setTextColor(Color.rgb(160, 160, 160));
+                                everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
+                                weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                weekly.setTextColor(Color.rgb(160, 160, 160));
+                                daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
+                                daily.setTextColor(Color.rgb(160, 160, 160));
+                                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                                date = formatter.format(new Date());
+                                startDate.setText(setDateFromat(date));
+                            }
 
-                    //if( != null)
-                    {
-                        monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button2));
-                        monthly.setTextColor(Color.rgb(36, 158, 69));
-                        isWeeklySet = true;
-                        isEveryThreeDaySet = isDailySet = isEveryThreeDaySet =isWeeklySet = false;
-                        satrtDateCard.setVisibility(View.VISIBLE);
-                        alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        alternetDay.setTextColor(Color.rgb(160, 160, 160));
-                        everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
-                        weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        weekly.setTextColor(Color.rgb(160, 160, 160));
-                        daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
-                        daily.setTextColor(Color.rgb(160, 160, 160));
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                        date = formatter.format(new Date());
-                        startDate.setText(setDateFromat(date));
-                    }
+                            //Toast.makeText(MainActivity.this,"hello"+dateWeekly,Toast.LENGTH_LONG).show();
+                        }
+                    });
 
-                    Toast.makeText(getContext(),dateWeekly,Toast.LENGTH_LONG).show();
                 }
             }
         });

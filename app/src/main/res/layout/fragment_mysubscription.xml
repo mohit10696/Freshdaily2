@@ -28,7 +28,8 @@
                     android:id="@+id/cards1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="#FFFFFF"
                     app:cardCornerRadius="@dimen/_6sdp">
 
@@ -172,8 +173,8 @@
                     android:id="@+id/cards2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
                     android:background="#FFFFFF"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                     app:cardCornerRadius="@dimen/_6sdp">
 
                 <LinearLayout
@@ -237,7 +238,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/noto_sans"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:background="@drawable/rounded_button1"
                         android:text="Daily"
                         android:textAllCaps="false"
@@ -250,7 +251,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="2"
                         android:fontFamily="@font/noto_sans"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:background="@drawable/rounded_button1"
                         android:text="Alternate Day"
                         android:textAllCaps="false"
@@ -263,7 +264,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/noto_sans"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:layout_weight="2"
                         android:background="@drawable/rounded_button1"
                         android:text="Every 3 days"
@@ -286,7 +287,7 @@
                         android:layout_gravity="center"
                         android:layout_marginRight="5dp"
                         android:fontFamily="@font/noto_sans"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button1"
                         android:text="Weekly"
@@ -301,7 +302,7 @@
                         android:background="@drawable/rounded_button1"
                         android:text="Monthly"
                         android:fontFamily="@font/noto_sans"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:id="@+id/monthly"
                         android:textAllCaps="false"
                         android:textColor="@color/Gray" />
@@ -367,12 +368,16 @@
                 android:weightSum="5">
 
                 <EditText
-                    android:id="@+id/promo"
+                    android:id="@+id/promo_text"
+                    android:focusable="false"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="-5dp"
                     android:layout_weight="4.6"
                     android:backgroundTint="@color/CyanP"
+                    android:textSize="@dimen/_12ssp"
+                    android:hint="Enter your promo code"
+                    android:textColorHint="@color/Gray"
                     android:fontFamily="@font/noto_sans"
                     android:textColor="@color/CyanP"
                     android:background="@drawable/custom_edit_text"
@@ -426,8 +431,10 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4.2"
                     android:id="@+id/addr"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/noto_sans"
                     android:text="Other Building Address\nOther Building Address"
-                    android:textColor="#A8A8A8" />
+                    android:textColor="@color/Gray" />
 
                 <Button
                     android:layout_width="100dp"

@@ -16,24 +16,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_text_input_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cd"
                 android:text="Customer Details"
                 android:textColor="@color/Black"
+                android:id="@+id/cd"
                 android:fontFamily="@font/noto_sans_bold"
                 android:textSize="@dimen/_20ssp"
                 android:layout_marginVertical="@dimen/_12ssp"
                 android:layout_marginHorizontal="@dimen/_15sdp"></TextView>
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_text_input_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_10sdp"
                 android:id="@+id/first"
-                android:layout_below="@+id/cd"
+                android:layout_below="@+id/username_text_input_layout1"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:textSize="@dimen/_15ssp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:textColorHint="@color/Gray"
@@ -43,13 +57,23 @@
 
             </EditText>
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_text_input_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/Gray"
                 android:textSize="@dimen/_15ssp"
                 android:id="@+id/last"
-                android:layout_below="@+id/cd"
+                android:layout_below="@+id/username_text_input_layout2"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:layout_toEndOf="@+id/first"
                 android:hint="@string/lastname"
                 android:textAlignment="viewStart"
@@ -60,7 +84,12 @@
                 android:layout_weight="1"></EditText>
 
 
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_text_input_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
             <EditText
@@ -70,12 +99,17 @@
                 android:id="@+id/emailid"
                 android:hint="@string/id"
                 android:textSize="@dimen/_15ssp"
-                android:layout_below="@+id/first"
+                android:layout_below="@+id/username_text_input_layout3"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:padding="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:fontFamily="@font/noto_sans_bold"
                 android:layout_weight="1"></EditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView

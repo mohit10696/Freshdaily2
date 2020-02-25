@@ -5,45 +5,61 @@
     android:padding="10dp"
     android:orientation="vertical" >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Delivery Days :"
+        android:fontFamily="@font/noto_sans_bold"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="#000"/>
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sunday"
+        android:fontFamily="@font/noto_sans"
         android:id="@+id/sun"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Monday"
+        android:fontFamily="@font/noto_sans"
         android:id="@+id/mon"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         android:text="Tuesday"
         android:id="@+id/tue"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         android:text="Wednesday"
         android:id="@+id/wen"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         android:text="Thrusday"
         android:id="@+id/thr"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         android:text="Friday"
         android:id="@+id/fri"
         />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         android:text="Saturday"
         android:id="@+id/sat"
         />
@@ -57,28 +73,35 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subscription start Date"
+        android:text="Subscription start Date:"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textSize="@dimen/_14ssp"
         android:textColor="#000"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:weightSum="8"
+        android:layout_marginVertical="@dimen/_10sdp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/dialog_date_text"
-            android:textColor="#000"
-            />
+
 
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/dialog_date"
             android:src="@drawable/icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:id="@+id/dialog_date_text"
+            android:textColor="#000"
+            android:fontFamily="@font/noto_sans_bold"
+            />
 
     </LinearLayout>
 
@@ -99,8 +122,9 @@
             android:background="@drawable/rounded_button2"
             android:text="CANCEL"
             android:id="@+id/no"
+            android:fontFamily="@font/noto_sans_bold"
             android:layout_marginLeft="5dp"
-            android:textColor="#249e45"/>
+            android:textColor="@color/CyanP"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -109,9 +133,10 @@
             android:layout_gravity="center"
             android:background="@drawable/rounded_button2"
             android:text="OK"
+            android:fontFamily="@font/noto_sans_bold"
             android:id="@+id/yes"
             android:layout_marginLeft="5dp"
-            android:textColor="#249e45"/>
+            android:textColor="@color/CyanP"/>
 
     </LinearLayout>
 

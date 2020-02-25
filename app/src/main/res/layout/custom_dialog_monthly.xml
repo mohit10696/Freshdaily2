@@ -9,7 +9,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subscription start Date"
+            android:text="Select Delivery Days :"
+            android:fontFamily="@font/noto_sans_bold"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:textSize="@dimen/_16ssp"
             android:textColor="#000"/>
 
         <LinearLayout
@@ -18,19 +21,22 @@
             android:weightSum="8"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/dialog_date_text0"
-                android:textColor="#000"
-                />
+
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/dialog_date0"
                 android:src="@drawable/icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:id="@+id/dialog_date_text0"
+                android:textColor="#000"
+                />
 
         </LinearLayout>
 
@@ -41,19 +47,23 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/dialog_date_text1"
-                android:textColor="#000"
-                />
+
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/dialog_date1"
                 android:src="@drawable/icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:id="@+id/dialog_date_text1"
+                android:textColor="#000"
+                />
+
 
         </LinearLayout>
 
@@ -64,19 +74,22 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/dialog_date_text2"
-                android:textColor="#000"
-                />
+
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/dialog_date2"
                 android:src="@drawable/icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:id="@+id/dialog_date_text2"
+                android:textColor="#000"
+                />
 
         </LinearLayout>
 
@@ -87,13 +100,6 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/dialog_date_text3"
-                android:textColor="#000"
-                />
 
             <ImageButton
                 android:layout_width="50dp"
@@ -101,6 +107,17 @@
                 android:id="@+id/dialog_date3"
                 android:src="@drawable/icon"/>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:id="@+id/dialog_date_text3"
+                android:textColor="#000"
+                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -110,19 +127,23 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/dialog_date_text4"
-                android:textColor="#000"
-                />
+
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/dialog_date4"
                 android:src="@drawable/icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:id="@+id/dialog_date_text4"
+                android:textColor="#000"
+                />
 
         </LinearLayout>
         <LinearLayout
@@ -141,7 +162,8 @@
                 android:text="CANCEL"
                 android:id="@+id/no"
                 android:layout_marginLeft="5dp"
-                android:textColor="#249e45"/>
+                android:fontFamily="@font/noto_sans_bold"
+                android:textColor="@color/CyanP"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -151,8 +173,9 @@
                 android:background="@drawable/rounded_button2"
                 android:text="OK"
                 android:id="@+id/yes"
+                android:fontFamily="@font/noto_sans_bold"
                 android:layout_marginLeft="5dp"
-                android:textColor="#249e45"/>
+                android:textColor="@color/CyanP"/>
 
         </LinearLayout>
 
