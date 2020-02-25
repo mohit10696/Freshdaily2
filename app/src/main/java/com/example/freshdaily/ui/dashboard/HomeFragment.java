@@ -1,6 +1,7 @@
 package com.example.freshdaily.ui.dashboard;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.R;
@@ -36,6 +39,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.freshdaily.ui.dashboard.verticalProductList.adpaterProduct.dburl;
 
 public class HomeFragment extends Fragment {
     SliderLayout sliderLayout;
@@ -61,22 +66,22 @@ public class HomeFragment extends Fragment {
             }
         });
 
-     //   productLoad();
+        productLoad();
 
-        List<modelProduct> modelProducts = new ArrayList<>();
-         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-//        modelProducts.add(new modelProduct());
-        adpaterProduct adapter = new adpaterProduct(modelProducts);
-        RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
-        recyclerView.setAdapter(adapter);
+//        List<modelProduct> modelProducts = new ArrayList<>();
+//         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+////        modelProducts.add(new modelProduct());
+//        adpaterProduct adapter = new adpaterProduct(modelProducts);
+//        RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+//        recyclerView.setAdapter(adapter);
 
 
 //        List<modelCat> modelCats = new ArrayList<>();
@@ -105,22 +110,26 @@ public class HomeFragment extends Fragment {
 
                 try {
                     JSONArray jsonArray = new JSONArray(response.body().toString());
-  //                  Toast.makeText(getContext(),jsonArray.getJSONObject(0).getString("photo"),Toast.LENGTH_SHORT).show();
-//                    List<modelProduct> modelProducts = new ArrayList<>();
-//                    for(int i = 0 ; i< jsonArray.length();i++)
-//                    {
-//                        Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
-//                        modelProducts.add(new modelProduct(
-//                                jsonArray.getJSONObject(i).getString("photo"),
-//                                jsonArray.getJSONObject(i).getString("product_name"),
-//                                jsonArray.getJSONObject(i).getString("price"),
-//                                jsonArray.getJSONObject(i).getString("quantity"),
-//                                jsonArray.getJSONObject(i).getString("company_name")));
-//                    }
-//                    adpaterProduct adapter = new adpaterProduct(modelProducts);
-//                    RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
-//                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
-//                    recyclerView.setAdapter(adapter);
+                    Toast.makeText(getContext(),jsonArray.getJSONObject(0).getString("photo"),Toast.LENGTH_SHORT).show();
+                    List<modelProduct> modelProducts = new ArrayList<>();
+//                    Glide.with(view.getContext())
+//                            .load(Uri.parse(dburl+modelProduct.getImage()))
+//                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                            .into(modelProduct.getImage());
+                    for(int i = 0 ; i< jsonArray.length();i++)
+                    {
+                        Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
+                        modelProducts.add(new modelProduct(
+                                jsonArray.getJSONObject(i).getString("photo"),
+                                jsonArray.getJSONObject(i).getString("product_name"),
+                                jsonArray.getJSONObject(i).getString("price"),
+                                jsonArray.getJSONObject(i).getString("quantity"),
+                                jsonArray.getJSONObject(i).getString("company_name")));
+                    }
+                    adpaterProduct adapter = new adpaterProduct(modelProducts,getContext());
+                    RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+                    recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
                     Toast.makeText(getContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();

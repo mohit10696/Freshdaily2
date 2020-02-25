@@ -16,11 +16,11 @@ public class holderProduct extends RecyclerView.ViewHolder {
 
     public holderProduct(@NonNull View itemView) {
         super(itemView);
-        productimage = itemView.findViewById(R.id.productimage);
-        productname = itemView.findViewById(R.id.productname);
-        productqunitity = itemView.findViewById(R.id.productweight);
-        productcompany = itemView.findViewById(R.id.productcategory);
-        productprize = itemView.findViewById(R.id.productprice);
+            productimage = itemView.findViewById(R.id.productimage);
+            productname = itemView.findViewById(R.id.productname);
+            productqunitity = itemView.findViewById(R.id.productweight);
+            productcompany = itemView.findViewById(R.id.productcategory);
+            productprize = itemView.findViewById(R.id.productprice);
 
     }
 
