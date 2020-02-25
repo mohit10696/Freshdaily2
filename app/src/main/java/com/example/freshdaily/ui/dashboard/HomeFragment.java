@@ -110,12 +110,7 @@ public class HomeFragment extends Fragment {
 
                 try {
                     JSONArray jsonArray = new JSONArray(response.body().toString());
-                    Toast.makeText(getContext(),jsonArray.getJSONObject(0).getString("photo"),Toast.LENGTH_SHORT).show();
                     List<modelProduct> modelProducts = new ArrayList<>();
-//                    Glide.with(view.getContext())
-//                            .load(Uri.parse(dburl+modelProduct.getImage()))
-//                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                            .into(modelProduct.getImage());
                     for(int i = 0 ; i< jsonArray.length();i++)
                     {
                         Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
