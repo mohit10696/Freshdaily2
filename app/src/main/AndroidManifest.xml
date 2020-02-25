@@ -21,18 +21,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".searchActivity" />
+        <activity
+            android:name=".edit"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".searchActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".DashBord" />
-        <activity android:name=".SignIn" />
-        <activity android:name=".SignUp" />
+        <activity
+            android:name=".DashBord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_dash_bord"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,10 +52,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebActivity" />
+        <activity
+            android:name=".WebActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Otp"
-            android:parentActivityName=".SignIn" />
+            android:parentActivityName=".SignIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.address"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".IncomingSms">
             <intent-filter>

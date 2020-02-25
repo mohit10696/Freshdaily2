@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#EEF2F5">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carda1"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:cardCornerRadius="@dimen/_6sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/da"
+                android:text="Delivery Address"
+                android:textColor="@color/Black"
+                android:fontFamily="@font/noto_sans_bold"
+                android:textSize="@dimen/_22ssp"
+                android:layout_marginHorizontal="@dimen/_15sdp"></TextView>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:id="@+id/ad1"
+                android:layout_below="@+id/da"
+                android:textSize="@dimen/_15ssp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textColorHint="@color/Gray"
+                android:hint="@string/a1"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:fontFamily="@font/noto_sans">
+
+            </EditText>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:id="@+id/ad2"
+                android:layout_below="@+id/ad1"
+                android:textSize="@dimen/_15ssp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textColorHint="@color/Gray"
+                android:hint="@string/a2"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:fontFamily="@font/noto_sans">
+
+            </EditText>
+
+
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ad2"
+                android:hint="Landmark"
+                android:layout_marginHorizontal="@dimen/_17sdp"
+                android:fontFamily="@font/noto_sans"
+                android:textSize="@dimen/_15ssp"
+                android:textColorHint="@color/Gray"
+                android:backgroundTint="@color/Black"
+                android:layout_marginVertical="@dimen/_10sdp"
+                app:met_floatingLabel="normal" />
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/t"
+                android:text="City"
+                android:fontFamily="@font/noto_sans_bold"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:textColor="@color/Gray"
+                android:layout_below="@+id/android_material_design_spinner"></TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/m"
+                android:textSize="@dimen/_15ssp"
+                android:layout_below="@+id/t"
+                android:text="Gandhinagar"
+                android:textColor="@color/Black"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_20sdp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/t1"
+                android:text="State"
+                android:fontFamily="@font/noto_sans_bold"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:textColor="@color/Gray"
+                android:layout_below="@+id/m"></TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/m1"
+                android:textSize="@dimen/_15ssp"
+                android:layout_below="@+id/t1"
+                android:text="Gujarat"
+                android:textColor="@color/Black"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_20sdp">
+
+            </TextView>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:fontFamily="@font/noto_sans_bold"
+                android:textColor="@color/White"
+                android:background="@drawable/button"
+                android:layout_below="@+id/m1"
+                android:layout_marginHorizontal="@dimen/_70sdp"
+                android:layout_marginVertical="@dimen/_40sdp"></Button>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
