@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#efefef"
-    tools:context=".MainActivity">
+    android:background="#EEF2F5">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,134 +14,207 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
                 android:orientation="vertical"
                 android:paddingBottom="5dp">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cards1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="130dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/img" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="#FFFFFF"
+                    app:cardCornerRadius="@dimen/_6sdp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="7dp"
-                        android:layout_weight="2"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="80dp"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:src="@drawable/img" />
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fresh Organic"
-                            android:textColor="#A8A8A8" />
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Amul"
+                                android:id="@+id/company"
+                                android:layout_marginVertical="@dimen/_5sdp"
+                                android:textColor="@color/Gray"
+                                android:fontFamily="@font/noto_sans"
+                                android:textSize="@dimen/_10ssp"/>
 
 
-                        <TextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Amul Gold"
+                                android:id="@+id/category"
+                                android:textColor="@color/Black"
+                                android:fontFamily="@font/noto_sans"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="500 ml"
+                                android:id="@+id/volume"
+                                android:textColor="@color/Gray"
+                                android:fontFamily="@font/noto_sans"
+                                android:textSize="@dimen/_13ssp"
+                                 />
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fresh Organic\n Fresh Organic"
-                            android:textColor="#000"
-                            android:textStyle="bold" />
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1L"
-                            android:textColor="#A8A8A8" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Subscription Price:"
+                                android:fontFamily="@font/noto_sans"
+                                android:textColor="@color/Gray"
+                                android:textSize="@dimen/_10ssp"/>
 
-                        <TextView
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹"
+                                android:fontFamily="@font/noto_sans"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:id="@+id/price"
+                                android:fontFamily="@font/noto_sans"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                        </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Subscription Price: ₹999"
-                            android:textColor="#000" />
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/minus"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:background="@drawable/round_button"
+                                android:shadowColor="@color/Black"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:shadowRadius="1"
+                                android:text="-"
+                                android:fontFamily="@font/noto_sans"
+                                android:textColor="#000"
+                                android:textSize="25sp" />
+
+                            <TextView
+                                android:id="@+id/quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/Gray"
+                                android:fontFamily="@font/noto_sans"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:text="1"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/pluse"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:background="@drawable/round_button"
+                                android:shadowColor="@color/Black"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:shadowRadius="1"
+                                android:text="+"
+                                android:fontFamily="@font/noto_sans"
+                                android:textColor="#000"
+                                android:textSize="25sp" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/minus"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/round_button"
-                            android:shadowColor="#A8A8A8"
-                            android:shadowRadius="1"
-                            android:text="-"
-                            android:textColor="#000"
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:id="@+id/quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:text="1"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/pluse"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/round_button"
-                            android:shadowColor="#A8A8A8"
-                            android:shadowRadius="1"
-                            android:text="+"
-                            android:textColor="#000"
-                            android:textSize="25sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cards2"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#c0c0c0" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="#FFFFFF"
+                    app:cardCornerRadius="@dimen/_6sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_10ssp"
+                        android:textAlignment="center"
                         android:text="*Subscription price may change as per market charges"
                         android:textColor="#000" />
 
                 </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:text="Pick Schedule"
-                android:textColor="#000"
-                android:textStyle="bold" />
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cards3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_10sdp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="@dimen/_6sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,10 +236,12 @@
                         android:layout_gravity="center"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_12ssp"
                         android:background="@drawable/rounded_button1"
                         android:text="Daily"
                         android:textAllCaps="false"
-                        android:textColor="#A8A8A8" />
+                        android:textColor="@color/Gray" />
 
                     <Button
                         android:id="@+id/alternet_day"
@@ -175,10 +249,12 @@
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="2"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_12ssp"
                         android:background="@drawable/rounded_button1"
                         android:text="Alternate Day"
                         android:textAllCaps="false"
-                        android:textColor="#A8A8A8" />
+                        android:textColor="@color/Gray" />
 
                     <Button
                         android:id="@+id/every_three_day"
@@ -186,11 +262,13 @@
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_weight="2"
                         android:background="@drawable/rounded_button1"
                         android:text="Every 3 days"
                         android:textAllCaps="false"
-                        android:textColor="#A8A8A8" />
+                        android:textColor="@color/Gray" />
 
                 </LinearLayout>
 
@@ -207,11 +285,13 @@
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="5dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button1"
                         android:text="Weekly"
                         android:textAllCaps="false"
-                        android:textColor="#A8A8A8" />
+                        android:textColor="@color/Gray" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -220,9 +300,11 @@
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button1"
                         android:text="Monthly"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_12ssp"
                         android:id="@+id/monthly"
                         android:textAllCaps="false"
-                        android:textColor="#A8A8A8" />
+                        android:textColor="@color/Gray" />
 
                 </LinearLayout>
 
@@ -238,27 +320,43 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Subscription start date"
-                        android:textColor="#000" />
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/Gray" />
 
                     <TextView
                         android:id="@+id/dat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mar 15 2000"
-                        android:textColor="#000"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/Black"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
                 android:text="Promo Code"
-                android:textColor="#000"
-                android:textStyle="bold" />
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/noto_sans"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cards4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="@dimen/_6sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -269,34 +367,51 @@
                 android:weightSum="5">
 
                 <EditText
+                    android:id="@+id/promo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="-5dp"
                     android:layout_weight="4.6"
+                    android:backgroundTint="@color/CyanP"
+                    android:fontFamily="@font/noto_sans"
+                    android:textColor="@color/CyanP"
                     android:background="@drawable/custom_edit_text"
                     android:inputType="text"
-                    android:textCursorDrawable="@drawable/color_cursor" />
+                    android:textCursorDrawable="@drawable/cursor" />
 
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
+                    android:id="@+id/app"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_weight="0.4"
                     android:background="@drawable/rounded_button2"
                     android:text="Apply"
-                    android:textAllCaps="false"
-                    android:textColor="#249e45" />
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textColor="@color/CyanP" />
 
             </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:text="Delivery Address"
-                android:textColor="#000"
-                android:textStyle="bold" />
+                android:textColor="@color/Black"
+                android:fontFamily="@font/noto_sans"
+                android:textSize="@dimen/_12ssp"
+                 />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cards5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="@dimen/_6sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -310,6 +425,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="4.2"
+                    android:id="@+id/addr"
                     android:text="Other Building Address\nOther Building Address"
                     android:textColor="#A8A8A8" />
 
@@ -317,14 +433,17 @@
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_weight="0.4"
                     android:background="@drawable/rounded_button2"
                     android:text="Update"
-                    android:textAllCaps="false"
-                    android:textColor="#249e45" />
+                    android:id="@+id/up"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textColor="@color/CyanP" />
 
             </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

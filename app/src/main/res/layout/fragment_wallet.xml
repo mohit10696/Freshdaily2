@@ -6,70 +6,70 @@
     android:background="#EEF2F5">
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardw1"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardw1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_marginHorizontal="@dimen/_80sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_6sdp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:layout_marginHorizontal="@dimen/_80sdp"
-            android:layout_marginVertical="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_6sdp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rel">
+            android:id="@+id/rel">
 
             <TextView
-            android:id="@+id/xyz"
-            android:layout_width="wrap_content"
+                android:id="@+id/xyz"
+                android:layout_width="wrap_content"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:fontFamily="@font/noto_sans_bold"
                 android:textSize="@dimen/_15ssp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Wallet Balance"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Wallet Balance"/>
 
-                <TextView
-                    android:id="@+id/not"
-                    android:text="₹"
-                    android:layout_below="@+id/xyz"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/_20ssp"
-                    android:layout_toStartOf="@+id/walletbal"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:textColor="@color/Black"
-                    android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/not"
+                android:text="₹"
+                android:layout_below="@+id/xyz"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/_20ssp"
+                android:layout_toStartOf="@+id/walletbal"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:textColor="@color/Black"
+                android:layout_centerHorizontal="true" />
 
 
-                    <TextView
-                        android:id="@+id/walletbal"
-                        android:text="0"
-                        android:layout_below="@+id/xyz"
-                        android:layout_width="wrap_content"
-                        android:textSize="@dimen/_20ssp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_10sdp"
-                        android:textColor="@color/Black"
-                        android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/walletbal"
+                android:text="0"
+                android:layout_below="@+id/xyz"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/_20ssp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:textColor="@color/Black"
+                android:layout_centerHorizontal="true" />
 
-            </RelativeLayout>
+        </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <TextView
-    android:id="@+id/addmone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Add Money"
+        android:id="@+id/addmone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Money"
         android:fontFamily="@font/noto_sans_bold"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:textSize="@dimen/_15ssp"
-    android:layout_below="@+id/cardw1"
-    android:layout_marginTop="20dp"
-    android:textColor="@color/Black"
-    />
+        android:layout_below="@+id/cardw1"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/Black"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardw2"
@@ -80,73 +80,74 @@
         android:layout_below="@+id/addmone"
         app:cardCornerRadius="@dimen/_6sdp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/White"
-        android:id="@+id/rel2"
-        android:padding="10dp">
-
-        <EditText
-            android:layout_marginTop="@dimen/_5ssp"
-            android:id="@+id/addmoney"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textColorHint="@color/Gray"
-            android:hint="Amount"
-            android:backgroundTint="@color/CyanP"
-            android:drawablePadding="@dimen/_10sdp"
-            android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
-            />
+            android:gravity="center"
+            android:background="@color/White"
+            android:id="@+id/rel2"
+            android:padding="10dp">
 
-        <Button
-            android:id="@+id/addmoneybutton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:text="+₹500"
-            android:layout_below="@+id/addmoney"
-            android:background="@drawable/button1"/>
+            <EditText
+                android:layout_marginTop="@dimen/_5ssp"
+                android:id="@+id/addmoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/Gray"
+                android:hint="Amount"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
+                />
 
-        <Button
-            android:id="@+id/addmoneybutton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:text="+₹1000"
-            android:layout_toEndOf="@+id/addmoneybutton1"
-            android:layout_below="@+id/addmoney"
-            android:background="@drawable/button1" />
+            <Button
+                android:id="@+id/addmoneybutton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="+₹500"
+                android:layout_below="@+id/addmoney"
+                android:background="@drawable/button1"/>
 
-        <Button
-            android:id="@+id/addmoneybutton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/addmoneybutton2"
-            android:textSize="10dp"
-            android:text="+₹2000"
-            android:layout_below="@+id/addmoney"
-            android:background="@drawable/button1"/>
+            <Button
+                android:id="@+id/addmoneybutton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="+₹1000"
+                android:layout_toEndOf="@+id/addmoneybutton1"
+                android:layout_below="@+id/addmoney"
+                android:background="@drawable/button1" />
 
-
-        <Button
-            android:id="@+id/addmoneybutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:text="Add Money"
-            android:textColor="@color/White"
-            android:fontFamily="@font/noto_sans_bold"
-            android:layout_marginHorizontal="@dimen/_80sdp"
-            android:layout_marginVertical="@dimen/_40sdp"
-            android:layout_below="@+id/addmoneybutton1"
-            android:background="@drawable/button"/>
+            <Button
+                android:id="@+id/addmoneybutton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/addmoneybutton2"
+                android:textSize="10dp"
+                android:text="+₹2000"
+                android:layout_below="@+id/addmoney"
+                android:background="@drawable/button1"/>
 
 
+            <Button
+                android:id="@+id/addmoneybutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Add Money"
+                android:textColor="@color/White"
+                android:fontFamily="@font/noto_sans_bold"
+                android:layout_marginHorizontal="@dimen/_80sdp"
+                android:layout_marginVertical="@dimen/_40sdp"
+                android:layout_below="@+id/addmoneybutton1"
+                android:background="@drawable/button"/>
 
-    </RelativeLayout>
+
+
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 

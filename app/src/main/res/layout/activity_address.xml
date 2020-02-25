@@ -26,6 +26,7 @@
                 android:textColor="@color/Black"
                 android:fontFamily="@font/noto_sans_bold"
                 android:textSize="@dimen/_22ssp"
+                android:layout_marginVertical="@dimen/_12ssp"
                 android:layout_marginHorizontal="@dimen/_15sdp"></TextView>
 
 

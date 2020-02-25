@@ -47,6 +47,7 @@
                     android:backgroundTint="@color/CyanP"
                     android:layout_marginHorizontal="@dimen/_70sdp"
                     android:fontFamily="@font/noto_sans"
+                    android:textCursorDrawable="@drawable/cursor"
                     android:textSize="@dimen/_12ssp"
                     android:ems="10"
                     android:inputType="numberDecimal"
