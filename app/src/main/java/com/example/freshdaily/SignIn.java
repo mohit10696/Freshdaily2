@@ -11,7 +11,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.telephony.SmsManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -69,6 +72,9 @@ public class SignIn extends AppCompatActivity {
 
         LOGIN = findViewById(R.id.LOgin);
         et = findViewById(R.id.mobieno);
+        LOGIN.setBackground(getDrawable(R.drawable.button2));
+        LOGIN.setEnabled(false);
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -76,6 +82,35 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendSMSMessage();
+            }
+        });
+
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(!et.getText().toString().isEmpty())
+                {
+                    if(et.getText().toString().length()==10)
+                    {
+                        LOGIN.setBackground(getDrawable(R.drawable.button));
+                        LOGIN.setEnabled(true);
+                    }
+                    else
+                    {
+                        LOGIN.setBackground(getDrawable(R.drawable.button2));
+                        LOGIN.setEnabled(false);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
@@ -158,7 +193,8 @@ public class SignIn extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     SmsManager smsManager = SmsManager.getDefault();
                     Random rand = new Random();
-                    otp = Integer.toString(rand.nextInt((max-min)+1));
+                    otp = String.format("%04d", rand.nextInt(10000));
+
 
                     //Toast.makeText(getApplicationContext(),"heo" , Toast.LENGTH_LONG).show();
                     if(phoneNo.matches("^[0-9]{10}")) {

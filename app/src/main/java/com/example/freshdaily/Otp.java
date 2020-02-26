@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -55,7 +57,44 @@ public class Otp extends AppCompatActivity {
         sliderLayout.setScrollTimeInSec(1); //set scroll delay in seconds :
         sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
         editor = sharedpreferences.edit();
+        btn = findViewById(R.id.Continue);
+        btn.setEnabled(false);
+        btn.setBackground(getDrawable(R.drawable.button2));
         OTP = (EditText) findViewById(R.id.otp);
+
+        OTP.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(!OTP.getText().toString().isEmpty())
+                {
+                    if(OTP.getText().toString().length()==4)
+                    {
+                        btn.setEnabled(true);
+                        btn.setBackground(getDrawable(R.drawable.button));
+                    }
+                    else
+                    {
+                        btn.setEnabled(false);
+                        btn.setBackground(getDrawable(R.drawable.button2));
+                    }
+                }
+                else
+                {
+                    btn.setEnabled(false);
+                    btn.setBackground(getDrawable(R.drawable.button2));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         setSliderViews();
 
@@ -63,7 +102,6 @@ public class Otp extends AppCompatActivity {
         Intent intent = getIntent();
         final String i = intent.getStringExtra(SignIn.EXTRA_TEXT);
 
-        btn = findViewById(R.id.Continue);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
