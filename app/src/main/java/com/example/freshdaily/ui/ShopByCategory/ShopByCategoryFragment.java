@@ -16,10 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.freshdaily.R;
 import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterCat;
-import com.example.freshdaily.ui.dashboard.verticalProductList.modelCat;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.freshdaily.ui.dashboard.HomeFragment;
 
 public class ShopByCategoryFragment extends Fragment {
 
@@ -45,6 +42,10 @@ public class ShopByCategoryFragment extends Fragment {
 //        RecyclerView recyclerView2 = root.findViewById(R.id.gridproduct);
 //        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
 //        recyclerView2.setAdapter(adapter2);
+        adpaterCat adapter2 = new adpaterCat(HomeFragment.modelCats,getContext());
+        RecyclerView recyclerView2 = root.findViewById(R.id.gridproduct);
+        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView2.setAdapter(adapter2);
         return root;
     }
 }
