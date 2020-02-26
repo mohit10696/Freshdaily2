@@ -59,6 +59,7 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         holder.productqunitity.setText(modelProduct.getQuntity());
         holder.productprize.setText(modelProduct.getPrice());
         holder.productname.setText(modelProduct.getName());
+        holder.subscribebutton.setText("Subscribe @"+modelProduct.getPrice());
         holder.bind(modelProduct);
 
     }

@@ -31,20 +31,20 @@ public class ShopByCategoryFragment extends Fragment {
                 ViewModelProviders.of(this).get(ShopByCategoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_logout, container, false);
 
-        List<modelCat> modelCats = new ArrayList<>();
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        modelCats.add(new modelCat());
-        adpaterCat adapter2 = new adpaterCat(modelCats);
-        RecyclerView recyclerView2 = root.findViewById(R.id.gridproduct);
-        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
-        recyclerView2.setAdapter(adapter2);
+//        List<modelCat> modelCats = new ArrayList<>();
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        modelCats.add(new modelCat());
+//        adpaterCat adapter2 = new adpaterCat(modelCats);
+//        RecyclerView recyclerView2 = root.findViewById(R.id.gridproduct);
+//        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
+//        recyclerView2.setAdapter(adapter2);
         return root;
     }
 }

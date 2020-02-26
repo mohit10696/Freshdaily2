@@ -1,5 +1,7 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
+import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,15 +9,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.R;
 
 import java.util.List;
 
+import static com.example.freshdaily.ui.dashboard.verticalProductList.adpaterProduct.dburl;
+
 public class adpaterCat extends RecyclerView.Adapter<holderCat> {
     List<modelCat> modelCatList;
-
-    public adpaterCat(List<modelCat> list) {
+    Context context;
+    public static String dburl = "http://18.213.183.26/assets/images/category/";
+    public adpaterCat(List<modelCat> list, Context context) {
         this.modelCatList = list;
+        this.context = context;
     }
 
     @NonNull
@@ -30,8 +38,12 @@ public class adpaterCat extends RecyclerView.Adapter<holderCat> {
     @Override
     public void onBindViewHolder(@NonNull holderCat holder, int position) {
         final modelCat modelCat2 = modelCatList.get(position);
+        Glide.with(this.context)
+                .load(Uri.parse(dburl+modelCat2.getImage()))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.productimage);
+        holder.productname.setText(modelCat2.getName());
         holder.bind(modelCat2);
-
     }
 
     @Override

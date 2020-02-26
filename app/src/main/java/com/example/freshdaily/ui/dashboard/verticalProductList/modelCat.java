@@ -1,14 +1,19 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 public class modelCat {
-    private int image;
-    private String name,price;
+    private String image;
+    private String name;
 
-    public int getImage() {
+    public modelCat(String image, String name) {
+        this.image = image;
+        this.name = name;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -20,11 +25,4 @@ public class modelCat {
         this.name = name;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 }
