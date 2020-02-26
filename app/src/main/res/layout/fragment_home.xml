@@ -56,7 +56,7 @@
         android:layout_below="@+id/imageSliderHome"
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="loading-indicator.json"
+        app:lottie_fileName="loading-animation.json"
         android:layout_centerInParent="true"
         app:lottie_loop="true" />
 
