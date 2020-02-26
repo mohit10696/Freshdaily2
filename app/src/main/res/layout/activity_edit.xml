@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,6 +35,9 @@
                 android:padding="@dimen/_10sdp"
                 android:id="@+id/first"
                 android:layout_below="@+id/cd"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:textSize="@dimen/_15ssp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:textColorHint="@color/Gray"
@@ -50,6 +54,9 @@
                 android:textSize="@dimen/_15ssp"
                 android:id="@+id/last"
                 android:layout_below="@+id/cd"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:layout_toEndOf="@+id/first"
                 android:hint="@string/lastname"
                 android:textAlignment="viewStart"
@@ -72,6 +79,9 @@
                 android:textSize="@dimen/_15ssp"
                 android:layout_below="@+id/first"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:drawableTint="@color/CyanP"
+                android:textCursorDrawable="@drawable/cursor"
+                android:backgroundTint="@color/CyanP"
                 android:padding="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:fontFamily="@font/noto_sans_bold"

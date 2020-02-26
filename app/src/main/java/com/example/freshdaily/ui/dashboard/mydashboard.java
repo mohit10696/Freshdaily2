@@ -24,7 +24,6 @@ public class mydashboard extends Fragment {
         BottomNavigation = root.findViewById(R.id.navigation);
         BottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));
-
         return root;
     }
     public void openFragment(Fragment fragment) {

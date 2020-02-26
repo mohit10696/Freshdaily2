@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import androidx.fragment.app.Fragment;
 
@@ -21,12 +23,15 @@ public class ContactFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Fragment newFragment = new ContactFragment();
-        //Fragment newFragment = ContactFragment.newInstance();
-
         view =  inflater.inflate(R.layout.fragment_contact, container, false);
+
+        final WebView web = (WebView)view.findViewById(R.id.web_chat);
+
+        WebSettings setting=web.getSettings();
+        setting.setJavaScriptEnabled(true);
+        web.loadUrl("http://freshdaily1920.mywebcommunity.org/chat.html");
+
         return view;
-        //ZohoSalesIQ.init(  , "45xrGyIS2DrHrSx8LPVYaefKyTIzb8ApgFTT6rbYnyJOhOhAkZQdt2uYKKrBFIAb_in", "VXYedrQX8Skkl8hBUChWx%2FThmma%2FSCn9zV4pxPsw3Vyl91l4IjM8fpwgsYjLNXW8BZS2ind7lJppFjtNO685sskC%2B7h%2Fw%2FZUuMUmoCX%2BuTAiUtoObo%2BxyK4o5sR%2BW23AuOYA1YNKpgCrqkBaCMosdxvJqLssWmb4vAoMmiENoA4%3D");
 
 
     }
