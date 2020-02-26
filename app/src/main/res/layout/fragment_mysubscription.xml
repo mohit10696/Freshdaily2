@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#EEF2F5">
 
     <ScrollView
+        android:id="@+id/scr"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -452,8 +452,33 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cards6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scr"
+                android:layout_gravity="bottom"
+                android:background="#FFFFFF">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="awdeaf"
+                    ></Button>
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
+
+
+
 
     </ScrollView>
 
-</LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>
