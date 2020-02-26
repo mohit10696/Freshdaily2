@@ -8,57 +8,56 @@
     app:layout_constraintCircleRadius="10dp"
     android:layout_margin="5dp"
     android:fadingEdge="horizontal"
-    app:cardBackgroundColor="@color/White">
+    app:cardBackgroundColor="@color/FloralWhite">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
+    android:padding="10dp"
     android:gravity="center_horizontal">
 
     <androidx.appcompat.widget.AppCompatImageView
+
         android:id="@+id/productimage"
         android:src="@drawable/sliderdump"
+        android:scaleType="centerCrop"
         android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginVertical="@dimen/_10sdp"/>
+        android:layout_height="@dimen/_100sdp"/>
 
     <TextView
-        android:id="@+id/productname"
+        android:id="@+id/productcategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/productimage"
         android:textSize="@dimen/_10ssp"
-        android:layout_marginHorizontal="@dimen/_10sdp"
         android:text="Amul"
         android:fontFamily="@font/noto_sans"
         android:textColor="@color/Gray"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/productprize"
+        android:id="@+id/productname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_below="@+id/productname"
-        android:textSize="@dimen/_13ssp"
-        android:textColor="@color/Black"
+        android:layout_height="40dp"
+        android:layout_below="@+id/productcategory"
+        android:layout_marginTop="0dp"
         android:fontFamily="@font/noto_sans"
-        android:text="Amul Gold"/>
+        android:text="Amul Gold"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/_10ssp" />
 
     <TextView
         android:id="@+id/productweight"
         android:layout_width="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/productprize"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="@color/Gray"
+        android:layout_below="@+id/productname"
+        android:layout_marginTop="1dp"
         android:fontFamily="@font/noto_sans"
-        android:text="500 ml"/>
+        android:text="500 ml"
+        android:textColor="@color/Gray"
+        android:textSize="@dimen/_10ssp" />
 
     <TextView
         android:id="@+id/pr1"
@@ -67,7 +66,6 @@
         android:layout_below="@+id/productweight"
         android:textSize="@dimen/_10ssp"
         android:textColor="@color/Gray"
-        android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_2sdp"
         android:fontFamily="@font/noto_sans"
         android:text="MRP:"/>
@@ -93,32 +91,29 @@
         android:text="28"/>
 
     <Button
+        android:id="@+id/subscribebutton"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_height="@dimen/_20sdp"
         android:layout_gravity="center"
-        android:textSize="@dimen/_8ssp"
+        android:textSize="@dimen/_5ssp"
         android:layout_weight="0.4"
-        android:layout_marginHorizontal="@dimen/_8sdp"
         android:background="@drawable/button"
         android:text="Subscribe @ ₹28"
-        android:id="@+id/sub"
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_below="@+id/productprice"
         android:fontFamily="@font/noto_sans_bold"
         android:textColor="@color/WhiteSmoke" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_25sdp"
         android:gravity="center"
-        android:layout_below="@+id/sub"
+        android:layout_below="@+id/subscribebutton"
         android:fontFamily="@font/noto_sans"
         android:textColor="@color/Black"
         android:text="buy once"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/rounded_button1"
         ></Button>
-
 
 </RelativeLayout>
 

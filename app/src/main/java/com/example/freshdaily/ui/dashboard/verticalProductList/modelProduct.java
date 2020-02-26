@@ -1,14 +1,41 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 public class modelProduct {
-    private int image;
-    private String name,price;
+    private String image;
+    private String name;
+    private String price;
+    private String quntity;
+    private String Company;
 
-    public int getImage() {
+    public String getCompany() {
+        return Company;
+    }
+
+    public void setCompany(String company) {
+        Company = company;
+    }
+
+    public String getQuntity() {
+        return quntity;
+    }
+
+    public void setQuntity(String quntity) {
+        this.quntity = quntity;
+    }
+
+    public modelProduct(String image, String name, String price, String quntity, String company) {
+        this.image = image;
+        this.name = name;
+        this.price = price;
+        this.quntity = quntity;
+        Company = company;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
