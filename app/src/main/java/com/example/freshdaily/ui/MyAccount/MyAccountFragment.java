@@ -20,6 +20,10 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.freshdaily.R;
 import com.example.freshdaily.edit;
 import com.example.freshdaily.ui.address;
+import com.example.freshdaily.ui.dashboard.HomeFragment;
+import com.zoho.livechat.android.ui.fragments.BaseFragment;
+
+import java.util.List;
 
 public class MyAccountFragment extends Fragment {
     Button btn;
@@ -63,4 +67,9 @@ public class MyAccountFragment extends Fragment {
         });
         return root;
     }
+
+    public void onBackPressed(){
+        getActivity().getSupportFragmentManager().popBackStack();
+    }
+
 }
