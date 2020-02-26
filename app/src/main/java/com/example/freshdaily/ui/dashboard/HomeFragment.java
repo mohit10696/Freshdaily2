@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
     View view;
     EditText search;
     LottieAnimationView lottieAnimationView;
+    public static List<modelCat> modelCats;
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         return fragment;
@@ -112,7 +113,7 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<Object> call, Response<Object> response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response.body().toString());
-                    List<modelCat> modelCats = new ArrayList<>();
+                    modelCats = new ArrayList<>();
                     for(int i = 0 ; i< jsonArray.length();i++)
                     {
                         modelCats.add(new modelCat(jsonArray.getJSONObject(i).getString("category_image"),

@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.R;
-
 import java.util.List;
 
-import static com.example.freshdaily.ui.dashboard.verticalProductList.adpaterProduct.dburl;
 
 public class adpaterCat extends RecyclerView.Adapter<holderCat> {
     List<modelCat> modelCatList;
