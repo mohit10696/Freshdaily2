@@ -51,6 +51,8 @@ public class HomeFragment extends Fragment {
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         return fragment;
+
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -201,5 +203,9 @@ public class HomeFragment extends Fragment {
             sliderLayout.addSliderView(sliderView);
 
         }
+    }
+
+    public void onBackPressed(){
+        getActivity().getSupportFragmentManager().popBackStack();
     }
 }
