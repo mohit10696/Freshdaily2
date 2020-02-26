@@ -45,6 +45,10 @@ public class mydashboard extends Fragment {
                             openFragment(walletFragment.newInstance("", ""));
                             return true;
 
+                        case R.id.history:
+                            openFragment(subscripFragment.newInstance("", ""));
+                            return true;
+
                         case R.id.chat:
                             openFragment(ContactFragment.newInstance("", ""));
                             return true;

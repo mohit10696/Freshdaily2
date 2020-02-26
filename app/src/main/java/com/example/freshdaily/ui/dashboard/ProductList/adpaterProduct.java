@@ -1,17 +1,25 @@
 package com.example.freshdaily.ui.dashboard.ProductList;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.R;
+import com.example.freshdaily.subscribeActitivty;
+import com.example.freshdaily.ui.dashboard.subscripFragment;
 
 import java.util.List;
 
@@ -19,10 +27,12 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
     List<modelProduct> modelProductList;
     Context context;
     View view;
+    Activity activity;
     public static String dburl = "http://18.213.183.26/assets/images/products/";
-    public adpaterProduct(List<modelProduct> list, Context context) {
+    public adpaterProduct(List<modelProduct> list, Context context,Activity activity) {
         this.modelProductList = list;
         this.context = context;
+        this.activity = activity;
     }
 
 
@@ -37,7 +47,7 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull holderProduct holder, int position) {
+    public void onBindViewHolder(@NonNull final holderProduct holder, int position) {
         final modelProduct modelProduct = modelProductList.get(position);
         Glide.with(this.context)
                 .load(Uri.parse(dburl+modelProduct.getImage()))
@@ -49,6 +59,15 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         holder.productprize.setText(modelProduct.getPrice());
         holder.productname.setText(modelProduct.getName());
         holder.subscribebutton.setText("Subscribe @"+modelProduct.getPrice());
+        holder.subscribebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,subscribeActitivty.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("productname",modelProduct.getName());
+                context.startActivity(intent);
+            }
+        });
         holder.bind(modelProduct);
 
     }

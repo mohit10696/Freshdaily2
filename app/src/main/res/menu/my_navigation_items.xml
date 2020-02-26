@@ -2,7 +2,7 @@
     <item android:id="@+id/home"
         android:title="Home"
         android:icon="@drawable/ic_home_black_24dp" />
-    <item android:id="@+id/orders"
+    <item android:id="@+id/history"
         android:title="Orders"
         android:icon="@drawable/ic_assignment_black_24dp" />
     <item android:id="@+id/wallets"

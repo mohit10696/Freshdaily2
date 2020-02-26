@@ -28,6 +28,14 @@
         android:layout_below="@id/searchTextbox"
         android:background="@color/WhiteSmoke" />
 
+    <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/image3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@drawable/poster5"
+        android:layout_below="@+id/imageSliderHome"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,7 +46,7 @@
         android:textSize="@dimen/_15ssp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_below="@+id/imageSliderHome"/>
+        android:layout_below="@+id/image3"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
         android:background="#EEF2F5"

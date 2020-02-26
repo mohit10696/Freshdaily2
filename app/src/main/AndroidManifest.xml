@@ -21,11 +21,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.dashboard.ProductList.product"  android:parentActivityName=".DashBord"></activity>
+        <activity android:name=".subscribeActitivty"></activity>
+        <activity
+            android:name=".ui.dashboard.ProductList.product"
+            android:parentActivityName=".DashBord" />
         <activity
             android:name=".edit"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".searchActivity"
             android:screenOrientation="portrait" />

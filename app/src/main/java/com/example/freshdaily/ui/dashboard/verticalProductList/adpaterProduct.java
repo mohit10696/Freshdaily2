@@ -1,6 +1,7 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.MainActivity;
 import com.example.freshdaily.R;
+import com.example.freshdaily.subscribeActitivty;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -60,6 +62,15 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         holder.productprize.setText(modelProduct.getPrice());
         holder.productname.setText(modelProduct.getName());
         holder.subscribebutton.setText("Subscribe @"+modelProduct.getPrice());
+        holder.subscribebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, subscribeActitivty.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("productname",modelProduct.getName());
+                context.startActivity(intent);
+            }
+        });
         holder.bind(modelProduct);
 
     }

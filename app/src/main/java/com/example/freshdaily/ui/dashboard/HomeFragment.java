@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,6 +78,7 @@ public class HomeFragment extends Fragment {
         lottieAnimationView.setVisibility(View.VISIBLE);
         productLoad();
         catLoad();
+
 //        List<modelProduct> modelProducts = new ArrayList<>();
 //         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
 ////        modelProducts.add(new modelProduct());
@@ -111,8 +114,8 @@ public class HomeFragment extends Fragment {
 
     private void catLoad() {
         apinterface api = retrofit.getapi();
-        RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),"milk");
-        Call<Object> call = api.getproduct(cat);
+
+        Call<Object> call = api.getcatProduct();
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
@@ -145,7 +148,8 @@ public class HomeFragment extends Fragment {
 
     private void productLoad() {
         apinterface api = retrofit.getapi();
-        Call<Object> call = api.getAllProduct();
+        RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),"milk");
+        Call<Object> call = api.getproduct(cat);
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
@@ -186,7 +190,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setSliderViews() {
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i <= 3; i++) {
 
 
             DefaultSliderView sliderView = new DefaultSliderView(getContext());
@@ -194,13 +198,16 @@ public class HomeFragment extends Fragment {
 
             switch (i) {
                 case 0:
-                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/chaishaktibig.jpg");
+                    sliderView.setImageUrl("http://18.213.183.26/poster/poster2.png");
                     break;
                 case 1:
-                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/gold.png");
+                    sliderView.setImageUrl("http://18.213.183.26/poster/poster4.png");
                     break;
                 case 2:
-                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/amulslimandtrim.jpg");
+                    sliderView.setImageUrl("http://18.213.183.26/poster/poster3.png");
+                    break;
+                case 3:
+                    sliderView.setImageUrl("http://18.213.183.26/poster/poster1.png");
                     break;
 
             }

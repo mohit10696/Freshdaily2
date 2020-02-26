@@ -61,7 +61,7 @@ public class product extends AppCompatActivity {
                                 jsonArray.getJSONObject(i).getString("quantity"),
                                 jsonArray.getJSONObject(i).getString("company_name")));
                     }
-                    adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext());
+                    adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext(),getParent());
                     recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
                     recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {
