@@ -132,13 +132,13 @@ public class SignIn extends AppCompatActivity {
 
             switch (i) {
                 case 0:
-                    sliderView.setImageUrl("https://i.postimg.cc/L5xzt3pL/png1.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/4dJmLM54/png1.png");
                     break;
                 case 1:
-                    sliderView.setImageUrl("https://i.postimg.cc/jdt6BB1v/png3-2.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/hPdgWsh9/png2.png");
                     break;
                 case 2:
-                    sliderView.setImageUrl("https://i.postimg.cc/V6SmRYn6/png2-2.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/B6jDJkrS/png3.png");
                     break;
 
             }

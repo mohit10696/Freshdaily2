@@ -1,5 +1,8 @@
 package com.example.freshdaily;
 
+import android.app.FragmentTransaction;
+
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,12 +16,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.freshdaily.ui.MyAccount.MyAccountFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashBord extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private long backPressedTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +44,15 @@ public class DashBord extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dash_bord, menu);
+
         return true;
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -59,19 +66,42 @@ public class DashBord extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         long t = System.currentTimeMillis();
         if (t - backPressedTime > 2000) {
             backPressedTime = t;
-            Toast.makeText(this, "Press back again to logout", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press back again to Exit", Toast.LENGTH_SHORT).show();
         } else {
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
         }
+
+    }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.account:
+                MyAccountFragment newFragment = new MyAccountFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_home, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }*/
     }
 
 
-}
+
+
 
 
 
