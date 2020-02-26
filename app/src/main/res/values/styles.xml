@@ -12,6 +12,7 @@
         <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
         <item name="windowActionBar">false</item>
     </style>
+
     <style name="MyActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/colorAccent</item>
     </style>

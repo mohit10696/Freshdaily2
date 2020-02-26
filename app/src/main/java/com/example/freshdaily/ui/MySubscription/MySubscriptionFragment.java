@@ -39,8 +39,8 @@ public class MySubscriptionFragment extends Fragment {
 
     Button minus,plus,daily,alternetDay,everyThreeDay,weekly,monthly;
     TextView quantity;
-    LinearLayout satrtDateCard;
-    TextView startDate;
+    LinearLayout satrtDateCard,checkout;
+    TextView startDate,sdate;
     View root;
     boolean isDailySet=false,isAlternetDaySet=false,isEveryThreeDaySet=false,isWeeklySet=false,isMonthlySet=false;
     EditText promo_text;
@@ -63,6 +63,11 @@ public class MySubscriptionFragment extends Fragment {
         weekly = (Button)root.findViewById(R.id.weekly);
         monthly = (Button)root.findViewById(R.id.monthly);
         promo_text = (EditText)root.findViewById(R.id.promo_text);
+        sdate = (TextView)root.findViewById(R.id.sdate);
+        checkout = (LinearLayout)root.findViewById(R.id.checkout);
+
+        checkout.setVisibility(View.GONE);
+
 
 /*        if(no_of_quantity==0)
             minus.setEnabled(false);
@@ -135,6 +140,7 @@ public class MySubscriptionFragment extends Fragment {
                     daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                     daily.setTextColor(Color.rgb(160,160,160));
                     satrtDateCard.setVisibility(View.GONE);
+                    checkout.setVisibility(View.GONE);
                 } else {
                     // calender class's instance and get current date , month and year from calender
                     final Calendar c = Calendar.getInstance();
@@ -166,6 +172,8 @@ public class MySubscriptionFragment extends Fragment {
 
                             satrtDateCard.setVisibility(View.VISIBLE);
                             startDate.setText(setDateFromat(date));
+                            checkout.setVisibility(View.VISIBLE);
+                            sdate.setText(setDateFromat(date));
 
                         }
                     }, mYear, mMonth, mDay);
@@ -184,6 +192,7 @@ public class MySubscriptionFragment extends Fragment {
                     alternetDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                     alternetDay.setTextColor(Color.rgb(160,160,160));
                     satrtDateCard.setVisibility(View.GONE);
+                    checkout.setVisibility(View.GONE);
                 } else {
                     // calender class's instance and get current date , month and year from calender
                     final Calendar c = Calendar.getInstance();
@@ -217,6 +226,8 @@ public class MySubscriptionFragment extends Fragment {
 
                             satrtDateCard.setVisibility(View.VISIBLE);
                             startDate.setText(setDateFromat(date));
+                            checkout.setVisibility(View.VISIBLE);
+                            sdate.setText(setDateFromat(date));
 
                         }
                     }, mYear, mMonth, mDay);
@@ -234,6 +245,7 @@ public class MySubscriptionFragment extends Fragment {
                     everyThreeDay.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                     everyThreeDay.setTextColor(Color.rgb(160,160,160));
                     satrtDateCard.setVisibility(View.GONE);
+                    checkout.setVisibility(View.GONE);
                 } else {
                     // calender class's instance and get current date , month and year from calender
                     final Calendar c = Calendar.getInstance();
@@ -265,6 +277,8 @@ public class MySubscriptionFragment extends Fragment {
 
                             satrtDateCard.setVisibility(View.VISIBLE);
                             startDate.setText(setDateFromat(date));
+                            checkout.setVisibility(View.VISIBLE);
+                            sdate.setText(setDateFromat(date));
 
                         }
                     }, mYear, mMonth, mDay);
@@ -283,6 +297,7 @@ public class MySubscriptionFragment extends Fragment {
                     weekly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                     weekly.setTextColor(Color.rgb(160, 160, 160));
                     satrtDateCard.setVisibility(View.GONE);
+                    checkout.setVisibility(View.GONE);
                 }
                 else
                 {
@@ -306,7 +321,10 @@ public class MySubscriptionFragment extends Fragment {
                                 everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
                                 daily.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                                 daily.setTextColor(Color.rgb(160, 160, 160));
-                                startDate.setText(setDateFromat(dateWeekly));
+                                date = dateWeekly ;
+                                startDate.setText(setDateFromat(date));
+                                checkout.setVisibility(View.VISIBLE);
+                                sdate.setText(setDateFromat(date));
                             }
 
                             //Toast.makeText(MainActivity.this,"hello"+dateWeekly,Toast.LENGTH_LONG).show();
@@ -329,6 +347,7 @@ public class MySubscriptionFragment extends Fragment {
                     monthly.setBackground(getActivity().getDrawable(R.drawable.rounded_button1));
                     monthly.setTextColor(Color.rgb(160, 160, 160));
                     satrtDateCard.setVisibility(View.GONE);
+                    checkout.setVisibility(View.GONE);
                 }
                 else
                 {
@@ -355,6 +374,8 @@ public class MySubscriptionFragment extends Fragment {
                                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                                 date = formatter.format(new Date());
                                 startDate.setText(setDateFromat(date));
+                                checkout.setVisibility(View.VISIBLE);
+                                sdate.setText(setDateFromat(date));
                             }
 
                             //Toast.makeText(MainActivity.this,"hello"+dateWeekly,Toast.LENGTH_LONG).show();
@@ -364,6 +385,7 @@ public class MySubscriptionFragment extends Fragment {
                 }
             }
         });
+
 
         return root;
     }

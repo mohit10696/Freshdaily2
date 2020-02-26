@@ -35,8 +35,6 @@ public class CustomDialogMonthlyActivity extends Dialog implements View.OnClickL
         super(a);
         // TODO Auto-generated constructor stub
         this.c = a;
-        MySubscriptionFragment.dateWeekly = null;
-        MySubscriptionFragment.flag = false;
     }
 
     @Override
