@@ -35,7 +35,7 @@ public class CustomDialogActivity extends Dialog implements View.OnClickListener
         super(a);
         // TODO Auto-generated constructor stub
         this.c = a;
-        MySubscriptionFragment.dateWeekly = null;
+        MySubscriptionFragment.date = null;
         MySubscriptionFragment.flag = false;
     }
 
