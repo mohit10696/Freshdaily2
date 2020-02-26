@@ -11,22 +11,52 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/AppTheme.AppBarOverlay"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-        <TextView
-            android:id="@+id/head"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/menu_dashboard"
-            android:gravity="center"
-            android:textColor="@color/White"
-            android:textStyle="bold"
-            android:textSize="@dimen/_15sdp"/>
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:background="@color/CyanP"
+        android:gravity="center"
+        android:paddingStart="@dimen/_10sdp"
+        >
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/menu_dashboard"
+                android:gravity="center"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"/>
+        </LinearLayout>
+
+
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/actionbar"
         android:id="@+id/productRecycleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/imageSliderHome"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading-animation.json"
+        android:layout_centerInParent="true"
+        app:lottie_loop="true" />
 
 </RelativeLayout>

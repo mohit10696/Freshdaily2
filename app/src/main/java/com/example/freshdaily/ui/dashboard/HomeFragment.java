@@ -161,6 +161,7 @@ public class HomeFragment extends Fragment {
                     {
                         Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
                         modelProducts.add(new modelProduct(
+                                jsonArray.getJSONObject(i).getString("product_id"),
                                 jsonArray.getJSONObject(i).getString("photo"),
                                 jsonArray.getJSONObject(i).getString("product_name"),
                                 jsonArray.getJSONObject(i).getString("price"),

@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.R;
@@ -32,11 +34,14 @@ public class product extends AppCompatActivity {
     String category;
     RecyclerView recyclerView;
     TextView head;
+    LottieAnimationView lottieAnimationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         recyclerView = findViewById(R.id.productRecycleview);
+        lottieAnimationView = findViewById(R.id.animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
         category = getIntent().getStringExtra("category");
         apinterface api = retrofit.getapi();
         RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),category);
@@ -55,6 +60,7 @@ public class product extends AppCompatActivity {
                     {
                         Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
                         modelProducts.add(new modelProduct(
+                                jsonArray.getJSONObject(i).getString("product_id"),
                                 jsonArray.getJSONObject(i).getString("photo"),
                                 jsonArray.getJSONObject(i).getString("product_name"),
                                 jsonArray.getJSONObject(i).getString("price"),
@@ -64,6 +70,7 @@ public class product extends AppCompatActivity {
                     adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext(),getParent());
                     recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
                     recyclerView.setAdapter(adapter);
+                    lottieAnimationView.setVisibility(View.INVISIBLE);
                 } catch (JSONException e) {
                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 }

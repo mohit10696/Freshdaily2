@@ -13,7 +13,7 @@ import com.example.freshdaily.R;
 public class holderProduct extends RecyclerView.ViewHolder {
     ImageView productimage;
     TextView productname,productprize,productqunitity,productcompany;
-    Button subscribebutton;
+    Button subscribebutton,addtocart;
 
     public holderProduct(@NonNull View itemView) {
         super(itemView);
@@ -23,6 +23,7 @@ public class holderProduct extends RecyclerView.ViewHolder {
             productcompany = itemView.findViewById(R.id.productcategory);
             productprize = itemView.findViewById(R.id.productprice);
             subscribebutton = itemView.findViewById(R.id.subscribebutton);
+            addtocart = itemView.findViewById(R.id.addtocart);
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.freshdaily;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +55,7 @@ public class DashBord extends AppCompatActivity {
     }
 
     public void myaacount(MenuItem item) {
-
+        startActivity(new Intent(DashBord.this,cart.class));
     }
 
     @Override
