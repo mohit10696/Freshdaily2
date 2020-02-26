@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.API.apinterface;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
     SliderLayout sliderLayout;
     View view;
     EditText search;
+    LottieAnimationView lottieAnimationView;
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         return fragment;
@@ -58,6 +60,7 @@ public class HomeFragment extends Fragment {
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setScrollTimeInSec(1);
         setSliderViews();
+        lottieAnimationView = view.findViewById(R.id.animation_view);
         search = view.findViewById(R.id.searchTextbox);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +68,7 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(), searchActivity.class));
             }
         });
-
+        lottieAnimationView.setVisibility(View.VISIBLE);
         productLoad();
 
 //        List<modelProduct> modelProducts = new ArrayList<>();
@@ -125,10 +128,11 @@ public class HomeFragment extends Fragment {
                     RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
                     recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
                     recyclerView.setAdapter(adapter);
-
+                    lottieAnimationView.setVisibility(View.INVISIBLE);
                 } catch (JSONException e) {
                     Toast.makeText(getContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
+                    lottieAnimationView.setVisibility(View.INVISIBLE);
                 }
 
 
@@ -137,6 +141,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
                 Toast.makeText(getContext(),t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                lottieAnimationView.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -144,9 +149,24 @@ public class HomeFragment extends Fragment {
     private void setSliderViews() {
         for (int i = 0; i <= 2; i++) {
 
+
             DefaultSliderView sliderView = new DefaultSliderView(getContext());
-            sliderView.setImageDrawable(R.drawable.sliderdump);
+
+
+            switch (i) {
+                case 0:
+                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/chaishaktibig.jpg");
+                    break;
+                case 1:
+                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/gold.png");
+                    break;
+                case 2:
+                    sliderView.setImageUrl("http://18.213.183.26/assets/images/products/amulslimandtrim.jpg");
+                    break;
+
+            }
             sliderLayout.addSliderView(sliderView);
+
         }
     }
 }

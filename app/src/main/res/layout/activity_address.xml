@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/m"
+                android:id="@+id/mobile"
                 android:textSize="@dimen/_15ssp"
                 android:layout_below="@+id/t"
                 android:text="Gandhinagar"
@@ -120,7 +120,7 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:textColor="@color/Gray"
-                android:layout_below="@+id/m"></TextView>
+                android:layout_below="@+id/mobile"></TextView>
 
 
             <TextView

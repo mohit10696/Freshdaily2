@@ -19,7 +19,7 @@
     <string name="terms" formatted="false">Legal, Terms &amp; Conditions</string>
     <string name="menu_share">Share</string>
     <string name="menu_logout">Logout</string>
-    <string name="title_activity_dash_bord">DashBord</string>
+    <string name="title_activity_dash_bord">FreshDaily</string>
     <string name="customer"><b>Customer</b></string>
     <string name="menu_home">My Account</string>
     <string name="menu_gallery">MySubscription</string>

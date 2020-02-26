@@ -74,7 +74,9 @@ public class Otp extends AppCompatActivity {
                     dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     dialog.show();
                     dialog.setCancelable(false);
-                    checkusertype();
+                    Intent intent = getIntent();
+                    number = intent.getStringExtra("number");
+                    checkusertype(number);
                 }
                 else
                 {
@@ -86,18 +88,10 @@ public class Otp extends AppCompatActivity {
 
     }
 
-    private void checkusertype() {
-        Intent intent = getIntent();
-        number = intent.getStringExtra("number");
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(apinterface.JSONURL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
- //       apinterface api = retrofit.create(apinterface.class);
+    public void checkusertype(String number2) {
         apinterface api = retrofit.getapi();
-        RequestBody numberparam = RequestBody.create(MediaType.parse("multipart/form-data"),number);
+        RequestBody numberparam = RequestBody.create(MediaType.parse("multipart/form-data"),number2);
         Call<Object> call = api.getUserLogin(numberparam);
-
        // Toast.makeText(getApplicationContext(),number,Toast.LENGTH_LONG).show();
         call.enqueue(new Callback<Object>() {
             @Override
@@ -113,13 +107,13 @@ public class Otp extends AppCompatActivity {
                         editor.putString("email",jsonObject.getString("email"));
                         editor.putString("landmark",jsonObject.getString("landmark"));
                         editor.putString("address",jsonObject.getString("address"));
-                        editor.putString("subscriprion",jsonObject.getString("subscriprion"));
+                        //editor.putString("subscriprion",jsonObject.getString("subscriprion"));
                         editor.commit();
                         dialog.dismiss();
                         Toast.makeText(getApplicationContext(),"Welcome back: "+jsonObject.getString("fname"),Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(Otp.this,DashBord.class));
+                        startActivity(new Intent(getApplicationContext(),DashBord.class));
                     }else{
-                        Intent intent = new Intent(Otp.this,DashBord.class);
+                        Intent intent = new Intent(Otp.this,edit.class);
                         intent.putExtra("mobile",number);
                         dialog.dismiss();
                         startActivity(intent);

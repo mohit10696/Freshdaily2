@@ -16,4 +16,13 @@ public interface apinterface {
     @POST("getAllproduct.php")
     Call<Object> getAllProduct();
 
+    @Multipart
+    @POST("adduser.php")
+    Call<String> adduser(
+            @Part("fname") RequestBody fname,
+            @Part("lname") RequestBody lanme,
+            @Part("number") RequestBody number,
+            @Part("email") RequestBody email
+    );
+
 }
