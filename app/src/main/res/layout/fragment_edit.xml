@@ -73,6 +73,7 @@
                 android:textSize="@dimen/_15ssp"
                 android:layout_below="@+id/first"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:inputType="textEmailAddress"
                 android:padding="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:fontFamily="@font/noto_sans_bold"
