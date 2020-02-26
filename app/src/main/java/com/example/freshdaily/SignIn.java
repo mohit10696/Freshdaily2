@@ -19,10 +19,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.freshdaily.ui.NeedHelp.CustomDialogActivity2;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
@@ -60,7 +62,8 @@ public class SignIn extends AppCompatActivity {
             TV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://freshdaily1920.mywebcommunity.org/policy.html")));
+                CustomDialogActivity2 cda = new CustomDialogActivity2(SignIn.this,"http://freshdaily1920.mywebcommunity.org/policy.html");
+                cda.show();
             }
         });
 
@@ -75,13 +78,16 @@ public class SignIn extends AppCompatActivity {
         LOGIN.setBackground(getDrawable(R.drawable.button2));
         LOGIN.setEnabled(false);
 
+        final CheckBox ch =(CheckBox) findViewById(R.id.check);
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         LOGIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSMSMessage();
+                if(ch.isChecked())
+                    sendSMSMessage();
             }
         });
 
@@ -110,26 +116,6 @@ public class SignIn extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        TV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(SignIn.this);
-                ViewGroup viewGroup = findViewById(android.R.id.content);
-                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.ternsandcondition, viewGroup, false);
-                builder.setView(dialogView);
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-                dialogView.findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        alertDialog.cancel();
-                    }
-                });
-
 
             }
         });
