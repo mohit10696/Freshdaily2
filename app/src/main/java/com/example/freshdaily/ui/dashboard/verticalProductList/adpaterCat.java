@@ -1,10 +1,12 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.R;
+import com.example.freshdaily.product;
+
 import java.util.List;
 
 
@@ -42,6 +46,15 @@ public class adpaterCat extends RecyclerView.Adapter<holderCat> {
                 .into(holder.productimage);
         holder.productname.setText(modelCat2.getName());
         holder.bind(modelCat2);
+        holder.productimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,modelCat2.getName(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, product.class);
+                intent.putExtra("category",modelCat2.getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

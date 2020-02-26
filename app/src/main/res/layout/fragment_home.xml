@@ -28,26 +28,50 @@
         android:layout_below="@id/searchTextbox"
         android:background="@color/WhiteSmoke" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
-        android:background="@color/WhiteSmoke"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/Verticalproduct"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageSliderHome"
-         />
-
+        android:layout_height="match_parent"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="All Milk"
+        android:id="@+id/allmilk"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_below="@+id/imageSliderHome"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
         android:background="#EEF2F5"
         android:clickable="true"
         android:focusable="true"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:id="@+id/Verticalproduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/allmilk"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Categories"
+        android:id="@+id/Categorie"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_below="@+id/Verticalproduct"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="#EEF2F5"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_10sdp"
         android:id="@+id/gridproduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Verticalproduct"
+        android:layout_below="@+id/Categorie"
         />
 
     <com.airbnb.lottie.LottieAnimationView
