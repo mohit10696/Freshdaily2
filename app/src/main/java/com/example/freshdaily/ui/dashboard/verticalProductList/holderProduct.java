@@ -1,6 +1,7 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import com.example.freshdaily.R;
 public class holderProduct extends RecyclerView.ViewHolder {
     ImageView productimage;
     TextView productname,productprize,productqunitity,productcompany;
-
+    Button subscribebutton;
 
     public holderProduct(@NonNull View itemView) {
         super(itemView);
@@ -21,6 +22,7 @@ public class holderProduct extends RecyclerView.ViewHolder {
             productqunitity = itemView.findViewById(R.id.productweight);
             productcompany = itemView.findViewById(R.id.productcategory);
             productprize = itemView.findViewById(R.id.productprice);
+            subscribebutton = itemView.findViewById(R.id.subscribebutton);
 
     }
 

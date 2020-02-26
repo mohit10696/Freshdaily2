@@ -16,6 +16,9 @@ public interface apinterface {
     @POST("getAllproduct.php")
     Call<Object> getAllProduct();
 
+    @POST("getAllcat.php")
+    Call<Object> getcatProduct();
+
     @Multipart
     @POST("adduser.php")
     Call<String> adduser(

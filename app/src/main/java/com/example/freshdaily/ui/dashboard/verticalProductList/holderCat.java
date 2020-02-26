@@ -11,14 +11,13 @@ import com.example.freshdaily.R;
 
 public class holderCat extends RecyclerView.ViewHolder {
     ImageView productimage;
-    TextView productname,productprize;
+    TextView productname;
 
 
     public holderCat(@NonNull View itemView) {
         super(itemView);
-        productimage = itemView.findViewById(R.id.productimage);
-        productname = itemView.findViewById(R.id.productname);
-       // productprize = itemView.findViewById(R.id.productprize);
+        productimage = itemView.findViewById(R.id.catimage);
+        productname = itemView.findViewById(R.id.catname);
     }
 
     public void bind(modelCat modelProduct) {

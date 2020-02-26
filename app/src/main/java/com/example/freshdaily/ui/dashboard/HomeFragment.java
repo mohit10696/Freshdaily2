@@ -70,7 +70,7 @@ public class HomeFragment extends Fragment {
         });
         lottieAnimationView.setVisibility(View.VISIBLE);
         productLoad();
-
+        catLoad();
 //        List<modelProduct> modelProducts = new ArrayList<>();
 //         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
 ////        modelProducts.add(new modelProduct());
@@ -102,6 +102,39 @@ public class HomeFragment extends Fragment {
 //        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
 //        recyclerView2.setAdapter(adapter2);
         return view;
+    }
+
+    private void catLoad() {
+        apinterface api = retrofit.getapi();
+        Call<Object> call = api.getcatProduct();
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response.body().toString());
+                    List<modelCat> modelCats = new ArrayList<>();
+                    for(int i = 0 ; i< jsonArray.length();i++)
+                    {
+                        modelCats.add(new modelCat(jsonArray.getJSONObject(i).getString("category_image"),
+                                jsonArray.getJSONObject(i).getString("Category_name")
+                                ));
+                    }
+                    adpaterCat adapter2 = new adpaterCat(modelCats,getContext());
+                    RecyclerView recyclerView2 = view.findViewById(R.id.gridproduct);
+                    recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
+                    recyclerView2.setAdapter(adapter2);
+                    lottieAnimationView.setVisibility(View.INVISIBLE);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+            }
+        });
     }
 
     private void productLoad() {
