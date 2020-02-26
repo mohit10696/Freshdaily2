@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.R;
-import com.example.freshdaily.product;
+import com.example.freshdaily.ui.dashboard.ProductList.product;
 
 import java.util.List;
 
