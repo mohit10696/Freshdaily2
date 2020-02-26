@@ -37,6 +37,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,7 +111,8 @@ public class HomeFragment extends Fragment {
 
     private void catLoad() {
         apinterface api = retrofit.getapi();
-        Call<Object> call = api.getcatProduct();
+        RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),"milk");
+        Call<Object> call = api.getproduct(cat);
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
