@@ -41,7 +41,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
-        android:background="@color/WhiteSmoke"
+        android:background="#EEF2F5"
         android:clickable="true"
         android:focusable="true"
         android:id="@+id/gridproduct"
@@ -56,7 +56,7 @@
         android:layout_below="@+id/imageSliderHome"
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="loading-animation.json"
+        app:lottie_fileName="loading-indicator.json"
         android:layout_centerInParent="true"
         app:lottie_loop="true" />
 
