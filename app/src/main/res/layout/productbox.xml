@@ -3,19 +3,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="@dimen/_6sdp"
     app:cardElevation="3dp"
-    app:layout_constraintCircleRadius="10dp"
+    app:layout_constraintCircleRadius="@dimen/_6sdp"
     android:layout_margin="5dp"
     android:fadingEdge="horizontal"
-    app:cardBackgroundColor="@color/FloralWhite">
+    app:cardBackgroundColor="@color/White">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
-    android:padding="10dp"
     android:gravity="center_horizontal">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -24,6 +23,7 @@
         android:src="@drawable/sliderdump"
         android:scaleType="centerCrop"
         android:layout_width="@dimen/_100sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:layout_height="@dimen/_100sdp"/>
 
     <TextView
@@ -33,6 +33,7 @@
         android:layout_below="@+id/productimage"
         android:textSize="@dimen/_10ssp"
         android:text="Amul"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:fontFamily="@font/noto_sans"
         android:textColor="@color/Gray"
         android:textStyle="bold"/>
@@ -42,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@+id/productcategory"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="0dp"
         android:fontFamily="@font/noto_sans"
         android:text="Amul Gold"
@@ -54,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/productname"
         android:layout_marginTop="1dp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:fontFamily="@font/noto_sans"
         android:text="500 ml"
         android:textColor="@color/Gray"
@@ -65,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/productweight"
         android:textSize="@dimen/_10ssp"
+        android:layout_marginLeft="@dimen/_10sdp"
         android:textColor="@color/Gray"
         android:layout_marginTop="@dimen/_2sdp"
         android:fontFamily="@font/noto_sans"
@@ -95,9 +99,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_20sdp"
         android:layout_gravity="center"
-        android:textSize="@dimen/_5ssp"
+        android:textSize="@dimen/_8ssp"
         android:layout_weight="0.4"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:background="@drawable/button"
+        android:layout_marginVertical="@dimen/_2sdp"
         android:text="Subscribe @ ₹28"
         android:layout_below="@+id/productprice"
         android:fontFamily="@font/noto_sans_bold"
@@ -112,7 +118,7 @@
         android:textColor="@color/Black"
         android:text="buy once"
         android:layout_marginTop="@dimen/_5sdp"
-        android:background="@drawable/rounded_button1"
+        android:background="@drawable/sbutton"
         ></Button>
 
 </RelativeLayout>
