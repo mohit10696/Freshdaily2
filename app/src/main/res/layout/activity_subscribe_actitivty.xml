@@ -467,6 +467,7 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:background="@drawable/gradiant"
         android:layout_height="60dp" >
 
         <LinearLayout
@@ -500,6 +501,7 @@
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/noto_sans"
             android:layout_weight="0.8"
+            android:id="@+id/subscribe"
             android:background="@drawable/rounded_button2"
             android:text="START SUBSCRIPTION"
             android:textColor="@color/CyanP"
