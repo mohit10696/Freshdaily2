@@ -1,67 +1,78 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 public class modelProduct {
-    private String id;
-    private String image;
-    private String name;
-    private String price;
-    private String quntity;
-    private String Company;
+        private String id;
+        private String image;
+        private String name;
+        private String price;
+        private String quntity;
+        private String Company;
 
-    public String getCompany() {
-        return Company;
-    }
+        public String getDesc() {
+            return desc;
+        }
 
-    public void setCompany(String company) {
-        Company = company;
-    }
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
 
-    public String getQuntity() {
-        return quntity;
-    }
+        private String desc;
 
-    public void setQuntity(String quntity) {
-        this.quntity = quntity;
-    }
+        public String getCompany() {
+            return Company;
+        }
 
-    public modelProduct(String id,String image, String name, String price, String quntity, String company) {
-        this.id = id;
-        this.image = image;
-        this.name = name;
-        this.price = price;
-        this.quntity = quntity;
-        this.Company = company;
-    }
+        public void setCompany(String company) {
+            Company = company;
+        }
 
-    public String getId() {
-        return id;
-    }
+        public String getQuntity() {
+            return quntity;
+        }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+        public void setQuntity(String quntity) {
+            this.quntity = quntity;
+        }
 
-    public String getImage() {
-        return image;
-    }
+        public modelProduct(String id,String image, String name, String price, String quntity, String company,String desc) {
+            this.id = id;
+            this.image = image;
+            this.name = name;
+            this.price = price;
+            this.quntity = quntity;
+            this.Company = company;
+            this.desc = desc;
+        }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+        public String getId() {
+            return id;
+        }
 
-    public String getName() {
-        return name;
-    }
+        public void setId(String id) {
+            this.id = id;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public String getImage() {
+            return image;
+        }
 
-    public String getPrice() {
-        return price;
-    }
+        public void setImage(String image) {
+            this.image = image;
+        }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
+        }
 }

@@ -8,6 +8,16 @@ public class modelProduct {
     private String quntity;
     private String Company;
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    private String desc;
+
     public String getCompany() {
         return Company;
     }
@@ -24,13 +34,14 @@ public class modelProduct {
         this.quntity = quntity;
     }
 
-    public modelProduct(String id,String image, String name, String price, String quntity, String company) {
+    public modelProduct(String id,String image, String name, String price, String quntity, String company,String desc) {
         this.id = id;
         this.image = image;
         this.name = name;
         this.price = price;
         this.quntity = quntity;
         this.Company = company;
+        this.desc = desc;
     }
 
     public String getId() {
