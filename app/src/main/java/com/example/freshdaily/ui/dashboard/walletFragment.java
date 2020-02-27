@@ -54,6 +54,9 @@ public class walletFragment extends Fragment {
         addMoney3 = (Button) view.findViewById(R.id.addmoneybutton3);
 
         money = Integer.parseInt(textView.getText().toString());
+
+        button.setEnabled(false);
+        button.setBackground(getActivity().getDrawable(R.drawable.button2));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,14 +99,21 @@ public class walletFragment extends Fragment {
                         //Integer.parseInt(addmoney.getText().toString());
                 if(!temp.isEmpty())
                 {
-                    if(Integer.parseInt(temp) > 10000) {
+                    if(Integer.parseInt(temp) > 10000 ) {
                         Toast.makeText(getActivity(), "Maximum recharge amount per transaction is ₹10000", Toast.LENGTH_LONG).show();
                         //addmoney.setText(temp.substring(0,5));
                         button.setEnabled(false);
+                        button.setBackground(getActivity().getDrawable(R.drawable.button2));
                     }
                     else {
                         button.setEnabled(true);
+                        button.setBackground(getActivity().getDrawable(R.drawable.button));
                     }
+                }
+                else
+                {
+                    button.setEnabled(false);
+                    button.setBackground(getActivity().getDrawable(R.drawable.button2));
                 }
             }
 
