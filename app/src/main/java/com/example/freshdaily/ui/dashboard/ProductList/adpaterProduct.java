@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
@@ -58,7 +60,9 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
             public void onClick(View v) {
                 Intent intent = new Intent(context,subscribeActitivty.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("productname",modelProduct.getName());
+
+                intent.putExtra("productid",modelProduct.getId());
+                Toast.makeText(view.getContext(),modelProduct.getId(),Toast.LENGTH_LONG).show();
                 context.startActivity(intent);
             }
         });

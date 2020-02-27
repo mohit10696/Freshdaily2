@@ -17,14 +17,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.freshdaily.API.apinterface;
+import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.ui.MySubscription.CustomDialogActivity;
 import com.example.freshdaily.ui.MySubscription.CustomDialogMonthlyActivity;
 import com.example.freshdaily.ui.MySubscription.MySubscriptionViewModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class subscribeActitivty extends AppCompatActivity {
 
@@ -40,7 +51,7 @@ public class subscribeActitivty extends AppCompatActivity {
     View root;
     boolean isDailySet=false,isAlternetDaySet=false,isEveryThreeDaySet=false,isWeeklySet=false,isMonthlySet=false;
     EditText promo_text;
-    
+    String product_id,product_name,photo,stock,quantity2,company_name,price,category,out_of_stock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +73,7 @@ public class subscribeActitivty extends AppCompatActivity {
 
         checkout.setVisibility(View.GONE);
 
-
+        getProductData();
 
 
 /*        if(no_of_quantity==0)
@@ -382,6 +393,36 @@ public class subscribeActitivty extends AppCompatActivity {
             }
         });
         
+    }
+
+    private void getProductData() {
+        apinterface api = retrofit.getapi();
+        RequestBody product = RequestBody.create(MediaType.parse("multipart/form-data"),getIntent().getStringExtra("productid"));
+        Call<Object> call = api.getsingleproduct(product);
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                try {
+                    JSONObject myResponse = new JSONObject(response.body().toString());
+                    product_id = myResponse.getString("product_id");
+                    product_name = myResponse.getString("product_name");
+                    photo = myResponse.getString("photo");
+                    stock = myResponse.getString("stock");
+                    quantity2 = myResponse.getString("quantity");
+                    company_name = myResponse.getString("company_name");
+                    price = myResponse.getString("price");
+                    category = myResponse.getString("category");
+                    out_of_stock = myResponse.getString("out_of_stock");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+            }
+        });
     }
 
     String setDateFromat(String temp)

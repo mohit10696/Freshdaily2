@@ -44,7 +44,7 @@ public class adpaterCat extends RecyclerView.Adapter<holderCat> {
                 .load(Uri.parse(dburl+modelCat2.getImage()))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.productimage);
-        holder.productname.setText(modelCat2.getName());
+        holder.productname.setText(modelCat2.getName().replace('_',' '));
         holder.bind(modelCat2);
         holder.productimage.setOnClickListener(new View.OnClickListener() {
             @Override
