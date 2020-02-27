@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.freshdaily.R;
+import com.example.freshdaily.subscribeActitivty;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -81,8 +82,7 @@ public class CustomDialogActivity extends Dialog implements View.OnClickListener
                 //Toast.makeText(c.getApplicationContext(),date+"\n"+day,Toast.LENGTH_LONG).show();
                 if(isDateSet && !(day.isEmpty()))
                 {
-                    MySubscriptionFragment.dateWeekly =date;
-                    MySubscriptionFragment.flag = true;
+                    subscribeActitivty.dateWeekly = date;
                     onBackPressed();
                 }
                 else
@@ -94,7 +94,6 @@ public class CustomDialogActivity extends Dialog implements View.OnClickListener
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MySubscriptionFragment.flag = true;
                 dismiss();
             }
         });
@@ -102,28 +101,28 @@ public class CustomDialogActivity extends Dialog implements View.OnClickListener
         imb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    // calender class's instance and get current date , month and year from calender
-                    final Calendar c = Calendar.getInstance();
-                    int mYear = c.get(Calendar.YEAR); // current year
-                    int mMonth = c.get(Calendar.MONTH); // current month
-                    int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
-                    // date picker dialog
-                    final DatePickerDialog datePickerDialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
-                        @Override
-                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                            // set day of month , month and year value in the edit text
-                            isDateSet = true;
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+                final DatePickerDialog datePickerDialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        // set day of month , month and year value in the edit text
+                        isDateSet = true;
 
-                            if ((monthOfYear + 1) < 10)
-                                date= dayOfMonth + "-0" + (monthOfYear + 1) + "-" + year;
-                            else
-                                date= dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        if ((monthOfYear + 1) < 10)
+                            date= dayOfMonth + "-0" + (monthOfYear + 1) + "-" + year;
+                        else
+                            date= dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
 
-                            date_text.setText(setDateFromat(date)+" ");
-                        }
-                    }, mYear, mMonth, mDay);
-                    datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() + 1000 * 24 * 60 * 60 );
-                    datePickerDialog.show();
+                        date_text.setText(setDateFromat(date)+" ");
+                    }
+                }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() + 1000 * 24 * 60 * 60 );
+                datePickerDialog.show();
             }
         });
 

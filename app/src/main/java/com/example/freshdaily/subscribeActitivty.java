@@ -30,7 +30,6 @@ import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.ui.MySubscription.CustomDialogActivity;
 import com.example.freshdaily.ui.MySubscription.CustomDialogMonthlyActivity;
-import com.example.freshdaily.ui.MySubscription.MySubscriptionViewModel;
 import com.example.freshdaily.ui.address;
 
 import org.json.JSONException;
@@ -49,10 +48,9 @@ import retrofit2.Response;
 
 public class subscribeActitivty extends AppCompatActivity {
 
-    private MySubscriptionViewModel galleryViewModel;
+    //private MySubscriptionViewModel galleryViewModel;
     static int no_of_quantity = 1 ;
-    static String date,dateWeekly;
-    static boolean flag = false;
+    public static String date,dateWeekly;
     public static final String mypreference = "userdetails";
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
@@ -359,7 +357,7 @@ public class subscribeActitivty extends AppCompatActivity {
                 if (isWeeklySet)
                 {
                     isWeeklySet = false;
-                    weekly.setBackground( getDrawable(R.drawable.rounded_button1));
+                    weekly.setBackground(getDrawable(R.drawable.rounded_button1));
                     weekly.setTextColor(Color.rgb(160, 160, 160));
                     satrtDateCard.setVisibility(View.GONE);
                     checkout.setVisibility(View.GONE);
@@ -373,18 +371,18 @@ public class subscribeActitivty extends AppCompatActivity {
                         public void onCancel(DialogInterface dialogInterface) {
                             {
 
-                                weekly.setBackground( getDrawable(R.drawable.rounded_button2));
+                                weekly.setBackground(getDrawable(R.drawable.rounded_button2));
                                 weekly.setTextColor(Color.rgb(0,183,235));
                                 isWeeklySet = true;
                                 isEveryThreeDaySet = isDailySet = isEveryThreeDaySet = isMonthlySet = false;
-                                monthly.setBackground( getDrawable(R.drawable.rounded_button1));
+                                monthly.setBackground(getDrawable(R.drawable.rounded_button1));
                                 monthly.setTextColor(Color.rgb(160,160,160));
                                 satrtDateCard.setVisibility(View.VISIBLE);
-                                alternetDay.setBackground( getDrawable(R.drawable.rounded_button1));
+                                alternetDay.setBackground(getDrawable(R.drawable.rounded_button1));
                                 alternetDay.setTextColor(Color.rgb(160, 160, 160));
-                                everyThreeDay.setBackground( getDrawable(R.drawable.rounded_button1));
+                                everyThreeDay.setBackground(getDrawable(R.drawable.rounded_button1));
                                 everyThreeDay.setTextColor(Color.rgb(160, 160, 160));
-                                daily.setBackground( getDrawable(R.drawable.rounded_button1));
+                                daily.setBackground(getDrawable(R.drawable.rounded_button1));
                                 daily.setTextColor(Color.rgb(160, 160, 160));
                                 date = dateWeekly ;
                                 startDate.setText(setDateFromat(date));
@@ -402,6 +400,7 @@ public class subscribeActitivty extends AppCompatActivity {
                 }
             }
         });
+
 
         monthly.setOnClickListener(new View.OnClickListener() {
             @Override

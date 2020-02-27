@@ -1,10 +1,7 @@
 package com.example.freshdaily.ui.dashboard.ProductList;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,20 +10,15 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.DashBord;
 import com.example.freshdaily.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;

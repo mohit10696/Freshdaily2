@@ -1,5 +1,6 @@
 package com.example.freshdaily;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.freshdaily.cart.cart;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashBord extends AppCompatActivity {
@@ -75,7 +77,7 @@ public class DashBord extends AppCompatActivity {
 
 
     public void cart(MenuItem item) {
-        Toast.makeText(getApplicationContext(), "Cart", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(DashBord.this, cart.class));
     }
 }
 
