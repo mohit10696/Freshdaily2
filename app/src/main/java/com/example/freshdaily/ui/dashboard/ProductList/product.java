@@ -5,15 +5,18 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.R;
 
 import org.json.JSONArray;
@@ -34,11 +37,13 @@ public class product extends AppCompatActivity {
     String category;
     RecyclerView recyclerView;
     TextView head;
+    ImageButton back;
     LottieAnimationView lottieAnimationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+        back = (ImageButton) findViewById(R.id.back);
         recyclerView = findViewById(R.id.productRecycleview);
         lottieAnimationView = findViewById(R.id.animation_view);
         lottieAnimationView.setVisibility(View.VISIBLE);
@@ -84,7 +89,12 @@ public class product extends AppCompatActivity {
             }
         });
 
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DashBord.class));
+            }
+        });
 
     }
 }
