@@ -1,6 +1,7 @@
 package com.example.freshdaily.ui.dashboard;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -57,6 +58,7 @@ public class walletFragment extends Fragment {
 
         button.setEnabled(false);
         button.setBackground(getActivity().getDrawable(R.drawable.button2));
+        button.setTextColor(Color.rgb(0, 183, 235));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,16 +106,19 @@ public class walletFragment extends Fragment {
                         //addmoney.setText(temp.substring(0,5));
                         button.setEnabled(false);
                         button.setBackground(getActivity().getDrawable(R.drawable.button2));
+                        button.setTextColor(Color.rgb(0, 183, 235));
                     }
                     else {
                         button.setEnabled(true);
                         button.setBackground(getActivity().getDrawable(R.drawable.button));
+                        button.setTextColor(Color.rgb(255, 255, 255));
                     }
                 }
                 else
                 {
                     button.setEnabled(false);
                     button.setBackground(getActivity().getDrawable(R.drawable.button2));
+                    button.setTextColor(Color.rgb(0, 183, 235));
                 }
             }
 

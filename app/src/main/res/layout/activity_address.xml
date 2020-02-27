@@ -21,12 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_arrow_back_black_24dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                />
+
             <TextView
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:id="@+id/head2"
@@ -34,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:text="My Account"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_80sdp"
+                android:layout_marginHorizontal="@dimen/_100sdp"
                 android:textColor="@color/White"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"/>

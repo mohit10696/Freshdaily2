@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -59,7 +60,7 @@ public class subscribeActitivty extends AppCompatActivity {
     TextView quantity;
     LinearLayout satrtDateCard,checkout;
     TextView startDate,sdate;
-
+    ImageButton back;
     ProgressDialog dialog;
     boolean isDailySet=false,isAlternetDaySet=false,isEveryThreeDaySet=false,isWeeklySet=false,isMonthlySet=false;
     EditText promo_text;
@@ -84,7 +85,7 @@ public class subscribeActitivty extends AppCompatActivity {
         sdate = (TextView) findViewById(R.id.sdate);
         checkout = (LinearLayout) findViewById(R.id.checkout);
         subsciption = (Button) findViewById(R.id.subscribe);
-
+        back = (ImageButton) findViewById(R.id.back);
         checkout.setVisibility(View.GONE);
 
         getProductData();
@@ -447,6 +448,13 @@ public class subscribeActitivty extends AppCompatActivity {
                     });
 
                 }
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DashBord.class));
             }
         });
         

@@ -67,7 +67,6 @@ public class MySubscriptionFragment extends Fragment {
         sdate = (TextView)root.findViewById(R.id.sdate);
         checkout = (LinearLayout)root.findViewById(R.id.checkout);
 
-        checkout.setVisibility(View.GONE);
 
 
 /*        if(no_of_quantity==0)
