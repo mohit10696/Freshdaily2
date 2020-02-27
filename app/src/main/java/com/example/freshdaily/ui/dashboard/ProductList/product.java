@@ -68,10 +68,10 @@ public class product extends AppCompatActivity {
                         modelProducts.add(new modelProduct(
                                 jsonArray.getJSONObject(i).getString("product_id"),
                                 jsonArray.getJSONObject(i).getString("photo"),
-                                jsonArray.getJSONObject(i).getString("product_name"),
-                                jsonArray.getJSONObject(i).getString("price"),
-                                jsonArray.getJSONObject(i).getString("quantity"),
-                                jsonArray.getJSONObject(i).getString("company_name")));
+                                jsonArray.getJSONObject(i).getString("product_name").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("price").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("quantity").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("company_name").replace("_"," ")));
                     }
                     adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext(),getParent());
                     recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
