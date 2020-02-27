@@ -3,8 +3,12 @@ package com.example.freshdaily;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,10 +17,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.ui.MySubscription.CustomDialogActivity;
@@ -43,7 +50,10 @@ public class subscribeActitivty extends AppCompatActivity {
     static int no_of_quantity = 1 ;
     static String date,dateWeekly;
     static boolean flag = false;
-
+    ProgressDialog dialog;
+    public static final String mypreference = "userdetails";
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
     Button minus,plus,daily,alternetDay,everyThreeDay,weekly,monthly;
     TextView quantity;
     LinearLayout satrtDateCard,checkout;
@@ -51,12 +61,13 @@ public class subscribeActitivty extends AppCompatActivity {
     View root;
     boolean isDailySet=false,isAlternetDaySet=false,isEveryThreeDaySet=false,isWeeklySet=false,isMonthlySet=false;
     EditText promo_text;
-    String product_id,product_name,photo,stock,quantity2,company_name,price,category,out_of_stock;
+    String product_id,product_name,photo,stock,quantity2,company_name,price,category,out_of_stock,address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscribe_actitivty);
-
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         minus = (Button) findViewById(R.id.minus);
         plus = (Button) findViewById(R.id.pluse);
         daily = (Button) findViewById(R.id.daily);
@@ -70,11 +81,16 @@ public class subscribeActitivty extends AppCompatActivity {
         promo_text = (EditText) findViewById(R.id.promo_text);
         sdate = (TextView) findViewById(R.id.sdate);
         checkout = (LinearLayout) findViewById(R.id.checkout);
-
+        address = sharedpreferences.getString("address","Not found");
         checkout.setVisibility(View.GONE);
 
         getProductData();
 
+        dialog = new ProgressDialog(subscribeActitivty.this);
+        dialog.setMessage("Loading Please Wait");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.show();
+        dialog.setCancelable(false);
 
 /*        if(no_of_quantity==0)
             minus.setEnabled(false);
@@ -413,6 +429,27 @@ public class subscribeActitivty extends AppCompatActivity {
                     price = myResponse.getString("price");
                     category = myResponse.getString("category");
                     out_of_stock = myResponse.getString("out_of_stock");
+
+                    dialog.dismiss();
+
+                    TextView tx = findViewById(R.id.category);
+                    tx.setText(product_name.replace("_"," "));
+                    tx = findViewById(R.id.company);
+                    tx.setText(company_name);
+                    tx = findViewById(R.id.volume);
+                    tx.setText(quantity2.replace("_"," "));
+                    tx = findViewById(R.id.price);
+                    tx.setText(price);
+                    tx = findViewById(R.id.addr);
+                    tx.setText(address);
+
+                    ImageView iv = (ImageView) findViewById(R.id.img);
+                    String dburl = "http://18.213.183.26/assets/images/products/";
+                    Glide.with(getApplicationContext())
+                            .load(Uri.parse(dburl+photo))
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .into(iv);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
