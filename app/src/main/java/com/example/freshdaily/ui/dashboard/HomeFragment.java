@@ -1,5 +1,6 @@
 package com.example.freshdaily.ui.dashboard;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.R;
 import com.example.freshdaily.searchActivity;
 import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterCat;
@@ -53,6 +55,7 @@ public class HomeFragment extends Fragment {
     View view;
     EditText search;
     LottieAnimationView lottieAnimationView;
+    Activity activity;
     public static List<modelCat> modelCats;
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
@@ -67,6 +70,7 @@ public class HomeFragment extends Fragment {
         sliderLayout = view.findViewById(R.id.imageSliderHome);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setScrollTimeInSec(1);
+        activity = getActivity();
         setSliderViews();
         lottieAnimationView = view.findViewById(R.id.animation_view);
         search = view.findViewById(R.id.searchTextbox);
@@ -133,12 +137,13 @@ public class HomeFragment extends Fragment {
                         modelProducts.add(new modelProduct(
                                 jsonArray.getJSONObject(i).getString("product_id"),
                                 jsonArray.getJSONObject(i).getString("photo"),
-                                jsonArray.getJSONObject(i).getString("product_name"),
-                                jsonArray.getJSONObject(i).getString("price"),
-                                jsonArray.getJSONObject(i).getString("quantity"),
-                                jsonArray.getJSONObject(i).getString("company_name")));
+                                jsonArray.getJSONObject(i).getString("product_name").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("price").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("quantity").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("company_name").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("product_description").replace("_"," ")));
                     }
-                    adpaterProduct adapter = new adpaterProduct(modelProducts,getContext());
+                    adpaterProduct adapter = new adpaterProduct(modelProducts,getContext(),activity);
                     RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
                     recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
                     recyclerView.setAdapter(adapter);

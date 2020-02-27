@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class product extends AppCompatActivity {
     TextView head;
     ImageButton back;
     LottieAnimationView lottieAnimationView;
+    Activity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class product extends AppCompatActivity {
         lottieAnimationView = findViewById(R.id.animation_view);
         lottieAnimationView.setVisibility(View.VISIBLE);
         category = getIntent().getStringExtra("category");
+        activity = product.this;
         apinterface api = retrofit.getapi();
         RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),category.replace('_',' '));
         Call<Object> call = api.getproduct(cat);
@@ -71,9 +74,10 @@ public class product extends AppCompatActivity {
                                 jsonArray.getJSONObject(i).getString("product_name").replace("_"," "),
                                 jsonArray.getJSONObject(i).getString("price").replace("_"," "),
                                 jsonArray.getJSONObject(i).getString("quantity").replace("_"," "),
-                                jsonArray.getJSONObject(i).getString("company_name").replace("_"," ")));
+                                jsonArray.getJSONObject(i).getString("company_name").replace("_"," "),
+                                jsonArray.getJSONObject(i).getString("product_description").replace("_"," ")));
                     }
-                    adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext(),getParent());
+                    adpaterProduct adapter = new adpaterProduct(modelProducts,getApplicationContext(),activity);
                     recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
                     recyclerView.setAdapter(adapter);
                     lottieAnimationView.setVisibility(View.INVISIBLE);
