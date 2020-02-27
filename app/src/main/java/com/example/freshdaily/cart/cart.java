@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.DbAdapter;
 import com.example.freshdaily.R;
 import com.example.freshdaily.ui.dashboard.ProductList.adpaterProduct;
@@ -86,6 +88,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
             @Override
             public void onClick(View v) {
                 db.deleteAll();
+                startActivity(new Intent(cart.this, DashBord.class));
             }
         });
 
