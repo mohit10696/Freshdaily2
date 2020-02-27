@@ -68,8 +68,8 @@
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:fontFamily="@font/noto_sans_bold"
                     android:textStyle="bold"
-                    android:textColorHint="@color/WhiteSmoke"
-                    android:hint="@string/sequre"
+                    android:textColor="@color/WhiteSmoke"
+                    android:text="@string/sequre"
                     />
 
             </RelativeLayout>

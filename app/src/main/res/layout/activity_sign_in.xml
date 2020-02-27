@@ -9,7 +9,6 @@
     tools:context=".SignIn">
 
 
-
     <com.smarteist.autoimageslider.SliderLayout
         android:id="@+id/imageSlider"
         android:layout_width="match_parent"
@@ -111,8 +110,8 @@
                     android:background="@drawable/button"
                     android:fontFamily="@font/noto_sans_bold"
                     android:gravity="center"
-                    android:hint="@string/button"
-                    android:textColorHint="@color/WhiteSmoke"
+                    android:text="@string/button"
+                    android:textColor="@color/WhiteSmoke"
                     android:textStyle="bold" />
 
             </RelativeLayout>

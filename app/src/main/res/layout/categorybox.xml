@@ -16,7 +16,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="@dimen/_90sdp"
-    android:layout_height="@dimen/_105sdp"
+    android:layout_height="@dimen/_110sdp"
     android:gravity="center_horizontal">
 
     <androidx.appcompat.widget.AppCompatImageView

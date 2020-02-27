@@ -30,7 +30,8 @@
         <activity
             android:name=".edit"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            />
         <activity
             android:name=".searchActivity"
             android:screenOrientation="portrait" />
@@ -45,7 +46,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SignIn"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity
             android:name=".SignUp"
             android:screenOrientation="portrait" />
@@ -66,10 +68,12 @@
         <activity
             android:name=".Otp"
             android:parentActivityName=".SignIn"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity
             android:name=".ui.address"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
 
         <receiver android:name=".IncomingSms">
             <intent-filter>

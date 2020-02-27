@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -60,6 +61,7 @@ public class Otp extends AppCompatActivity {
         btn = findViewById(R.id.Continue);
         btn.setEnabled(false);
         btn.setBackground(getDrawable(R.drawable.button2));
+        btn.setTextColor(Color.rgb(0, 183, 235));
         OTP = (EditText) findViewById(R.id.otp);
 
         OTP.addTextChangedListener(new TextWatcher() {
@@ -74,11 +76,13 @@ public class Otp extends AppCompatActivity {
                 {
                     if(OTP.getText().toString().length()==4)
                     {
+                        btn.setTextColor(Color.rgb(255, 255, 255));
                         btn.setEnabled(true);
                         btn.setBackground(getDrawable(R.drawable.button));
                     }
                     else
                     {
+                        btn.setTextColor(Color.rgb(0, 183, 235));
                         btn.setEnabled(false);
                         btn.setBackground(getDrawable(R.drawable.button2));
                     }

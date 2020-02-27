@@ -29,11 +29,12 @@
                 />
             <TextView
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:id="@+id/head"
+                android:id="@+id/head2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/menu_dashboard"
+                android:text="My Account"
                 android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_80sdp"
                 android:textColor="@color/White"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"/>
@@ -176,14 +177,14 @@
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_30sdp"
                 android:text="@string/save"
                 android:fontFamily="@font/noto_sans_bold"
                 android:textColor="@color/White"
                 android:background="@drawable/button"
                 android:layout_below="@+id/m1"
                 android:layout_marginHorizontal="@dimen/_70sdp"
-                android:layout_marginVertical="@dimen/_40sdp"></Button>
+                android:layout_marginVertical="@dimen/_20sdp"></Button>
 
 
         </RelativeLayout>
