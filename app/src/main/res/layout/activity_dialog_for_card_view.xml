@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_300sdp"
+    android:layout_width="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
     android:layout_height="wrap_content">
@@ -12,6 +13,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_100sdp"
         android:src="@drawable/img"
         android:layout_gravity="center_horizontal"></ImageView>
 
@@ -20,6 +22,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
         android:id="@+id/cname"
+        android:fontFamily="@font/noto_sans"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:textColor="@color/Gray"
         android:layout_height="wrap_content"
         android:text="Amul"></TextView>
 
@@ -27,35 +32,49 @@
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:id="@+id/name"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/noto_sans"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:textColor="@color/Black"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textSize="@dimen/_15ssp"
         android:layout_height="wrap_content"
         android:text="Amul"></TextView>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
+
         android:layout_marginTop="@dimen/_10sdp"
         android:background="#B7B7B7"></View>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/noto_sans"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/Black"
         android:layout_height="wrap_content"
-        android:text="Description"></TextView>
+        android:text="Description :"></TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/Gray"
         android:layout_height="wrap_content"
         android:id="@+id/desc"
         android:text="Description"></TextView>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/button"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:text="OK"
         android:id="@+id/ok_button"
+        android:fontFamily="@font/noto_sans_bold"
         android:textColor="@color/WhiteSmoke"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_20sdp"></Button>
