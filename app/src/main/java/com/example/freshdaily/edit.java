@@ -13,12 +13,16 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
+import com.example.freshdaily.ui.MyAccount.MyAccountFragment;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -32,6 +36,7 @@ public class edit extends AppCompatActivity {
     TextView number;
     Button button;
     String num;
+    ImageButton back;
     ProgressDialog dialog;
     public static final String mypreference = "userdetails";
     SharedPreferences sharedpreferences;
@@ -49,7 +54,7 @@ public class edit extends AppCompatActivity {
         button = findViewById(R.id.save);
         num = getIntent().getStringExtra("mobile");
         number.setText(num);
-
+        back = (ImageButton) findViewById(R.id.back);
         button.setEnabled(false);
         button.setBackground(getDrawable(R.drawable.button2));
         button.setTextColor(Color.rgb(0, 183, 235));
@@ -140,7 +145,9 @@ public class edit extends AppCompatActivity {
             }
         });
 
+
     }
+
 
     void enabeButton()
     {
@@ -157,4 +164,6 @@ public class edit extends AppCompatActivity {
             button.setBackground(getDrawable(R.drawable.button));
         }
     }
+
+
 }
