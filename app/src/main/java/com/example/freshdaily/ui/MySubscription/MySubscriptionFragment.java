@@ -32,7 +32,6 @@ import java.util.Date;
 
 public class MySubscriptionFragment extends Fragment {
 
-    private MySubscriptionViewModel galleryViewModel;
     static int no_of_quantity = 1 ;
     static String date,dateWeekly;
     static boolean flag = false;
@@ -49,9 +48,9 @@ public class MySubscriptionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(MySubscriptionViewModel.class);
-        root = inflater.inflate(R.layout.fragment_rateourapp
+//        galleryViewModel =
+//                ViewModelProviders.of(this).get(MySubscriptionViewModel.class);
+        root = inflater.inflate(R.layout.fragment_mysubscription
                 , container, false);
         minus = (Button)root.findViewById(R.id.minus);
         plus = (Button)root.findViewById(R.id.pluse);
@@ -67,12 +66,6 @@ public class MySubscriptionFragment extends Fragment {
         sdate = (TextView)root.findViewById(R.id.sdate);
         checkout = (LinearLayout)root.findViewById(R.id.checkout);
 
-
-
-/*        if(no_of_quantity==0)
-            minus.setEnabled(false);
-        if(no_of_quantity==11)
-            plus.setEnabled(false);*/
 
         promo_text.setOnTouchListener(new View.OnTouchListener() {
             @Override

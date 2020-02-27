@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.freshdaily.DbAdapter;
 import com.example.freshdaily.DialogForCardView;
 import com.example.freshdaily.R;
 import com.example.freshdaily.subscribeActitivty;
@@ -20,6 +21,7 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
     Context context;
     View view;
     Activity activity;
+    DbAdapter db;
     public static String dburl = "http://18.213.183.26/assets/images/products/";
     public adpaterProduct(List<modelProduct> list, Context context,Activity activity) {
         this.activity = activity;
@@ -51,6 +53,10 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         holder.productprize.setText(modelProduct.getPrice().replace('_',' '));
         holder.productname.setText(modelProduct.getName().replace('_',' '));
         holder.subscribebutton.setText("Subscribe @"+modelProduct.getPrice());
+
+        db= new DbAdapter(context);
+        db.open();
+
         holder.subscribebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +69,7 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         holder.addtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.insert(modelProduct.getId());
                 Snackbar.make(view,"Add to cart successfully",Snackbar.LENGTH_SHORT).show();
                 holder.addtocart.setText("Added");
                 holder.addtocart.setEnabled(false);

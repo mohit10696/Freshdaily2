@@ -21,9 +21,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_B6IL7RvOkjPDIR"
+            />
+
         <activity android:name=".DialogForCardView"></activity>
         <activity android:name=".subscribeActitivty" />
-        <activity android:name=".cart" />
+        <activity android:name=".cart.cart" />
         <activity
             android:name=".ui.dashboard.ProductList.product"
             android:parentActivityName=".DashBord" />

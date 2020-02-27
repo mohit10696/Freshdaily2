@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cards1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#FFFFFF"
+        app:cardCornerRadius="@dimen/_6sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="80dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:src="@drawable/img" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amul"
+                    android:id="@+id/company1"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="@dimen/_10ssp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amul Gold"
+                    android:id="@+id/pname"
+                    android:textColor="@color/Black"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="@dimen/_13ssp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500 ml"
+                    android:id="@+id/volume1"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="@dimen/_13ssp"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Price:"
+                        android:fontFamily="@font/noto_sans"
+                        android:textColor="@color/Gray"
+                        android:textSize="@dimen/_10ssp"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹"
+                        android:fontFamily="@font/noto_sans"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_13ssp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+                        android:id="@+id/price1"
+                        android:fontFamily="@font/noto_sans"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_13ssp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/minus1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_button"
+                    android:shadowColor="@color/Black"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:shadowRadius="1"
+                    android:text="-"
+                    android:fontFamily="@font/noto_sans"
+                    android:textColor="#000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/quantity1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/Gray"
+                    android:fontFamily="@font/noto_sans"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="1"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/pluse1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_button"
+                    android:shadowColor="@color/Black"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:shadowRadius="1"
+                    android:text="+"
+                    android:fontFamily="@font/noto_sans"
+                    android:textColor="#000"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

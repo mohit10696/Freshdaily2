@@ -68,9 +68,9 @@ public class address extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.show();
-                ADD = address1.getText().toString() + address2.getText().toString();
+                ADD = address1.getText().toString() +" "+ address2.getText().toString();
                 landmark2 = materialDesignSpinner.getText().toString();
-                Toast.makeText(getApplicationContext(),sharedpreferences.getString("id","0")+ADD+landmark2,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),sharedpreferences.getString("id","0")+ADD+landmark2,Toast.LENGTH_LONG).show();
                 apinterface api = retrofit.getapi();
                 RequestBody number = RequestBody.create(MediaType.parse("multipart/form-data"),sharedpreferences.getString("mobile","0"));
                 Call<Object> call2 = api.getUserLogin(number);
