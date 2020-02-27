@@ -1,6 +1,7 @@
 package com.example.freshdaily.ui.dashboard.verticalProductList;
 
 public class modelProduct {
+    private String id;
     private String image;
     private String name;
     private String price;
@@ -23,12 +24,21 @@ public class modelProduct {
         this.quntity = quntity;
     }
 
-    public modelProduct(String image, String name, String price, String quntity, String company) {
+    public modelProduct(String id,String image, String name, String price, String quntity, String company) {
+        this.id = id;
         this.image = image;
         this.name = name;
         this.price = price;
         this.quntity = quntity;
-        Company = company;
+        this.Company = company;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getImage() {

@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="50dp">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,11 +16,23 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
+<ScrollView android:layout_height="match_parent"
+    android:layout_below="@+id/searchTextbox"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="50dp">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEF2F5"
+    >
+
     <com.smarteist.autoimageslider.SliderLayout
         android:id="@+id/imageSliderHome"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/searchTextbox"
         android:background="@color/WhiteSmoke" />
 
     <ImageView
@@ -74,7 +81,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:background="#EEF2F5"
         android:clickable="true"
-        android:focusable="true"
         android:padding="@dimen/_10sdp"
         android:id="@+id/gridproduct"
         android:layout_width="match_parent"
@@ -95,4 +101,5 @@
 
 
 </RelativeLayout>
-    </ScrollView>
+</ScrollView>
+</RelativeLayout>

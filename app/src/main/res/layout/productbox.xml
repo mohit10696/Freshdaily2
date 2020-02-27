@@ -110,13 +110,14 @@
         android:textColor="@color/WhiteSmoke" />
 
     <Button
+        android:id="@+id/addtocart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_25sdp"
         android:gravity="center"
         android:layout_below="@+id/subscribebutton"
         android:fontFamily="@font/noto_sans"
         android:textColor="@color/Black"
-        android:text="buy once"
+        android:text="Add to cart"
         android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/sbutton"
         ></Button>
