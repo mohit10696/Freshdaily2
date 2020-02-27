@@ -21,8 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".subscribeActitivty"></activity>
-        <activity android:name=".cart"></activity>
+        <activity android:name=".DialogForCardView"></activity>
+        <activity android:name=".subscribeActitivty" />
+        <activity android:name=".cart" />
         <activity
             android:name=".ui.dashboard.ProductList.product"
             android:parentActivityName=".DashBord" />
@@ -69,8 +70,6 @@
         <activity
             android:name=".ui.address"
             android:screenOrientation="portrait" />
-
-
 
         <receiver android:name=".IncomingSms">
             <intent-filter>
