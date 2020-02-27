@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
@@ -29,6 +30,7 @@ import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.ui.MySubscription.CustomDialogActivity;
 import com.example.freshdaily.ui.MySubscription.CustomDialogMonthlyActivity;
 import com.example.freshdaily.ui.MySubscription.MySubscriptionViewModel;
+import com.example.freshdaily.ui.address;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -479,5 +481,9 @@ public class subscribeActitivty extends AppCompatActivity {
             s1= formatter.format(date);
         } catch (ParseException e) {e.printStackTrace();}
         return s1;
+    }
+
+    public void address(View view) {
+        startActivity(new Intent(subscribeActitivty.this, address.class));
     }
 }

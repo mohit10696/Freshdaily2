@@ -9,6 +9,42 @@
     android:layout_height="match_parent"
     android:background="#EEF2F5">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:background="@color/CyanP"
+        android:gravity="center"
+        android:paddingStart="@dimen/_10sdp"
+        >
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/back"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Subscription"
+                android:gravity="center"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"/>
+        </LinearLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
     <ScrollView
         android:id="@+id/scr"
         android:layout_weight="8"
@@ -449,6 +485,7 @@
                         android:background="@drawable/rounded_button2"
                         android:text="Update"
                         android:id="@+id/up"
+                        android:onClick="address"
                         android:fontFamily="@font/noto_sans_bold"
                         android:textColor="@color/CyanP" />
 
