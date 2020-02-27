@@ -181,13 +181,13 @@ public class Otp extends AppCompatActivity {
 
             switch (i) {
                 case 0:
-                    sliderView.setImageUrl("https://i.postimg.cc/L5xzt3pL/png1.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/zX1SfZ9f/png1.png");
                     break;
                 case 1:
-                    sliderView.setImageUrl("https://i.postimg.cc/jdt6BB1v/png3-2.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/cJJP58mP/png2.png");
                     break;
                 case 2:
-                    sliderView.setImageUrl("https://i.postimg.cc/V6SmRYn6/png2-2.png");
+                    sliderView.setImageUrl("https://i.postimg.cc/857cDc10/png3.png");
                     break;
 
             }
