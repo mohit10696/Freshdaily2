@@ -139,6 +139,7 @@ public class Otp extends AppCompatActivity {
                     JSONObject myResponse = new JSONObject(response.body().toString());
                     if(myResponse.getString("status").equals("valid")){
                         JSONObject jsonObject = myResponse.getJSONObject("data");
+                        editor.putString("id",jsonObject.getString("userid"));
                         editor.putString("fname",jsonObject.getString("fname"));
                         editor.putString("lname",jsonObject.getString("lname"));
                         editor.putString("mobile",jsonObject.getString("mobile"));

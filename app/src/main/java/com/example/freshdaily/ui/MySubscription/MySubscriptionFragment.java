@@ -51,7 +51,8 @@ public class MySubscriptionFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
                 ViewModelProviders.of(this).get(MySubscriptionViewModel.class);
-        root = inflater.inflate(R.layout.fragment_mysubscription, container, false);
+        root = inflater.inflate(R.layout.fragment_rateourapp
+                , container, false);
         minus = (Button)root.findViewById(R.id.minus);
         plus = (Button)root.findViewById(R.id.pluse);
         daily = (Button)root.findViewById(R.id.daily);

@@ -50,6 +50,7 @@
                     android:layout_marginHorizontal="@dimen/_65sdp"
                     android:backgroundTint="@color/CyanP"
                     android:ems="10"
+                    android:maxLength="10"
                     android:textCursorDrawable="@drawable/cursor"
                     android:fontFamily="@font/noto_sans"
                     android:textSize="@dimen/_12ssp"

@@ -40,4 +40,13 @@ public interface apinterface {
             @Part("email") RequestBody email
     );
 
+    @Multipart
+    @POST("updateprofile.php")
+    Call<String> updateaddress(
+            @Part("users_id") RequestBody user_id,
+            @Part("landmark") RequestBody landmark,
+            @Part("address") RequestBody address
+    );
+
+
 }
