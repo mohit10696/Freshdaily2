@@ -23,7 +23,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 
+import com.google.gson.JsonObject;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -68,31 +72,59 @@ public class address extends AppCompatActivity {
                 landmark2 = materialDesignSpinner.getText().toString();
                 Toast.makeText(getApplicationContext(),sharedpreferences.getString("id","0")+ADD+landmark2,Toast.LENGTH_LONG).show();
                 apinterface api = retrofit.getapi();
-                RequestBody id = RequestBody.create(MediaType.parse("multipart/form-data"),sharedpreferences.getString("id","0"));
-                final RequestBody address = RequestBody.create(MediaType.parse("multipart/form-data"),ADD);
-                RequestBody landmark = RequestBody.create(MediaType.parse("multipart/form-data"),landmark2);
-
-                Call<String> call = api.updateaddress(id,landmark,address);
-
-                call.enqueue(new Callback<String>() {
+                RequestBody number = RequestBody.create(MediaType.parse("multipart/form-data"),sharedpreferences.getString("mobile","0"));
+                Call<Object> call2 = api.getUserLogin(number);
+                call2.enqueue(new Callback<Object>() {
                     @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        editor.putString("address",ADD);
-                        editor.putString("landmark",landmark2);
-                        editor.commit();
-                        dialog.dismiss();
-                        startActivity(new Intent(address.this, DashBord.class));
+                    public void onResponse(Call<Object> call, Response<Object> response) {
+
+                        try {
+                            JSONObject myResponse = new JSONObject(response.body().toString());
+                            JSONObject jsonObject = myResponse.getJSONObject("data");
+                            editor.putString("id",jsonObject.getString("userid"));
+                            update();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
                     @Override
-                    public void onFailure(Call<String> call, Throwable t) {
+                    public void onFailure(Call<Object> call, Throwable t) {
                         dialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Please try again",Toast.LENGTH_SHORT);
                     }
                 });
             }
         });
 
 
+
+
+    }
+
+    private void update() {
+        apinterface api = retrofit.getapi();
+        final RequestBody address = RequestBody.create(MediaType.parse("multipart/form-data"),ADD);
+        RequestBody landmark = RequestBody.create(MediaType.parse("multipart/form-data"),landmark2);
+
+        RequestBody id = RequestBody.create(MediaType.parse("multipart/form-data"),sharedpreferences.getString("id","0"));
+        Call<String> call = api.updateaddress(id,landmark,address);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                editor.putString("address",ADD);
+                editor.putString("landmark",landmark2);
+                editor.commit();
+                dialog.dismiss();
+                startActivity(new Intent(address.this, DashBord.class));
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                dialog.dismiss();
+                Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
