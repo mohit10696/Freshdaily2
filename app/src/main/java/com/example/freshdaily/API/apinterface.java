@@ -19,6 +19,12 @@ public interface apinterface {
             @Part("category") RequestBody category
     );
 
+    @Multipart
+    @POST("getsingleproduct.php")
+    Call<Object> getsingleproduct(
+            @Part("product_id") RequestBody productid
+    );
+
     @POST("getAllproduct.php")
     Call<Object> getAllProduct();
 

@@ -44,15 +44,15 @@ public class adpaterProduct extends RecyclerView.Adapter<holderProduct> {
         //holder.productimage.setImageURI(Uri.parse(url+modelProduct.getImage()));
         holder.productcompany.setText(modelProduct.getCompany());
         holder.productqunitity.setText(modelProduct.getQuntity());
-        holder.productprize.setText(modelProduct.getPrice());
-        holder.productname.setText(modelProduct.getName());
+        holder.productprize.setText(modelProduct.getPrice().replace('_',' '));
+        holder.productname.setText(modelProduct.getName().replace('_',' '));
         holder.subscribebutton.setText("Subscribe @"+modelProduct.getPrice());
         holder.subscribebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, subscribeActitivty.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("productname",modelProduct.getName());
+                intent.putExtra("productid",modelProduct.getId());
                 context.startActivity(intent);
             }
         });

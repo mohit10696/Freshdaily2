@@ -44,7 +44,7 @@ public class product extends AppCompatActivity {
         lottieAnimationView.setVisibility(View.VISIBLE);
         category = getIntent().getStringExtra("category");
         apinterface api = retrofit.getapi();
-        RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),category);
+        RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),category.replace('_',' '));
         Call<Object> call = api.getproduct(cat);
         head = findViewById(R.id.head);
         head.setText(category);
@@ -58,6 +58,7 @@ public class product extends AppCompatActivity {
                     List<modelProduct> modelProducts = new ArrayList<>();
                     for(int i = 0 ; i< jsonArray.length();i++)
                     {
+
                         Log.d(jsonArray.getJSONObject(i).getString("photo"),"mohit");
                         modelProducts.add(new modelProduct(
                                 jsonArray.getJSONObject(i).getString("product_id"),
