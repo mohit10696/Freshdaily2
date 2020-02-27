@@ -74,6 +74,9 @@ public class DashBord extends AppCompatActivity {
     }
 
 
+    public void cart(MenuItem item) {
+        Toast.makeText(getApplicationContext(), "Cart", Toast.LENGTH_SHORT).show();
+    }
 }
 
 

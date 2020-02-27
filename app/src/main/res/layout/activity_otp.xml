@@ -46,6 +46,7 @@
                     android:layout_below="@+id/textView3"
                     android:backgroundTint="@color/CyanP"
                     android:layout_marginHorizontal="@dimen/_70sdp"
+                    android:maxLength="4"
                     android:fontFamily="@font/noto_sans"
                     android:textCursorDrawable="@drawable/cursor"
                     android:textSize="@dimen/_12ssp"

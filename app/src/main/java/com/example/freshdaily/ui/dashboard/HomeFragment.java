@@ -79,37 +79,6 @@ public class HomeFragment extends Fragment {
         lottieAnimationView.setVisibility(View.VISIBLE);
         productLoad();
         catLoad();
-
-//        List<modelProduct> modelProducts = new ArrayList<>();
-//         modelProducts.add(new modelProduct("chaishaktibig.jpg","TAZAAA","200","50ml","amul"));
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-////        modelProducts.add(new modelProduct());
-//        adpaterProduct adapter = new adpaterProduct(modelProducts);
-//        RecyclerView recyclerView = view.findViewById(R.id.Verticalproduct);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
-//        recyclerView.setAdapter(adapter);
-
-
-//        List<modelCat> modelCats = new ArrayList<>();
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        modelCats.add(new modelCat());
-//        adpaterCat adapter2 = new adpaterCat(modelCats);
-//        RecyclerView recyclerView2 = view.findViewById(R.id.gridproduct);
-//        recyclerView2.setLayoutManager(new GridLayoutManager(getContext(),3));
-//        recyclerView2.setAdapter(adapter2);
         return view;
     }
 

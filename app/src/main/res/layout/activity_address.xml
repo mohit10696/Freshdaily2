@@ -6,6 +6,43 @@
     android:orientation="vertical"
     android:background="#EEF2F5">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:background="@color/CyanP"
+        android:gravity="center"
+        android:paddingStart="@dimen/_10sdp"
+        >
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/menu_dashboard"
+                android:gravity="center"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"/>
+        </LinearLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/carda1"
         android:layout_margin="@dimen/_10sdp"
@@ -137,6 +174,7 @@
             </TextView>
 
             <Button
+                android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/save"
