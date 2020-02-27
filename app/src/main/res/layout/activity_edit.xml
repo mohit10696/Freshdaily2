@@ -117,14 +117,14 @@
             <Button
                 android:id="@+id/save"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_below="@+id/mobile"
                 android:layout_marginHorizontal="@dimen/_70sdp"
                 android:layout_marginVertical="@dimen/_40sdp"
                 android:background="@drawable/button"
                 android:fontFamily="@font/noto_sans_bold"
                 android:text="@string/save"
-                android:textColor="@color/White"></Button>
+                android:textColor="@color/WhiteSmoke"></Button>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

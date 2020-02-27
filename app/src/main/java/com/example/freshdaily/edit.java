@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -51,6 +52,8 @@ public class edit extends AppCompatActivity {
 
         button.setEnabled(false);
         button.setBackground(getDrawable(R.drawable.button2));
+        button.setTextColor(Color.rgb(0, 183, 235));
+
 
         firstname.addTextChangedListener(new TextWatcher() {
             @Override
@@ -143,11 +146,13 @@ public class edit extends AppCompatActivity {
     {
         if(firstname.getText().toString().isEmpty() || lastname.getText().toString().isEmpty() || email.getText().toString().isEmpty())
         {
+            button.setTextColor(Color.rgb(0, 183, 235));
             button.setEnabled(false);
             button.setBackground(getDrawable(R.drawable.button2));
         }
         else
         {
+            button.setTextColor(Color.rgb(255, 255, 255));
             button.setEnabled(true);
             button.setBackground(getDrawable(R.drawable.button));
         }

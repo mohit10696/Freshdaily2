@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -76,6 +77,7 @@ public class SignIn extends AppCompatActivity {
         LOGIN = findViewById(R.id.LOgin);
         et = findViewById(R.id.mobieno);
         LOGIN.setBackground(getDrawable(R.drawable.button2));
+        LOGIN.setTextColor(Color.rgb(0, 183, 235));
         LOGIN.setEnabled(false);
 
         final CheckBox ch =(CheckBox) findViewById(R.id.check);
@@ -103,12 +105,14 @@ public class SignIn extends AppCompatActivity {
                 {
                     if(et.getText().toString().length()==10)
                     {
+                        LOGIN.setTextColor(Color.rgb(255, 255, 255));
                         LOGIN.setBackground(getDrawable(R.drawable.button));
                         LOGIN.setEnabled(true);
                     }
                     else
                     {
                         LOGIN.setBackground(getDrawable(R.drawable.button2));
+                        LOGIN.setTextColor(Color.rgb(0, 183, 235));
                         LOGIN.setEnabled(false);
                     }
                 }
