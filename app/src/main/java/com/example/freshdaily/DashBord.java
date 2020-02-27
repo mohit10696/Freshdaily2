@@ -59,10 +59,11 @@ public class DashBord extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         long t = System.currentTimeMillis();
         if (t - backPressedTime > 2000) {
             backPressedTime = t;
-            Toast.makeText(this, "Press back again to logout", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press back again to Exit", Toast.LENGTH_SHORT).show();
         } else {
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());

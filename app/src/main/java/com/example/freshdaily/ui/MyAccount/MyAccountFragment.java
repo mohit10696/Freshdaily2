@@ -17,11 +17,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.freshdaily.IOnBackPressed;
 import com.example.freshdaily.R;
 import com.example.freshdaily.edit;
 import com.example.freshdaily.ui.address;
 
-public class MyAccountFragment extends Fragment {
+public class MyAccountFragment extends Fragment implements IOnBackPressed {
     Button btn;
     CardView car;
     TextView name,address,number,email;
@@ -62,5 +63,11 @@ public class MyAccountFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onbackPressed() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
     }
 }
