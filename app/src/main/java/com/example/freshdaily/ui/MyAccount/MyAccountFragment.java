@@ -1,6 +1,5 @@
 package com.example.freshdaily.ui.MyAccount;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,16 +17,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.freshdaily.IOnBackPressed;
 import com.example.freshdaily.R;
 import com.example.freshdaily.edit;
 import com.example.freshdaily.ui.address;
-import com.example.freshdaily.ui.dashboard.HomeFragment;
-import com.zoho.livechat.android.ui.fragments.BaseFragment;
 
-import java.util.List;
-
-public class MyAccountFragment extends Fragment implements IOnBackPressed {
+public class MyAccountFragment extends Fragment {
     Button btn;
     CardView car;
     TextView name,address,number,email;
@@ -67,18 +61,6 @@ public class MyAccountFragment extends Fragment implements IOnBackPressed {
 
             }
         });
-
         return root;
     }
-
-
-    @Override
-    public void onBackPressed() {
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(0);
-
-    }
-    }
-
-
-
+}
