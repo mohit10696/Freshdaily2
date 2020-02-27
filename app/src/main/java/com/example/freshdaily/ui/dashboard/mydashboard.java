@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,8 +25,12 @@ public class mydashboard extends Fragment {
         BottomNavigation = root.findViewById(R.id.navigation);
         BottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));
+
         return root;
     }
+
+
+
     public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);

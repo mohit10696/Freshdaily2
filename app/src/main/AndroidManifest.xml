@@ -40,6 +40,7 @@
 
         <activity
             android:name=".DashBord"
+            android:label="Fresh Daily"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SignIn"

@@ -29,7 +29,8 @@ public class RateOurAppFragment extends Fragment {
         SharedPreferences.Editor editor;
         sharedpreferences = getActivity().getSharedPreferences(mypreference, Context.MODE_PRIVATE);
         editor = sharedpreferences.edit();
-        editor.putString("number","null");
+        editor.clear();
+        editor.commit();
         getActivity().startActivity(new Intent(getContext(), SignIn.class));
         return root;
     }

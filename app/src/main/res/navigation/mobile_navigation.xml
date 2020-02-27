@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/dashboardfragment"
         android:name="com.example.freshdaily.ui.dashboard.mydashboard"
-        android:label="@string/menu_dashboard"
+        android:label="Fresh Daily"
         tools:layout="@layout/fragment_maindashboard" />
 
     <fragment
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.freshdaily.ui.Notification.NotificationFragment"
-        android:label="@string/menu_tools"
+        android:label="Notification"
         tools:layout="@layout/fragment_notification" />
 
     <fragment
@@ -44,18 +44,18 @@
     <fragment
         android:id="@+id/nav_send"
         android:name="com.example.freshdaily.ui.Logout.RateOurAppFragment"
-        android:label="@string/menu_send"
+        android:label="Rate our App"
         tools:layout="@layout/fragment_send" />
 
     <fragment
         android:id="@+id/xyz"
         android:name="com.example.freshdaily.ui.RateOurApp1.ShopByCategoryFragment"
-        android:label="@string/menu_send"
+        android:label="Rate our app"
         tools:layout="@layout/fragment_send" />
 
     <fragment
         android:id="@+id/nav_needhelp"
         android:name="com.example.freshdaily.ui.NeedHelp.NeedHelpFragment"
-        android:label="@string/menu_send"
+        android:label="Need Help"
         tools:layout="@layout/fragment_needhelp" />
 </navigation>

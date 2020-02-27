@@ -6,6 +6,7 @@
         <item name="windowActionBar">true</item>
         <item name="colorPrimary">@color/CyanP</item>
         <item name="colorPrimaryDark">@color/CyanP</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
     </style>
 
     <style name="MyCustomTheme" parent="@android:style/Theme.Holo.Light">
