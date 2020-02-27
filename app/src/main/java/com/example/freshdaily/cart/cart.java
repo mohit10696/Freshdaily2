@@ -105,7 +105,9 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
                 public void onResponse(Call<Object> call, Response<Object> response) {
                     try {
                         JSONObject myResponse = new JSONObject(response.body().toString());
-                        modelcarts.add(new modelcart(myResponse.getString("product_name"),
+                        modelcarts.add(new modelcart(
+                                myResponse.getString("product_id"),
+                                myResponse.getString("product_name"),
                                 myResponse.getString("company_name"),
                                 "0",
                                 myResponse.getString("quantity"),

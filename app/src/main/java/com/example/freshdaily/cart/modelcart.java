@@ -1,7 +1,8 @@
 package com.example.freshdaily.cart;
 
 public class modelcart {
-    public modelcart(String productname, String company, String count, String quantity, String price,String image) {
+    public modelcart(String id,String productname, String company, String count, String quantity, String price,String image) {
+        this.id = id;
         this.productname = productname;
         this.company = company;
         this.count = count;
@@ -16,6 +17,15 @@ public class modelcart {
     String quantity;
     String price;
     String image;
+    String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getImage() {
         return image;
@@ -66,4 +76,5 @@ public class modelcart {
     public void setPrice(String price) {
         this.price = price;
     }
+
 }
