@@ -48,5 +48,14 @@ public interface apinterface {
             @Part("address") RequestBody address
     );
 
+    @Multipart
+    @POST("addsubscription.php")
+    Call<Object> addSubscription(
+            @Part("users_id") RequestBody users_id,
+            @Part("product_id") RequestBody product_id,
+            @Part("quantity") RequestBody quantity,
+            @Part("type") RequestBody type,
+            @Part("sdate") RequestBody sdate
+    );
 
 }

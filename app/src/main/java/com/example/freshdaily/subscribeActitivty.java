@@ -104,6 +104,37 @@ public class subscribeActitivty extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),String.valueOf(Integer.parseInt(price)*no_of_quantity),Toast.LENGTH_LONG).show();
+                String temp = " ";
+                if(isDailySet)
+                    temp="Daily";
+                else if(isAlternetDaySet)
+                    temp="Alternet days";
+                else if(isEveryThreeDaySet)
+                    temp = "Every three days";
+                else if(isMonthlySet)
+                    temp = "Monthly";
+                else if(isWeeklySet)
+                    temp = "Weekly";
+
+                apinterface api = retrofit.getapi();
+                RequestBody userid = RequestBody.create(MediaType.parse("multipart/form-data"),sharedpreferences.getString("id","Not found"));
+                RequestBody prodid = RequestBody.create(MediaType.parse("multipart/form-data"),product_id);
+                RequestBody quntit = RequestBody.create(MediaType.parse("multipart/form-data"),String.valueOf(no_of_quantity));
+                RequestBody sdate = RequestBody.create(MediaType.parse("multipart/form-data"),setDateFromat1(date));
+                RequestBody type = RequestBody.create(MediaType.parse("multipart/form-data"),temp);
+                Call<Object> call = api.addSubscription(userid,prodid,quntit,type,sdate);
+
+                call.enqueue(new Callback<Object>() {
+                    @Override
+                    public void onResponse(Call<Object> call, Response<Object> response) {
+                        Toast.makeText(getApplicationContext(),response.body().toString(),Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Object> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
@@ -478,6 +509,18 @@ public class subscribeActitivty extends AppCompatActivity {
         try {
             Date date = formatter.parse(temp);
             formatter = new SimpleDateFormat("E, dd MMM yyyy");
+            s1= formatter.format(date);
+        } catch (ParseException e) {e.printStackTrace();}
+        return s1;
+    }
+
+    String setDateFromat1(String temp)
+    {
+        String s1 = new String();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date date = formatter.parse(temp);
+            formatter = new SimpleDateFormat("yyyy-MM-dd");
             s1= formatter.format(date);
         } catch (ParseException e) {e.printStackTrace();}
         return s1;
