@@ -11,12 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -26,6 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
 import com.example.freshdaily.R;
@@ -47,7 +44,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MySubscriptionFragment extends Fragment {
-
     static int no_of_quantity = 1 ;
     static String date,dateWeekly;
     static boolean flag = false;
@@ -55,7 +51,7 @@ public class MySubscriptionFragment extends Fragment {
 
 
     View root;
-
+    LottieAnimationView lottieAnimationView;
 
 
 
@@ -65,6 +61,8 @@ public class MySubscriptionFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_mysubscription
                 , container, false);
         recyclerView = root.findViewById(R.id.subbox);
+        lottieAnimationView = root.findViewById(R.id.animation_view2);
+        lottieAnimationView.setVisibility(View.VISIBLE);
         apinterface api = retrofit.getapi();
         RequestBody cat = RequestBody.create(MediaType.parse("multipart/form-data"),"33");
         Call<Object> call = api.getallsub(cat);
@@ -86,9 +84,9 @@ public class MySubscriptionFragment extends Fragment {
                                 jsonArray.getJSONObject(i).getString("startdate").replace("_"," "),
                                 jsonArray.getJSONObject(i).getString("type").replace("_"," ")
                                 ));
+                        lottieAnimationView.setVisibility(View.INVISIBLE);
 
                     }
-                    Toast.makeText(getContext(),"make test",Toast.LENGTH_SHORT).show();
                     addsub adapter = new addsub(modelsubs,getContext(),getActivity(),getView());
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
                     recyclerView.setAdapter(adapter);
