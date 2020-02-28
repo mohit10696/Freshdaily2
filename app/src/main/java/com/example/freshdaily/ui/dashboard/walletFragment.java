@@ -1,7 +1,9 @@
 package com.example.freshdaily.ui.dashboard;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -42,8 +44,11 @@ public class walletFragment extends Fragment implements PaymentResultListener {
     EditText search;
     int money,amount;
     EditText addmoney;
-    TextView textView;
+    TextView walletbal;
     Button button,addMoney1,addMoney2,addMoney3;
+    public static final String mypreference = "userdetails";
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
     public static walletFragment newInstance(String param1, String param2) {
         walletFragment fragment = new walletFragment();
         return fragment;
@@ -54,13 +59,14 @@ public class walletFragment extends Fragment implements PaymentResultListener {
         view = inflater.inflate(R.layout.fragment_wallet, container, false);
         addmoney = (EditText) view.findViewById(R.id.addmoney);
         button = (Button) view.findViewById(R.id.addmoneybutton);
-        textView = (TextView) view.findViewById(R.id.walletbal);
+        walletbal = (TextView) view.findViewById(R.id.walletbal);
         addMoney1 = (Button) view.findViewById(R.id.addmoneybutton1);
         addMoney2 = (Button) view.findViewById(R.id.addmoneybutton2);
         addMoney3 = (Button) view.findViewById(R.id.addmoneybutton3);
-
-        money = Integer.parseInt(textView.getText().toString());
-
+        sharedpreferences = this.getActivity().getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+        money = Integer.parseInt(walletbal.getText().toString());
+        walletbal.setText(sharedpreferences.getString("amount","0"));
         button.setEnabled(false);
         button.setBackground(getActivity().getDrawable(R.drawable.button2));
         button.setTextColor(Color.rgb(0, 183, 235));
@@ -140,7 +146,7 @@ public class walletFragment extends Fragment implements PaymentResultListener {
     @Override
     public void onPaymentSuccess(String s) {
         money += Integer.parseInt(addmoney.getText().toString());
-        textView.setText(String.valueOf(money));
+        walletbal.setText(String.valueOf(money));
         Toast.makeText(getContext(),"payment sucess",Toast.LENGTH_LONG).show();
     }
 

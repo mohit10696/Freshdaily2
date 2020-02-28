@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_6sdp"
+    android:layout_margin="@dimen/_5sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:fontFamily="@font/noto_sans_bold"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/CyanP"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:text="productname"
+        android:drawableLeft="@drawable/ic_stars_black_24dp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/productname"/>
+
+
+        <TextView
+            android:text="Staring Date               :"
+            android:layout_below="@+id/productname"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/Black"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:id="@+id/str" />
+
+
+
+        <TextView
+        android:text="startdate"
+        android:layout_toEndOf="@+id/str"
+            android:layout_below="@+id/productname"
+        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/DarkGray"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:id="@+id/startdate"/>
+
+
+        <TextView
+            android:text="Quantity                      :"
+            android:layout_below="@+id/str"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/Black"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:id="@+id/str2" />
+
+
+
+        <TextView
+        android:text="quntity"
+        android:textColor="@color/DarkGray"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:fontFamily="@font/noto_sans"
+        android:textSize="@dimen/_12ssp"
+            android:layout_toEndOf="@+id/str2"
+        android:layout_below="@+id/startdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quantity"/>
+
+
+        <TextView
+            android:text="Type of Subscription :"
+            android:layout_below="@+id/str2"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/Black"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:id="@+id/str3" />
+
+
+        <TextView
+        android:text="subtype"
+        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/DarkGray"
+        android:layout_below="@+id/str2"
+            android:layout_toEndOf="@+id/str3"
+        android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+        android:id="@+id/subtype"/>
+
+
+        <ImageButton
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_delete_forever_black_24dp"
+            android:background="@color/White"
+            android:layout_alignParentEnd="true"
+            android:layout_width="30dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="30dp"
+            android:id="@+id/delete"/>
+
+
+    </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>

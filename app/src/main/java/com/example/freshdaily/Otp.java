@@ -150,6 +150,7 @@ public class Otp extends AppCompatActivity {
                         editor.putString("email",jsonObject.getString("email"));
                         editor.putString("landmark",jsonObject.getString("landmark"));
                         editor.putString("address",jsonObject.getString("address"));
+                        editor.putString("amount",jsonObject.getString("amount"));
                         //editor.putString("subscriprion",jsonObject.getString("subscriprion"));
                         editor.commit();
                         dialog.dismiss();
