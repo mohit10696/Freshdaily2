@@ -57,7 +57,8 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     DbAdapter db;
     LinearLayout chaekout;
     ImageButton back;
-    Button clear,payment,update;
+    ImageButton clear;
+    Button payment,update;
     TextView address,update_date,sdate;
     String pidList[],date;
     Activity activity;
@@ -70,7 +71,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         editor = sharedpreferences.edit();
         recyclerView = findViewById(R.id.recyclecart);
         address = findViewById(R.id.addresshome);
-        clear = (Button) findViewById(R.id.clear_cart);
+        clear = (ImageButton) findViewById(R.id.clear_cart);
         payment = (Button) findViewById(R.id.payment);
         back = (ImageButton) findViewById(R.id.back);
         update = (Button) findViewById(R.id.upda);
