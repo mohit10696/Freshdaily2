@@ -74,7 +74,7 @@ public class adpatercart extends RecyclerView.Adapter<holdercart> {
                     temp++;
                     holder.no_of_quntity.setText(String.valueOf(temp));
                     modelcart.setCount(holder.no_of_quntity.getText().toString());
-                    amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
+                    //amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
                 }
             }
         });
@@ -102,12 +102,12 @@ public class adpatercart extends RecyclerView.Adapter<holdercart> {
                     temp--;
                     holder.no_of_quntity.setText(String.valueOf(temp));
                     modelcart.setCount(holder.no_of_quntity.getText().toString());
-                    amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
+                  //  amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
                 }
             }
         });
 
-        amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
+       // amount = Integer.parseInt(holder.no_of_quntity.getText().toString())*Integer.parseInt(holder.price.getText().toString());
 
     }
 

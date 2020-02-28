@@ -1,5 +1,6 @@
 package com.example.freshdaily.ui.dashboard;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,18 +25,22 @@ import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterCat;
 import com.example.freshdaily.ui.dashboard.verticalProductList.adpaterProduct;
 import com.example.freshdaily.ui.dashboard.verticalProductList.modelCat;
 import com.example.freshdaily.ui.dashboard.verticalProductList.modelProduct;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class walletFragment extends Fragment {
+public class walletFragment extends Fragment implements PaymentResultListener {
     SliderLayout sliderLayout;
     View view;
     EditText search;
-    int money;
+    int money,amount;
     EditText addmoney;
     TextView textView;
     Button button,addMoney1,addMoney2,addMoney3;
@@ -62,8 +67,8 @@ public class walletFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                money += Integer.parseInt(addmoney.getText().toString());
-                textView.setText(String.valueOf(money));
+                amount = Integer.parseInt(addmoney.getText().toString())*100;
+                startPayment();
             }
         });
 
@@ -130,6 +135,70 @@ public class walletFragment extends Fragment {
 
         return view;
 
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        money += Integer.parseInt(addmoney.getText().toString());
+        textView.setText(String.valueOf(money));
+        Toast.makeText(getContext(),"payment sucess",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(getContext(),"payment error",Toast.LENGTH_LONG).show();
+    }
+
+    public void startPayment() {
+        //checkout.setKeyID("<YOUR_KEY_ID>");
+        /**
+         * Instantiate Checkout
+         */
+        Checkout checkout = new Checkout();
+
+        /**
+         * Set your logo here
+         */
+        //checkout.setImage(R.drawable.logo);
+
+        /**
+         * Reference to current activity
+         */
+        final Activity activity = getActivity();
+
+        /**
+         * Pass your payment options to the Razorpay Checkout as a JSONObject
+         */
+        try {
+            JSONObject options = new JSONObject();
+
+            /**
+             * Merchant Name
+             * eg: ACME Corp || HasGeek etc.
+             */
+            options.put("name", "fresh daily");
+
+            /**
+             * Description can be anything
+             * eg: Reference No. #123123 - This order number is passed by you for your internal reference. This is not the `razorpay_order_id`.
+             *     Invoice Payment
+             *     etc.
+             */
+            options.put("description", "fresh daily order");
+            //options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            //options.put("order_id", "order_9A33XWu170gUtm");
+            options.put("currency", "INR");
+
+            /**
+             * Amount is always passed in currency subunits
+             * Eg: "500" = INR 5.00
+             */
+            options.put("amount", String.valueOf(amount));
+
+            checkout.open(activity, options);
+        } catch(Exception e) {
+            //Log.e(TAG, "Error in starting Razorpay Checkout", e);
+        }
     }
 
 }
