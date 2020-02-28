@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "450997181566",
+    "firebase_url": "https://fresh-874e0.firebaseio.com",
+    "project_id": "fresh-874e0",
+    "storage_bucket": "fresh-874e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450997181566:android:8d11dcaa8d7251af7acc2f",
+        "android_client_info": {
+          "package_name": "com.example.freshdaily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450997181566-eebboo2j8f1vtkn6mf6imsvgjdotr3s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9mRQvFp4jFCua8I1rarMJf3iJjOugwV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450997181566-eebboo2j8f1vtkn6mf6imsvgjdotr3s3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

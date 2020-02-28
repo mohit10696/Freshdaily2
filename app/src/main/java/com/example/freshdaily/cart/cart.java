@@ -48,7 +48,9 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     Button clear;
     TextView address;
     String pidList[];
+    Activity activity;
     List<modelcart> modelcarts;
+    int amount = 0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart2);
@@ -58,6 +60,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         address = findViewById(R.id.addresshome);
         clear = (Button) findViewById(R.id.clear_cart);
         address.setText(sharedpreferences.getString("address","not found"));
+        activity = cart.this;
         db = new DbAdapter(getApplicationContext());
         db.open();
 
@@ -72,6 +75,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
 
             modelcarts = new ArrayList<>();
             getDataofmodel(pidList);
+
 
         }
         catch (Exception e)
@@ -128,13 +132,16 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
 
         }
 
+
     }
 
     private void backtowork() {
-        adpatercart adapter = new adpatercart(modelcarts,getApplicationContext(),getParent());
+        adpatercart adapter = new adpatercart(modelcarts,getApplicationContext(),activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
     }
+
+
 
     @Override
     public void onPaymentSuccess(String s) {

@@ -54,7 +54,7 @@ public class DbAdapter {
     }
 
     public void delete(String id) {
-        sqlDb.execSQL("DELETE FROM cart WHERE _id="+id);
+        sqlDb.execSQL("DELETE FROM cart WHERE pid="+id);
     }
 
     public void deleteAll() {
