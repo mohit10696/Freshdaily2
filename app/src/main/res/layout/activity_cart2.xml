@@ -44,10 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/clear_cart"
-                android:drawableLeft="@drawable/ic_delete_black_24dp"
-                android:background="@color/CyanP"
+                android:drawableRight="@drawable/ic_delete_black_24dp"
+                android:background="@drawable/button"
                 android:fontFamily="@font/noto_sans_bold"
-                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:textColor="@color/WhiteSmoke"
+                android:layout_marginEnd="@dimen/_30sdp"
                 />
 
         </LinearLayout>
@@ -125,16 +126,15 @@
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/Black" />
 
-
+`
                     <Button
-                        android:layout_width="@dimen/_10sdp"
+                        android:layout_width="@dimen/_15sdp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:id="@+id/upda"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button2"
                         android:text="Upadte"
-                        android:layout_marginStart="@dimen/_60sdp"
                         android:fontFamily="@font/noto_sans_bold"
                         android:textColor="@color/CyanP" />
 
@@ -210,14 +210,14 @@
 
 
                     <Button
-                        android:layout_width="@dimen/_70sdp"
+                        android:layout_width="@dimen/_80sdp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:id="@+id/updi"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button2"
                         android:text="Upadte"
-                        android:layout_marginStart="@dimen/_70sdp"
+                        android:layout_marginStart="@dimen/_60sdp"
                         android:fontFamily="@font/noto_sans_bold"
                         android:textColor="@color/CyanP" />
 
