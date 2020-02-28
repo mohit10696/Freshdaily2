@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import java.util.List;
 public class adpaterCat extends RecyclerView.Adapter<holderCat> {
     List<modelCat> modelCatList;
     Context context;
+
     public static String dburl = "http://18.213.183.26/assets/images/category/";
     public adpaterCat(List<modelCat> list, Context context) {
         this.modelCatList = list;
