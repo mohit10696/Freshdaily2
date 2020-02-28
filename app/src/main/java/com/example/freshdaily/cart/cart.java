@@ -46,7 +46,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     SharedPreferences.Editor editor;
     RecyclerView recyclerView;
     DbAdapter db;
-    Button clear;
+    ImageButton clear;
     ImageButton back;
     TextView address;
     String pidList[];
@@ -61,7 +61,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         recyclerView = findViewById(R.id.recyclecart);
         back = (ImageButton) findViewById(R.id.back);
         address = findViewById(R.id.addresshome);
-        clear = (Button) findViewById(R.id.clear_cart);
+        clear = (ImageButton) findViewById(R.id.clear_cart);
         address.setText(sharedpreferences.getString("address","not found"));
         activity = cart.this;
         db = new DbAdapter(getApplicationContext());
