@@ -26,6 +26,7 @@
             <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/back"
                 android:src="@drawable/ic_arrow_back_black_24dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 />
@@ -200,7 +201,7 @@
 
                     <TextView
                         android:id="@+id/addresshome"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_120sdp"
                         android:layout_height="wrap_content"
                         android:text="Other Building Address\nOther Building Address"
                         android:layout_weight="1"
@@ -217,7 +218,6 @@
                         android:layout_weight="1"
                         android:background="@drawable/rounded_button2"
                         android:text="Upadte"
-                        android:layout_marginStart="@dimen/_60sdp"
                         android:fontFamily="@font/noto_sans_bold"
                         android:textColor="@color/CyanP" />
 

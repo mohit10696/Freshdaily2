@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     RecyclerView recyclerView;
     DbAdapter db;
     Button clear;
+    ImageButton back;
     TextView address;
     String pidList[];
     Activity activity;
@@ -57,6 +59,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
         editor = sharedpreferences.edit();
         recyclerView = findViewById(R.id.recyclecart);
+        back = (ImageButton) findViewById(R.id.back);
         address = findViewById(R.id.addresshome);
         clear = (Button) findViewById(R.id.clear_cart);
         address.setText(sharedpreferences.getString("address","not found"));
@@ -93,6 +96,14 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
             public void onClick(View v) {
                 db.deleteAll();
                 startActivity(new Intent(cart.this, DashBord.class));
+            }
+        });
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DashBord.class));
             }
         });
 
