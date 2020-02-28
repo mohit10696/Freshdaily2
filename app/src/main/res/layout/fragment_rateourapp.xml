@@ -1,52 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:ignore="HardcodedText">
 
-        <com.transferwise.sequencelayout.SequenceLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+</RelativeLayout>
 
-            <com.transferwise.sequencelayout.SequenceStep
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:anchor="30 Nov"
-                app:title="Order Accepted"/>
-
-            <com.transferwise.sequencelayout.SequenceStep
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="Order Packed for Delivery"/>
-
-            <com.transferwise.sequencelayout.SequenceStep
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingTop="4dp"
-                app:active="true"
-                app:anchor="Today"
-                app:subtitle="Your order is dispatched. \nYour delivery valet will reach to your destination soon."
-                app:title="Order Dispatched"
-                app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"/>
-
-            <com.transferwise.sequencelayout.SequenceStep
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="Order Delivered"/>
-        </com.transferwise.sequencelayout.SequenceLayout>
-
-    </LinearLayout>
-</ScrollView>

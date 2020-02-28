@@ -26,9 +26,10 @@ public class DashBord extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private long backPressedTime = 0;
     TextView textCartItemCount;
+    int mCartItemCount = 10;
     //int mCartItemCount=10;
     //DbAdapter db;
-    int temp=0;
+    int temp = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,38 +106,22 @@ public class DashBord extends AppCompatActivity {
         startActivity(new Intent(DashBord.this, cart.class));
     }
 
-     void setupBadge() {
+
+    private void setupBadge() {
 
         if (textCartItemCount != null) {
-
-            if (temp == 0) {
+            if (mCartItemCount == 0) {
                 if (textCartItemCount.getVisibility() != View.GONE) {
                     textCartItemCount.setVisibility(View.GONE);
                 }
             } else {
-                textCartItemCount.setText(String.valueOf(Math.min(0, 99)));
+                textCartItemCount.setText(String.valueOf(Math.min(mCartItemCount, 99)));
                 if (textCartItemCount.getVisibility() != View.VISIBLE) {
                     textCartItemCount.setVisibility(View.VISIBLE);
                 }
             }
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        long t = System.currentTimeMillis();
-        if (t - backPressedTime > 2000) {
-            backPressedTime = t;
-            Toast.makeText(this, "Press back again to Exit", Toast.LENGTH_SHORT).show();
-        } else {
-            moveTaskToBack(true);
-            android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(1);
-        }
-    }
-
-
 }
 
 
