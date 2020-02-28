@@ -1,11 +1,15 @@
 package com.example.freshdaily;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import static com.example.freshdaily.Otp.mypreference;
 
@@ -16,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         notification = Notification.getInstance();
-
 
 
         if(!getSharedPreferences(mypreference, Context.MODE_PRIVATE).getString("mobile","null").equals("null")){

@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ActionProvider;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,6 +26,8 @@ public class DashBord extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private long backPressedTime = 0;
+    TextView textCartItemCount;
+    int mCartItemCount = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +50,25 @@ public class DashBord extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         getSupportActionBar().setTitle("Fresh Daily");
     }
-    
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dash_bord, menu);
+        //View actionView = (View)menu.findItem(R.id.cart).getActionView();
+        //textCartItemCount = (TextView) actionView.findViewById(R.id.cart_badge);
+        /*setupBadge();
+        actionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected((MenuItem) menu);
+            }
+        });*/
         return true;
     }
+
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -79,6 +98,9 @@ public class DashBord extends AppCompatActivity {
     public void cart(MenuItem item) {
         startActivity(new Intent(DashBord.this, cart.class));
     }
+
+
+
 }
 
 

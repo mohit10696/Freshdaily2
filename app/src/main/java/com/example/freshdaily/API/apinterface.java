@@ -58,4 +58,30 @@ public interface apinterface {
             @Part("sdate") RequestBody sdate
     );
 
+    @Multipart
+    @POST("checkvacation.php")
+    Call<String> checkvaction(
+            @Part("users_id") RequestBody users_id
+    );
+
+    @Multipart
+    @POST("checkresumedate.php")
+    Call<String> checkResumeDate(
+            @Part("userid") RequestBody userid
+    );
+
+    @Multipart
+    @POST("pausedate.php")
+    Call<Object> pausedate(
+            @Part("users_id") RequestBody users_id,
+            @Part("startdate") RequestBody startdate
+    );
+
+
+    @Multipart
+    @POST("addpausedate.php")
+    Call<Object> addpausedate(
+            @Part("users_id") RequestBody users_id,
+            @Part("pdate") RequestBody pdate
+    );
 }
