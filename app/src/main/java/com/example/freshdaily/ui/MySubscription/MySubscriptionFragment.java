@@ -88,7 +88,7 @@ public class MySubscriptionFragment extends Fragment {
 
                     }
                     addsub adapter = new addsub(modelsubs,getContext(),getActivity(),getView());
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
                     recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {
                     Toast.makeText(getContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
