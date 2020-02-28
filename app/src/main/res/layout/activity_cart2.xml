@@ -283,7 +283,7 @@
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/noto_sans_bold"
             android:layout_weight="0.8"
-            android:id="@+id/subscribe"
+            android:id="@+id/payment"
             android:textSize="@dimen/_8sdp"
             android:background="@drawable/rounded_button2"
             android:text="proceed to payment"
