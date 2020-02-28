@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,8 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     SharedPreferences.Editor editor;
     RecyclerView recyclerView;
     DbAdapter db;
+    LinearLayout chaekout;
+    ImageButton back;
     Button clear,payment,update;
     TextView address,update_date,sdate;
     String pidList[],date;
@@ -68,9 +72,11 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         address = findViewById(R.id.addresshome);
         clear = (Button) findViewById(R.id.clear_cart);
         payment = (Button) findViewById(R.id.payment);
+        back = (ImageButton) findViewById(R.id.back);
         update = (Button) findViewById(R.id.upda);
         update_date = (TextView) findViewById(R.id.dat1);
         sdate = (TextView) findViewById(R.id.sdate);
+        chaekout = (LinearLayout) findViewById(R.id.checkout);
         address.setText(sharedpreferences.getString("address","not found"));
         activity = cart.this;
         db = new DbAdapter(getApplicationContext());
@@ -97,7 +103,8 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         }
         catch (Exception e)
         {
-            Toast.makeText(getApplicationContext(),"No value",Toast.LENGTH_LONG).show();
+            chaekout.setVisibility(View.GONE);
+            //startActivity(new Intent(getApplicationContext(), DashBord.class));
         }
         //Toast.makeText(getApplicationContext(),pidList.length,Toast.LENGTH_LONG).show();
 
@@ -152,6 +159,13 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
                     datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() + 1000 * 24 * 60 * 60);
                     datePickerDialog.show();
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DashBord.class));
             }
         });
 
