@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.freshdaily.API.apinterface;
 import com.example.freshdaily.API.retrofit;
+import com.example.freshdaily.DashBord;
 import com.example.freshdaily.DbAdapter;
 import com.example.freshdaily.R;
 import com.example.freshdaily.ui.dashboard.ProductList.adpaterProduct;
@@ -46,7 +48,9 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
     Button clear;
     TextView address;
     String pidList[];
+    Activity activity;
     List<modelcart> modelcarts;
+    int amount = 0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart2);
@@ -56,6 +60,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
         address = findViewById(R.id.addresshome);
         clear = (Button) findViewById(R.id.clear_cart);
         address.setText(sharedpreferences.getString("address","not found"));
+        activity = cart.this;
         db = new DbAdapter(getApplicationContext());
         db.open();
 
@@ -70,6 +75,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
 
             modelcarts = new ArrayList<>();
             getDataofmodel(pidList);
+
 
         }
         catch (Exception e)
@@ -86,6 +92,7 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
             @Override
             public void onClick(View v) {
                 db.deleteAll();
+                startActivity(new Intent(cart.this, DashBord.class));
             }
         });
 
@@ -102,7 +109,9 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
                 public void onResponse(Call<Object> call, Response<Object> response) {
                     try {
                         JSONObject myResponse = new JSONObject(response.body().toString());
-                        modelcarts.add(new modelcart(myResponse.getString("product_name"),
+                        modelcarts.add(new modelcart(
+                                myResponse.getString("product_id"),
+                                myResponse.getString("product_name"),
                                 myResponse.getString("company_name"),
                                 "0",
                                 myResponse.getString("quantity"),
@@ -123,13 +132,16 @@ public class cart extends AppCompatActivity implements PaymentResultListener {
 
         }
 
+
     }
 
     private void backtowork() {
-        adpatercart adapter = new adpatercart(modelcarts,getApplicationContext(),getParent());
+        adpatercart adapter = new adpatercart(modelcarts,getApplicationContext(),activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
     }
+
+
 
     @Override
     public void onPaymentSuccess(String s) {

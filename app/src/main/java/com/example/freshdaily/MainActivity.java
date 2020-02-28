@@ -10,10 +10,12 @@ import android.os.Handler;
 import static com.example.freshdaily.Otp.mypreference;
 
 public class MainActivity extends AppCompatActivity {
+    Notification notification;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        notification = Notification.getInstance();
 
 
 

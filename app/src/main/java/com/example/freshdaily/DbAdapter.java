@@ -53,8 +53,8 @@ public class DbAdapter {
             sqlDb.execSQL("INSERT INTO cart(pid) VALUES('" + id + "')");
     }
 
-    public void delete(int id) {
-        sqlDb.execSQL("DELETE FROM cart WHERE _id="+id);
+    public void delete(String id) {
+        sqlDb.execSQL("DELETE FROM cart WHERE pid="+id);
     }
 
     public void deleteAll() {
