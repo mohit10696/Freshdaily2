@@ -20,6 +20,12 @@ public interface apinterface {
     );
 
     @Multipart
+    @POST("getusersub.php")
+    Call<Object> getallsub(
+            @Part("userid") RequestBody userid
+    );
+
+    @Multipart
     @POST("getsingleproduct.php")
     Call<Object> getsingleproduct(
             @Part("product_id") RequestBody productid

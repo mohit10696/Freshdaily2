@@ -8,15 +8,10 @@
     android:layout_height="match_parent"
     android:background="#EEF2F5">
 
-    <Button
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/subbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/button"
-        android:text="START SUBSCRIPTION"
-        android:fontFamily="@font/noto_sans_bold"
-        android:textColor="@color/WhiteSmoke"
-        android:layout_marginVertical="@dimen/_250sdp"
-        android:layout_marginHorizontal="@dimen/_70sdp"></Button>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
