@@ -26,10 +26,8 @@ public class DashBord extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private long backPressedTime = 0;
     TextView textCartItemCount;
-    //int mCartItemCount=10;
-    //DbAdapter db;
-    int temp=0;
-
+    TextView textCartItemCount1;
+    int mCartItemCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +58,10 @@ public class DashBord extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dash_bord, menu);
-        final MenuItem menuItem = menu.findItem(R.id.cart);
 
-        View actionView = MenuItemCompat.getActionView(menuItem);
+        /*final MenuItem menuItem = menu.findItem(R.id.chat);
+
+        View actionView = MenuItemCompat.;
         textCartItemCount = (TextView) actionView.findViewById(R.id.cart_badge);
 
         setupBadge();
@@ -72,22 +71,24 @@ public class DashBord extends AppCompatActivity {
             public void onClick(View v) {
                 onOptionsItemSelected(menuItem);
             }
-        });
+        });*/
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
 
-            case R.id.cart: {
-                cart(item);
+            case R.id.cart_badge: {
+                // Do something
                 return true;
             }
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
+
+
 
 
     @Override
@@ -105,38 +106,21 @@ public class DashBord extends AppCompatActivity {
         startActivity(new Intent(DashBord.this, cart.class));
     }
 
-     void setupBadge() {
+    /*private void setupBadge() {
 
-        if (textCartItemCount != null) {
-
-            if (temp == 0) {
+        if (textCartItemCount1 != null) {
+            if (mCartItemCount == 0) {
                 if (textCartItemCount.getVisibility() != View.GONE) {
-                    textCartItemCount.setVisibility(View.GONE);
+                    textCartItemCount1.setVisibility(View.GONE);
                 }
             } else {
-                textCartItemCount.setText(String.valueOf(Math.min(0, 99)));
-                if (textCartItemCount.getVisibility() != View.VISIBLE) {
-                    textCartItemCount.setVisibility(View.VISIBLE);
+                textCartItemCount.setText(String.valueOf(Math.min(mCartItemCount, 99)));
+                if (textCartItemCount1.getVisibility() != View.VISIBLE) {
+                    textCartItemCount1.setVisibility(View.VISIBLE);
                 }
             }
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        long t = System.currentTimeMillis();
-        if (t - backPressedTime > 2000) {
-            backPressedTime = t;
-            Toast.makeText(this, "Press back again to Exit", Toast.LENGTH_SHORT).show();
-        } else {
-            moveTaskToBack(true);
-            android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(1);
-        }
-    }
-
-
+    }*/
 }
 
 
